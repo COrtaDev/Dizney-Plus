@@ -11,7 +11,7 @@ destroy | /users/:id | delete | deletes user
 tomorrow deliver a list of routes: -->
 
 
-Main Component Routes
+# Main Component Routes
 
 ### /home
 - GET /home - Renders the catalogue

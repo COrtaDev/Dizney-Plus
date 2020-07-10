@@ -50,15 +50,34 @@
     - Users can see suggested search results render per keystroke
 
 
-## Displaying Content
-    - ### **Disney+ logo** > This will redirect the user from current page to the home page
-    - ### **Home** > This will redirect the user from current page to the home page
-    <!-- - ### **Watchlist** >  -->
-    - ### **Originals** > Will query the database and select movies that have an original attribute set to "true".
-    - ### **Movies** > We will display all featured movies, with a drop down selector for all movies displayed A-Z
-    - ### **Series** >  We will display all featured series, with a drop down selector for all series displayed A-Z
+# Main Component Routes
 
-
-# Wiki Home:
-# Welcome to the Dizney+ wiki!
-Dizney+ is a clone of Disney+ where we have saught to implement core features of the original.
+### /home
+- GET /home - Renders the catalogue
+### /search
+- GET /search - Render the search page
+- PATCH /search - Update to display matched results
+### /watchlist
+- GET /watchlist/:id - Render the associated id watchlist
+### /movies
+- GET /movies - Renders all movies
+- GET /movies/:id - Render the associated id movie
+- DESTROY /movies/:id - Deletes from watch list
+### /series
+- GET /series - Renders all series
+- GET /series/:id - Renders the associated id series
+### /select-avatar
+- GET /select-avatar - Render possible avatars for a profile
+- POST /select-avatar - Save the selected avatar to the profile
+### /profile
+- GET /add-profile - Render the add profile screen
+- GET /select-profile - Renders a screen to select current profile
+- GET /edit-profiles - Renders a screen with all available profiles
+- GET /edit-profile - Renders a screen to edit the selected profile
+- PATCH /edit-profiles - Updates the profiles
+- PATCH /edit-profile - Updates the preferences for a selected profile and redirects to /edit-profiles
+- POST /create-profile - Save newly added profile
+- POST /select-profile - Set the current profile and redirect
+- DESTROY /edit-profile - Deletes selected profile and redirects to /edit-profiles
+### /brand
+- GET /brand/:id
