@@ -1,27 +1,26 @@
 {
   "development": {
-    "username": "dizney_plus_app",
-    "password": "nsoH4EpAgrdrGl1",
-    "database": "dizney_plus_development",
+    "username": "root",
+    "password": null,
+    "database": "database_development",
     "host": "127.0.0.1",
-    "dialect": "postgres",
-    "seederStorage": "sequelize"
+    "dialect": "mysql",
+    "operatorsAliases": false
   },
   "test": {
-    "username": "dizney_plus_app",
-    "password": "nsoH4EpAgrdrGl1",
-    "database": "dizney_plus_test",
+    "username": "root",
+    "password": null,
+    "database": "database_test",
     "host": "127.0.0.1",
-    "dialect": "postgres",
-    "seederStorage": "sequelize"
+    "dialect": "mysql",
+    "operatorsAliases": false
   },
   "production": {
-    "username": "dizney_plus_app",
-    "password": "nsoH4EpAgrdrGl1",
-    "database": "dizney_plus_production",
+    "username": "root",
+    "password": null,
+    "database": "database_production",
     "host": "127.0.0.1",
-    "dialect": "postgres",
-    "seederStorage": "sequelize",
-    "use_env_variable": "dizney_plus_production"
+    "dialect": "mysql",
+    "operatorsAliases": false
   }
 }

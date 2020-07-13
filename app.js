@@ -1,9 +1,9 @@
 const express = require('express');
 
-require('dotenv').config();
+
 
 const app = express();
-let port = Number.parseInt(process.env.PORT, 10) || 8081;
+let port = Number.parseInt(process.env.PORT, 10) || 8080;
 
 app.set('view engine', 'pug');
 
