@@ -1,4 +1,6 @@
 'use strict';
+const bcrypt = require('bcrypt');
+
 module.exports = (sequelize, DataTypes) => {
   const Account = sequelize.define('Account', {
     email: DataTypes.STRING,
