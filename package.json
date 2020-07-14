@@ -4,9 +4,9 @@
   "description": "1. #### Hosting on Heroku",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./app.js",
-    "dev": "nodemon ./app.js"
+    "start": "per-env",
+    "start:development": "nodemon -r dotenv/config ./bin/www",
+    "start:production": "./bin/www"
   },
   "repository": {
     "type": "git",
@@ -19,12 +19,22 @@
   },
   "homepage": "https://github.com/COrtaDev/Dizney-Plus#readme",
   "dependencies": {
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "csurf": "^1.11.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "nodemon": "^2.0.4",
+    "express-session": "^1.17.1",
+    "express-validator": "^6.6.0",
+    "morgan": "^1.10.0",
+    "per-env": "^1.0.2",
     "pg": "^8.3.0",
     "pug": "^3.0.0",
-    "sequelize": "^5.22.3",
-    "sequelize-cli": "^5.5.1"
+    "sequelize": "^5.22.3"
+  },
+  "devDependencies": {
+    "dotenv-cli": "^3.2.0",
+    "nodemon": "^2.0.4",
+    "sequelize-cli": "^6.2.0"
   }
 }
