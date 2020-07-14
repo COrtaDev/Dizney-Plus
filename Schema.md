@@ -1,4 +1,4 @@
-### Accounts
+### 1 Accounts
 column name | data type | details
 ------------|-----------|--------
 id | integer (serial) | not null, primary key
@@ -8,7 +8,7 @@ passwordSalt | string | not null
 sessionToken | string | not null, unique
 
 
-### Profiles
+### 6 Profiles
 - Must always have at least one profile, but you may have up to 7 profiles per account.
 
 column name | data type | details
@@ -20,7 +20,7 @@ accountId | integer | not null, foreign key references Accounts(id)
 avatarId | integer | not null, foreign key references Avatars(id)
 
 
-### Videos
+### 7 Videos
 column name | data type | details
 ------------|-----------|--------
 id | integer (serial) | not null, primary key
@@ -43,7 +43,7 @@ buttonImg | url | not null
 brandId | integer | not null, foreign key references Brands(id)
 
 
-### Brands
+### 2 Brands
 column name | data type | details
 ------------|-----------|--------
 id | integer (serial) | not null, primary key
@@ -53,7 +53,7 @@ backgroundImg | url | not null
 buttonImg | url | not null
 
 
-### WatchListedVideos (join table)
+### 8 WatchListedVideos (join table)
 column name | data type | details
 ------------|-----------|--------
 id | integer (serial) | not null, primary key
@@ -61,21 +61,21 @@ profileId | integer | not null, foreign key references Profiles(id)
 videoId | integer |  (allow null), foreign key references Videos(id)
 
 
-### MovieSelections
+### 3 MovieSelections
 column name | data type | details
 ------------|-----------|--------
 id | integer (serial) | not null, primary key
 selection | string | not null
 
 
-### SeriesSelections
+### 4 SeriesSelections
 column name | data type | details
 ------------|-----------|--------
 id | integer (serial) | not null, primary key
 selection | string | not null
 
 
-### Avatars
+### 5 Avatars
 column name | data type | details
 ------------|-----------|--------
 id | integer (serial) | not null, primary key

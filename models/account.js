@@ -5,7 +5,14 @@ module.exports = (sequelize, DataTypes) => {
     passwordDigest: DataTypes.STRING,
     passwordSalt: DataTypes.STRING,
     sessionToken: DataTypes.STRING
-  }, {});
+  }, {
+      indexes: [
+        {
+          unique: false,
+          fields: ['email']
+        }
+      ]
+  });
   Account.associate = function(models) {
     // associations can be defined here
   };
