@@ -17,10 +17,6 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING
       },
-      passwordSalt: {
-        allowNull: false,
-        type: Sequelize.STRING
-      },
       sessionToken: {
         allowNull: false,
         type: Sequelize.STRING
