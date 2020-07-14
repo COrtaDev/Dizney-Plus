@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Profile.associate = function(models) {
     Profile.belongsTo(models.Account, { foreignKey: 'accountId' });
-    Profile.hasOne(models.Avatar, { foreignKey: 'avatarId' });
+    Profile.belongsTo(models.Avatar, { foreignKey: 'avatarId' });
     Profile.hasMany(models.WatchListedVideo, { foreignKey: 'profileId' });
   };
   return Profile;
