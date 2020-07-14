@@ -4,6 +4,7 @@ const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
 const csrf = require('csurf');
 const { environment } = require("./config");
+const landing = require('./routes/landing');
 const app = express();
 const csrfProtection = csrf({ cookie: true });
 const asyncHandler = (handler) => (req, res, next) => handler(req, res, next).catch(next);
@@ -19,12 +20,10 @@ app.use(express.urlencoded({ extended: false }));
 
 
 
-app.get('/', (req, res) => {
-    res.send('Hello from Dizney+ Team!')
-})
+app.get('/', landing)
 
 
 
 
 
-module.exports = app;
+module.exports = { app, asyncHandler };
