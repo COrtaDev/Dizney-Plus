@@ -3,7 +3,7 @@ const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
 const { environment } = require("./config");
-const landingPage = require('./routes/landing')
+
 
 
 const app = express();
@@ -18,8 +18,9 @@ app.use(express.urlencoded({ extended: false }));
 
 
 
-app.use('/', landingPage);
-
+app.get('/', (req, res) => {
+    res.send('Hello from Dizney+ Team!')
+})
 
 
 
