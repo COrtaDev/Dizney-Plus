@@ -4,7 +4,6 @@ module.exports = (sequelize, DataTypes) => {
   const Account = sequelize.define('Account', {
     email: DataTypes.STRING,
     passwordDigest: DataTypes.STRING,
-    passwordSalt: DataTypes.STRING,
     sessionToken: DataTypes.STRING
   }, {
       indexes: [
