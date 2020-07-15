@@ -3,10 +3,13 @@ html(lang="en")
     head
         meta(charset="UTF-8")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        title Dizney+
+        style
+            include ../style/landingPage.css
     body
-        div.buttons
-            div#logIn
-                button(type="post") LOG IN
-            div#demoLogIn
-                button(type="post") DEMO LOG IN
+        div.signUpButtons
+            div
+                button#demoLogIn(type="post") DEMO LOG IN
+            div
+                button#logIn(type="post") LOG IN
+        div.logo
+            img(src="https://cannonball-cdn.bamgrid.com/assets/originals/bundle-logo-01.svg")

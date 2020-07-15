@@ -1,0 +1,21 @@
+body {
+    background-image: url("https://cannonball-cdn.bamgrid.com/assets/originals/Hero_MLP_1440_1.jpg");
+    background-size: 100vw 100vh;
+}
+.signUpButtons {
+    display: flex;
+    justify-content: flex-end;
+}
+#demoLogIn, #logIn {
+    background-color: rgb(99, 99, 99);
+    color: white;
+    margin: 5px;
+    border: 1px soild lightgray;
+}
+
+.logo {
+    margin-top: 138px;
+    margin-left: 57px;
+    width: 41vw;
+    position: absolute;
+}
