@@ -1,1 +1,25 @@
-h1 testing
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        style
+            include ../style/landingPage.css
+    body
+        .bgimg
+            img#backgroundimg(src="https://cannonball-cdn.bamgrid.com/assets/originals/Hero_MLP_1440_1.jpg")
+            
+            .logInButtons
+                div
+                    button#demoLogIn(type="get") DEMO LOG IN
+                div
+                    button#logIn(type="get") LOG IN
+        .contentMain
+            .logo
+                img#logosImg(src="https://cannonball-cdn.bamgrid.com/assets/originals/bundle-logo-01.svg")
+                button#signUp(type="get") GET ALL THREE FOR $12.99/MONTH
+            p#text 18+ only. Includes Hulu (ad-supported) plan. Access content from each service separately. Offer valid for eligible subscribers only. Subject to terms of Disney+ and ESPN+ Subscriber Agreement.
+            a#signUpLink(href='www.google.com') Sign up for Dizney+ only
+            p#price $6.99/month or 69.99/year
+            .brands
+                img#brandsImg(src='https://cannonball-cdn.bamgrid.com/assets/originals/disney-franchise-logos.png')
