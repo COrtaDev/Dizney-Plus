@@ -4,6 +4,7 @@ const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
 const { environment } = require("./config");
 const landing = require('./routes/landing');
+const login = require('./routes/login');
 const app = express();
 app.set('view engine', 'pug');
 
@@ -18,8 +19,8 @@ app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));
 
 
-
 app.get('/', landing)
+app.get('/login', login);
 // app.post('/login', (req, res) => {
 //     const { email, password } = req.body;
 //     const account = await Account.findOne({ where: { email } })
