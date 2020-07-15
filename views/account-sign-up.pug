@@ -1,5 +1,8 @@
 include utils.pug
-
+doctype html
+html
+    head
+        title #{title} | Dizney+
 form(action='account/sign-up' method='post')
     input(type='hidden' name='_csrf' value=csrfToken)
     +field('Enter your email', 'email', account.email)

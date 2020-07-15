@@ -73,4 +73,11 @@ router.post('/account/sign-up', csrfProtection, accountValidators,
     })
 );
 
+router.get('/account/login', csrfProtection, (req, res) => {
+    res.render('account-login', {
+        title: 'Login',
+        csrfToken: req.csrfToken(),
+    });
+});
+
 module.exports = router;
