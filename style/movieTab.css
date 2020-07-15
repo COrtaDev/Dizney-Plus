@@ -1,0 +1,15 @@
+body {
+    background-color: #141721;
+}
+.topBlock {
+    padding: 72px 24px;
+    position: fixed;
+    width: 100%;
+    display: flex;
+}
+h1 {
+    color: rgb(249, 249, 249);
+    margin: 0px;
+    padding: 24px 24px 0px 0px;
+    font-size: 44px;
+}
