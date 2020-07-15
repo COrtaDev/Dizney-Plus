@@ -1,0 +1,7 @@
+
+form(action='account/sign-up' method='post')
+    input(type='hidden' name='_csrf' value=csrfToken)
+    +field('Enter your email', 'email', user.email)
+    +field('Create a password', 'password', user.password, 'password')
+    div(class='py-4')
+        button(type='submit' class='btn btn-primary') Continue
