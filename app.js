@@ -19,15 +19,12 @@ app.use(express.urlencoded({ extended: false }));
 
 
 
-<<<<<<< HEAD
 app.get('/', landing)
-=======
 // app.post('/login', (req, res) => {
 //     const { email, password } = req.body;
 //     const account = await Account.findOne({ where: { email } })
 //     const hashPassword = bCrypt.hash(password, 10)
 //     if (account.passwordDigest === hashPassword){
->>>>>>> 19c3b3cd7de47e81311cca433646f745451be687
 
 //     } 
 // });
