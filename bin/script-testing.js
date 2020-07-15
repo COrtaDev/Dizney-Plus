@@ -9,7 +9,7 @@ let isMovie;
 let isOriginal = false;
 
 async function omdbFetch() {
-    for (let i = 0; i < table.length; i++) {
+    for (let i = 198; i < table.length; i++) {
         title = table[i]['title'];
         let encoded = encodeURI(title);
         let url = `http://www.omdbapi.com/?t=${encoded}&apikey=${apiKey}`;
@@ -93,3 +93,7 @@ async function handleOriginal(data) {
 //     return res.end();
 // }
 omdbFetch();
+
+
+
+module.exports = data;
