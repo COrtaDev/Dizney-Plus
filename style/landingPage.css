@@ -31,12 +31,39 @@
     background-color: #0072d2;
     color: #f9ece9;
     font-size: 16px;
+    letter-spacing: 1.5px;
 }
 #backgroundimg {
     width: 100%;
-    height: 100%;
 }
-
+#logosImg {
+    margin-bottom: 15px;
+}
+#text {
+    text-align: center;
+    max-width: 540px;
+    font-size: 11px;
+    line-height: 1.75;
+    color: #7d8389;
+}
 html {
-    background-color: black;
+    background-color:#040813;
+    
+}
+#signUpLink, #price {
+    text-align: center;
+    display: inherit;
+}
+#signUpLink {
+    margin-top: 25px;
+    font-size: 20px;
+    color: #f9ece9;
+}
+#price {
+    margin-top: 3px;
+    font-size: 22px;
+    color: #7d8389;
+}
+#brandsImg {
+    max-width: 540px;
 }
