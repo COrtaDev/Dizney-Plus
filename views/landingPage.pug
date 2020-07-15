@@ -1,1 +1,19 @@
-h1 testing
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        style
+            include ../style/landingPage.css
+    body
+        div.bgimg
+            img#backgroundimg(src="https://cannonball-cdn.bamgrid.com/assets/originals/Hero_MLP_1440_1.jpg")
+            div.logo
+                img(src="https://cannonball-cdn.bamgrid.com/assets/originals/bundle-logo-01.svg")
+            div.signUpButtons
+                div
+                    button#demoLogIn(type="get") DEMO LOG IN
+                div
+                    button#logIn(type="get") LOG IN
+            div.mainButton
+                button#signUp(type="get") SIGN UP FOR DIZNEY+
