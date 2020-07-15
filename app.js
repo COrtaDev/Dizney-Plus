@@ -3,7 +3,8 @@ const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
 const { environment } = require("./config");
-const landing = require('./routes/landing');
+const landingRouter = require('./routes/landing');
+const moviesRouter = require('./routes/movieTab');
 const app = express();
 app.set('view engine', 'pug');
 
@@ -19,7 +20,8 @@ app.use(express.urlencoded({ extended: false }));
 
 
 
-app.get('/', landing)
+app.use('/', landingRouter)
+app.use('/movies', moviesRouter)
 // app.post('/login', (req, res) => {
 //     const { email, password } = req.body;
 //     const account = await Account.findOne({ where: { email } })
