@@ -4,6 +4,7 @@ const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
 const { environment, sessionSecret } = require("./config");
 const landing = require('./routes/landing');
+const account = require('./routes/account');
 
 const app = express();
 app.set('view engine', 'pug');
@@ -18,7 +19,7 @@ app.use(session({
 }));
 app.use(express.urlencoded({ extended: false }));
 
-
+app.use(account);
 
 app.get('/', landing)
 

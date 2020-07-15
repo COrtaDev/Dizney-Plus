@@ -3,7 +3,7 @@ const { check, validationResult } = require('express-validator')
 const bcrypt = require('bcryptjs');
 
 const db = require('../db/models');
-const { csrfProtection, asyncHandler } = require('./utils');
+const { csrfProtection, asyncHandler } = require('../utils');
 
 
 
