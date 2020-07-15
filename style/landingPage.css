@@ -9,10 +9,13 @@
     right: 0%;
 }
 #demoLogIn, #logIn {
-    background-color:#041216;
+    background-color: rgba(0,0,0,.5);
     color: white;
     margin: 5px;
-    border: 1px soild lightgray;
+    border-style: none;
+    padding: 10px;
+    border: 1px solid white;
+    border-radius: 5px;
 }
 
 #demoLogIn:hover, #logIn:hover {
@@ -32,6 +35,8 @@
     color: #f9ece9;
     font-size: 16px;
     letter-spacing: 1.5px;
+    border-style: none;
+    border-radius: 5px;
 }
 #backgroundimg {
     width: 100%;
