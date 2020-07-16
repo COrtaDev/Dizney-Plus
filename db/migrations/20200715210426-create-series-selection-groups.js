@@ -1,25 +1,26 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Accounts', {
+    return queryInterface.createTable('SeriesSelectionGroups', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      email: {
+      videoId: {
         allowNull: false,
-        type: Sequelize.STRING,
-        unique: true
+        type: Sequelize.INTEGER,
+        references: { model: 'Videos' }
       },
-      passwordDigest: {
+      seriesSelectionId: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER,
+        references: { model: 'SeriesSelections' }
       }
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Accounts');
+    return queryInterface.dropTable('SeriesSelectionGroups');
   }
 };
