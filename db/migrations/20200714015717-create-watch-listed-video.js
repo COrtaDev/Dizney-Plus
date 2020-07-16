@@ -9,10 +9,14 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       profileId: {
-        type: Sequelize.INTEGER
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: { model: 'Profiles' }
       },
       videoId: {
-        type: Sequelize.INTEGER
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: { model: 'Videos' }
       },
       createdAt: {
         allowNull: false,

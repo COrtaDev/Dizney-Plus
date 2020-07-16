@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
     titleImg: DataTypes.STRING,
     backgroundImg: DataTypes.STRING,
     buttonImg: DataTypes.STRING
-  }, {});
+  }, { timestamps: false });
   Brand.associate = function(models) {
     Brand.hasMany(models.Video, { foreignKey: 'brandId' });
   };
