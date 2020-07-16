@@ -1,9 +1,14 @@
 const express = require('express');
 const AWS = require('aws-sdk');
-const s3 = new AWS.S3();
 const db = require('../db/models');
 const bcrypt = require('bcryptjs');
 // const multer  = require('multer');//may be optional
+AWS.config.update({
+  accessKeyId: access_id,
+  secretAccessKey: secret,
+  region: 'sample-region',
+});
+const s3 = new AWS.S3();
 
 const { check, validationResult } = require('express-validator')
 const { csrfProtection, asyncHandler } = require('../utils');
@@ -17,8 +22,32 @@ router.get('/profiles/select-avatar', (req, res) => {
   res.render('profiles-select-avatar')
 })
 
+router.get('/profiles/add', (req, res) => {
+  res.render('profiles-add-profile')
+})
+
+router.post('/profiles/add:id', (req, res) => {
+  res.redirect('profiles-select-avatar')
+})
+
 router.get('/profiles/select-profile', (req, res) => {
   res.render('profiles-select-profile')
+})
+
+router.get('/profiles/edit', (req, res) => {
+  res.render('profiles-edit')
+})
+
+router.get('/profiles/edit:id', (req, res) => {
+  res.render('profiles-edit')
+})
+
+router.patch('/profiles/edit:id', (req, res) => {
+  res.render('profiles-edit')
+})
+
+router.delete('/profiles/edit:id', (req, res) => {
+  res.render('profiles-edit-profile')
 })
 
 function retrieveFile(filename, res) {
