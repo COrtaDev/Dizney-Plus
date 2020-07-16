@@ -80,4 +80,8 @@ router.get('/account/login', csrfProtection, (req, res) => {
     });
 });
 
+router.get('/account/billing', (req,res)=>{
+
+})
+
 module.exports = router;
