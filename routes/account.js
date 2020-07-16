@@ -60,7 +60,7 @@ router.post('/account/sign-up', csrfProtection, signupValidators,
             account.passwordDigest = passwordDigest;
             await account.save();
             loginAccount(req, res, account);
-            res.redirect('/');
+            res.redirect('/home');
         } else {
             const errors = validatorErrors.array().map((error) => error.msg);
             res.render('account-sign-up', {
@@ -107,11 +107,7 @@ router.post('/account/login', csrfProtection, loginValidators,
 
                 if (passwordMatch) {
                     loginAccount(req, res, account);
-                    return res.redirect('/');
-                    // if (account has more than 1 profile)
-                        // return res.redirect('/account/select-profile');
-                    // else
-                        // return res.redirect('/account/home');
+                    return res.redirect('/home');
                 }
             }
 
