@@ -18,7 +18,7 @@ router.get('/account/sign-up', csrfProtection, (req, res) => {
     });
 });
 
-const accountValidators = [
+const signupValidators = [
     check("email")
         .exists({ checkFalsy: true })
         .withMessage("Please enter a value for Email")
@@ -42,7 +42,7 @@ const accountValidators = [
         .withMessage('Password must contain at least 1 lowercase letter, uppercase letter, number, and special character (i.e. "!@#$%^&*")'),
 ];
 
-router.post('/account/sign-up', csrfProtection, accountValidators,
+router.post('/account/sign-up', csrfProtection, signupValidators,
     asyncHandler(async (req, res) => {
         const {
             email,
@@ -106,7 +106,7 @@ router.post('/account/login', csrfProtection, loginValidators,
                 const passwordMatch = await bcrypt.compare(password, account.passwordDigest.toString());
 
                 if (passwordMatch) {
-                    loginUser(req, res, user);
+                    // loginUser(req, res, user);
                     // if (account has more than 1 profile)
                         return res.redirect('/account/select-profile');
                     // else
@@ -114,12 +114,12 @@ router.post('/account/login', csrfProtection, loginValidators,
                 }
             }
 
-            errors.push('Incorrect email or password.');
+            errors.push('Incorrect login credentials.');
         } else {
             errors = validatorErrors.array().map((error) => error.msg);
         }
 
-        res.render('acount-login', {
+        res.render('account-login', {
             title: 'Login',
             email,
             errors,

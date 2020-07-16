@@ -3,8 +3,8 @@ extends account-layout.pug
 include utils.pug
 
 block content
- 
-    form(action='account/login' method='post')
+    +validationErrorSummary(errors)
+    form(action='/account/login' method='post')
         input(type='hidden' name='_csrf' value=csrfToken)
         +field('Enter your email', 'email', email)
         +field('Enter your password', 'password', null, 'password')
