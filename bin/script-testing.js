@@ -35,19 +35,18 @@ async function omdbFetch() {
                 return res.end();
             }
             //(title, description, rating, year, isOriginal, isMovie, runtime, director, starring, seasons, genres, details, videoUrl, titleImg, backgroundImg, buttonImg, brandId)
-            if (!seasons) seasons = null;
+            if (!seasons | seasons === 'N/A') seasons = null;
             if (rating === 'Not Rated') rating = null;
             if (data.Director === 'N/A') data.Director = null;
             if (data.Genre === 'N/A') data.Genre = 'Other';
             if (details.Plot === 'N/A') details.Plot = data.Plot;
-            if (data.Title === 'Be Our Chef') {
-                details.Plot = 'A cooking competition that challenges five food-loving families to create delicious dishes inspired by the magic of Disney. In each episode, two families go head-to-head in a themed cooking challenge at Walt Disney World.'
-                data.Plot = 'A cooking competition that challenges five food-loving families to create delicious dishes inspired by the magic of Disney. In each episode, two families go head-to-head in a themed cooking challenge at Walt Disney World.'
-            }
+            if (data.Plot === 'N/A' && details.Plot === 'N/A') await handleEmptyPlots(data, details)
+            if (runtime === 'NaNmins') await handleNaNmins()
+            if (data.Actors === 'N/A') data.Actors = null
             //A cooking competition that challenges five food-loving families to create delicious dishes inspired by the magic of Disney. In each episode, two families go head-to-head in a themed cooking challenge at Walt Disney World.
             // let titleImg = `https://dizneyplus.s3.us-east-2.amazonaws.com/images/disneyPlusRips/titles/\/${title}\/g-title.png`
             videoData = `
-            (${data.Title}, ${data.Plot}, ${rating}, ${data.Year}, ${isOriginal}, ${isMovie}, ${runtime}, ${data.Director}, ${data.Actors}, ${seasons}, ${data.Genre}, ${details.Plot}, ${table[i]['url']})
+            (${data.Title}, ${data.Plot}, ${rating}, ${data.Year}, ${isOriginal}, ${isMovie}, ${runtime}, ${data.Director}, "${data.Actors}", ${seasons}, "${data.Genre}", ${details.Plot}, ${table[i]['url']})
             `;
             await write(videoData);
         }
@@ -149,6 +148,36 @@ async function handleRemakes(title, i) {
         (${data.Title}, ${data.Plot}, ${rating}, ${data.Year}, ${isOriginal}, ${isMovie}, ${runtime}, ${data.Director}, ${data.Actors}, ${seasons}, ${data.Genre}, ${details.Plot}, ${table[i]['url']})
         `;
     await write(videoData);
+}
+async function handleNaNmins() {
+    randomMins = Math.floor(Math.random() * (Math.floor(59) - Math.ceil(20) + 1)) + Math.ceil(20);
+    return runtime = `${randomMins}mins`;
+}
+async function handleEmptyPlots(data, details) {
+    if (data.Title === 'Be Our Chef') {
+        details.Plot = 'A cooking competition that challenges five food-loving families to create delicious dishes inspired by the magic of Disney. In each episode, two families go head-to-head in a themed cooking challenge at Walt Disney World.'
+        data.Plot = 'A cooking competition that challenges five food-loving families to create delicious dishes inspired by the magic of Disney. In each episode, two families go head-to-head in a themed cooking challenge at Walt Disney World.'
+    }
+    if (data.Title === 'Prowlers of the Everglades') {
+        details.Plot = "Watch as the alligator, the unquestioned apex predator of the Everglades, follows its cycle of life much the same as it did in prehistoric times."
+        data.Plot = 'Travel back in time as a primeval reptile stalks its prey in "the swamp that time forgot." Watch as the alligator, the unquestioned apex predator of the Everglades, follows its cycle of life much the same as it did in prehistoric times. Coy females lead fierce bulls into vicious mating battles, mothers struggle to keep their nests safe from scavenging egg thieves and baby alligators struggle to survive even the short trip from their nest to the dazzling and disorienting world beneath the surface of the water.'
+    }
+    if (data.Title === 'Drain the Sunken Pirate City') {
+        details.Plot = "Port Royal, the 'wickedest city on Earth', famous for its Caribbean pirates, liquor, is torn apart on June 7th 1692 by quake and tsunami. Two thirds of buildings are sucked into the ocean, the rest buried where they sink. 2,000 die. Marine archaeologist Jon Henderson goes in search of what happened. "
+        data.Plot = "Port Royal, the 'wickedest city on Earth', famous for its Caribbean pirates, liquor, is torn apart on June 7th 1692 by quake and tsunami. Two thirds of buildings are sucked into the ocean, the rest buried where they sink. 2,000 die. Marine archaeologist Jon Henderson goes in search of what happened. Scientific data combines with computer graphics to DRAIN the waters to investigate final moments and resurrect past secrets."
+    }
+    if (data.Title === "Disney's The Book of Once Upon a Time Season 3") {
+        details.Plot = "Join Disney Junior’s littlest story tellers for a magical storytelling experience from ‘The Book of Once Upon a Time’."
+        data.Plot = "Join Disney Junior’s littlest story tellers for a magical storytelling experience from ‘The Book of Once Upon a Time’."
+    }
+    if (data.Title === 'Prairie Dog Manor') {
+        details.Plot = 'Prairie Dog Manor" gives an in depth look at the unique behaviors and relationships between the Prairie Dogs that inhibit the Valles Caldera National Preserve in northern New Mexico.'
+        data.Plot = '"Prairie Dog Manor" gives an in depth look at the unique behaviors and relationships between the Prairie Dogs that inhibit the Valles Caldera National Preserve in northern New Mexico.'
+    }
+    if (data.Title === 'Secrets of the Zoo: Tampa') {
+        details.Plot = "'Secrets of the Zoo: Tampa' embraces the wild side of the Sunshine State with a stellar zoo team devoted to the exotic cast of animals."
+        data.Plot = "'Secrets of the Zoo: Tampa' embraces the wild side of the Sunshine State with a stellar zoo team devoted to the exotic cast of animals."
+    }
 }
 // async function handleError(title, i) {
 //     console.log(`!!!\n!!!\n!!!\nThere is an issue with ${title} at index:${i}!!!\n!!!\n!!!\n`);
