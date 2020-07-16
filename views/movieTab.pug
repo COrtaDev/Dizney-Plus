@@ -4,7 +4,17 @@ style
 block content
     .topBlock
         h1 Movies
-        select(name="type" required)
-            each val in ['Featured' , 'ALL MOVIES A-Z' , 'ACTION/ADVENTURE']
-                .test
-                    option=val
+        .wrapper.dropDown
+            .select_wrap.dropDown
+                ul.default_option.dropDown
+                    li
+                        .dropDown
+                            p Featured
+                ul.select_ul.dropDown
+                    li
+                        p Featured
+                    li
+                        p All Movies A-Z
+                    li
+                        p Action/Adventure
+                
