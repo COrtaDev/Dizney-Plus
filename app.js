@@ -9,6 +9,7 @@ const accountRouter = require('./routes/account');
 const homeRouter = require('./routes/home');
 const { restoreAccount } = require('./auth');
 const app = express();
+app.use(express.static('public'))
 app.set('view engine', 'pug');
 
 app.use(morgan('dev'));
