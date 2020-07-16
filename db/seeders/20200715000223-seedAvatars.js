@@ -4,6 +4,12 @@ module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert('Avatars', [
       { avatarImg: '***URL***' },
+      { avatarImg: '***URL***' },
+      { avatarImg: '***URL***' },
+      { avatarImg: '***URL***' },
+      { avatarImg: '***URL***' },
+      { avatarImg: '***URL***' },
+      { avatarImg: '***URL***' },
     ], {});
   },
 

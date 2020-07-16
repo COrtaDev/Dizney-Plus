@@ -3,9 +3,9 @@
 module.exports = (sequelize, DataTypes) => {
   const Account = sequelize.define('Account', {
     email: DataTypes.STRING,
-    passwordDigest: DataTypes.STRING,
-    sessionToken: DataTypes.STRING
+    passwordDigest: DataTypes.STRING
   }, {
+      timestamps: false,
       indexes: [
         {
           unique: false,
@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
       ]
   });
   Account.associate = function(models) {
-    // associations can be defined here
+    Account.hasMany(models.Profile, {foreignKey: 'accountId' });
   };
   return Account;
 };
