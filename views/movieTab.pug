@@ -11,10 +11,6 @@ block content
                         .dropDown
                             p Featured
                 ul.select_ul.dropDown
-                    li
-                        p Featured
-                    li
-                        p All Movies A-Z
-                    li
-                        p Action/Adventure
-                
+                    each val in ['Featured', 'All Movies A-Z', 'Action', 'Adventure', 'Kid']
+                        li= val
+                   
