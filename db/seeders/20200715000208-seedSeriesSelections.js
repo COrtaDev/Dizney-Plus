@@ -2,7 +2,7 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.bulkInsert('People', [
+    return queryInterface.bulkInsert('SeriesSelections', [
       { selection: 'FEATURED' },
       { selection: 'ALL SERIES A-Z' },
       { selection: 'ACTION/ADVENTURE' },
@@ -14,6 +14,6 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-      return queryInterface.bulkDelete('People', null, {});
+    return queryInterface.bulkDelete('SeriesSelections', null, {});
   }
 };

@@ -1,14 +1,12 @@
-### 1 Accounts
+### Accounts
 column name | data type | details
 ------------|-----------|--------
 id | integer (serial) | not null, primary key
 email | string | not null, indexed, unique
 passwordDigest | string | not null
-passwordSalt | string | not null
-sessionToken | string | not null, unique
 
 
-### 6 Profiles
+### Profiles
 - Must always have at least one profile, but you may have up to 7 profiles per account.
 
 column name | data type | details
@@ -20,13 +18,13 @@ accountId | integer | not null, foreign key references Accounts(id)
 avatarId | integer | not null, foreign key references Avatars(id)
 
 
-### 7 Videos
+### Videos
 column name | data type | details
 ------------|-----------|--------
 id | integer (serial) | not null, primary key
 title | string | not null, unique, indexed
 description | string | not null
-rating | integer (serial) | not null
+rating | string | not null
 year | integer | not null
 isOriginal | boolean | default false
 isMovie | boolean | not null
@@ -43,7 +41,7 @@ buttonImg | url | not null
 brandId | integer | not null, foreign key references Brands(id)
 
 
-### 2 Brands
+### Brands
 column name | data type | details
 ------------|-----------|--------
 id | integer (serial) | not null, primary key
@@ -53,7 +51,7 @@ backgroundImg | url | not null
 buttonImg | url | not null
 
 
-### 8 WatchListedVideos (join table)
+### WatchListedVideos (join table)
 column name | data type | details
 ------------|-----------|--------
 id | integer (serial) | not null, primary key
@@ -61,25 +59,40 @@ profileId | integer | not null, foreign key references Profiles(id)
 videoId | integer |  (allow null), foreign key references Videos(id)
 
 
-### 3 MovieSelections
+### MovieSelections
 column name | data type | details
 ------------|-----------|--------
 id | integer (serial) | not null, primary key
 selection | string | not null
 
 
-### 4 SeriesSelections
+### MovieSelectionGroups
+column name | data type | details
+------------|-----------|--------
+id | integer (serial) | not null, primary key
+videoId | integer | not null
+movieSelectionId | integer | not null
+
+
+### SeriesSelections
 column name | data type | details
 ------------|-----------|--------
 id | integer (serial) | not null, primary key
 selection | string | not null
 
 
-### 5 Avatars
+### SeriesSelectionGroups
 column name | data type | details
 ------------|-----------|--------
 id | integer (serial) | not null, primary key
-name | string | not null
+videoId | integer | not null
+seriesSelectionId | integer | not null
+
+
+### Avatars
+column name | data type | details
+------------|-----------|--------
+id | integer (serial) | not null, primary key
 avatarImg | url | not null
 
 
