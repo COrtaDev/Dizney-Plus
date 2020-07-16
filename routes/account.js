@@ -80,6 +80,60 @@ router.get('/account/login', csrfProtection, (req, res) => {
     });
 });
 
+const loginValidators = [
+    check('email')
+        .exists({ checkFalsy: true })
+        .withMessage('Please enter a value for Email'),
+    check('password')
+        .exists({ checkFalsy: true })
+        .withMessage('Please enter a value for Password'),
+];
+
+router.post('/account/login', csrfProtection, loginValidators,
+    asyncHandler(async (req, res) => {
+        const {
+            email,
+            password,
+        } = req.body;
+
+        let errors = [];
+        const validatorErrors = validationResult(req);
+
+        if (validatorErrors.isEmpty()) {
+            const account = await db.Account.findOne({ where: { email }});
+
+            if (account !== null) {
+                const passwordMatch = await bcrypt.compare(password, account.passwordDigest.toString());
+
+                if (passwordMatch) {
+                    loginUser(req, res, user);
+                    // if (account has more than 1 profile)
+                        return res.redirect('/account/select-profile');
+                    // else
+                        // return res.redirect('/account/home');
+                }
+            }
+
+            errors.push('Incorrect email or password.');
+        } else {
+            errors = validatorErrors.array().map((error) => error.msg);
+        }
+
+        res.render('acount-login', {
+            title: 'Login',
+            email,
+            errors,
+            csrfToken: req.csrfToken(),
+        })
+    })
+);
+
+// router.post('/account/logout', (req, res) => {
+//     logoutUser(req, res);
+//     res.redirect('/');
+// });
+
+
 router.get('/account/billing', (req,res)=>{
 
 })
