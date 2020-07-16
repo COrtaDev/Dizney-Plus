@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs');
 
 const db = require('../db/models');
 const { csrfProtection, asyncHandler } = require('../utils');
-
+const { loginAccount, logoutAccount } = require('../auth');
 
 
 const router = express.Router();
@@ -59,7 +59,7 @@ router.post('/account/sign-up', csrfProtection, signupValidators,
             const passwordDigest = await bcrypt.hash(password, 10);
             account.passwordDigest = passwordDigest;
             await account.save();
-            // loginAccount(req, res, login);
+            loginAccount(req, res, account);
             res.redirect('/');
         } else {
             const errors = validatorErrors.array().map((error) => error.msg);
@@ -106,9 +106,10 @@ router.post('/account/login', csrfProtection, loginValidators,
                 const passwordMatch = await bcrypt.compare(password, account.passwordDigest.toString());
 
                 if (passwordMatch) {
-                    // loginUser(req, res, user);
+                    loginAccount(req, res, account);
+                    return res.redirect('/');
                     // if (account has more than 1 profile)
-                        return res.redirect('/account/select-profile');
+                        // return res.redirect('/account/select-profile');
                     // else
                         // return res.redirect('/account/home');
                 }
@@ -129,7 +130,7 @@ router.post('/account/login', csrfProtection, loginValidators,
 );
 
 // router.post('/account/logout', (req, res) => {
-//     logoutUser(req, res);
+//     logoutAccount(req, res);
 //     res.redirect('/');
 // });
 

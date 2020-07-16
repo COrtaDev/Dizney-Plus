@@ -6,7 +6,7 @@ const { environment, sessionSecret } = require("./config");
 const landingRouter = require('./routes/landing');
 const moviesRouter = require('./routes/movieTab');
 const accountRouter = require('./routes/account');
-
+const { restoreAccount } = require('./auth');
 const app = express();
 app.set('view engine', 'pug');
 
@@ -19,7 +19,7 @@ app.use(session({
     saveUninitialized: false,
 }));
 app.use(express.urlencoded({ extended: false }));
-
+app.use(restoreAccount);
 app.use(accountRouter);
 
 app.use('/', landingRouter)
