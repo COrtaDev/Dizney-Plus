@@ -8,6 +8,7 @@ const moviesRouter = require('./routes/movieTab');
 const accountRouter = require('./routes/account');
 const { restoreAccount } = require('./auth');
 const app = express();
+app.use(express.static('public'))
 app.set('view engine', 'pug');
 
 app.use(morgan('dev'));
