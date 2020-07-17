@@ -2,6 +2,7 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
+
     return queryInterface.bulkInsert('Videos', null, {});
   },
 

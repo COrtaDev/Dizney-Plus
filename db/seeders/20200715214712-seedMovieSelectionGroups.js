@@ -4,19 +4,19 @@ const { MovieSelection } = require('../models')
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-
+      
       const selectionsQuery = await MovieSelection.findAll({
         attributes: ["id", "selection"]
       });
       const selections = selectionsQuery.map(selection => selection.selection);
-
+    console.log(selectionsQuery)
       const movies = await Video.findAll({ 
         attributes: ["id", "genres"],
         where: {
           isMovie: true,
         }
       });
-
+    console.log(movies)
       const movieList = [];
       movies.forEach(movie => {
           const genres = movie.genres.split(", ");

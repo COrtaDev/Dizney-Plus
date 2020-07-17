@@ -50,7 +50,9 @@ async function omdbFetch() {
             // videoData = `{title: ${data.Title}, ${data.Plot}, ${rating}, ${data.Year}, ${isOriginal}, ${isMovie}, ${runtime}, ${data.Director}, "${data.Actors}", ${seasons}, "${data.Genre}", ${details.Plot}, ${table[i]['url']}}`;
             // const videoDataJSON = JSON.stringify(videoData);
             // await write(videoDataJSON);
+
             await Video.create({
+                
                 title: data.Title,
                 description: data.Plot,
                 rating: rating,
@@ -65,6 +67,7 @@ async function omdbFetch() {
                 details: details.Plot,
                 videoUrl: table[i]['url']
             });
+            isOriginal = false;
         }
     }
 }
@@ -147,7 +150,6 @@ async function handleOriginal(data) {
     if (data.Production === 'Walt Disney Pictures') {
         isOriginal = true;
         console.log(`This is a Disney Original, set the value of "isOriginal: ${isOriginal}".`);
-        isOriginal = false;
     } else {
         console.log(`This is not a Disney Original, set the value of "isOriginal: ${isOriginal}".`);
     }
@@ -179,6 +181,7 @@ async function handleRemakes(title, i) {
         details: details.Plot,
         videoUrl: table[i]['url']
     });
+    isOriginal = false;
 }
 async function handleNaNmins() {
     randomMins = Math.floor(Math.random() * (Math.floor(59) - Math.ceil(20) + 1)) + Math.ceil(20);
