@@ -1,1 +1,22 @@
-h1 testing
+//- extends layout.pug
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        script(src='scripts/dropDown.js')
+        style
+            include ../public/style/movieTab.css
+    body    
+        block content
+            .topBlock
+                h1 Movies
+                .wrapper.dropDown
+                    .select_wrap.dropDown
+                        ul.default_option.dropDown
+                            li
+                                .dropDown
+                                    p Featured
+                        ul.select_ul.dropDown
+                            each val in ['Featured', 'All Movies A-Z', 'Action', 'Adventure', 'Kid']
+                                li= val
