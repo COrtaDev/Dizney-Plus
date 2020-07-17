@@ -29,7 +29,7 @@ module.exports = (sequelize, DataTypes) => {
   });
   Video.associate = function(models) {
     Video.belongsTo(models.Brand, { foreignKey: 'brandId' });
-    Video.hasMany(models.WatchListedVideo, { foreignKey: 'videoId' });
+    // Video.hasMany(models.WatchListedVideo, { foreignKey: 'videoId' });
   };
   return Video;
 };
