@@ -6,7 +6,9 @@ const { environment, sessionSecret } = require("./config");
 const landingRouter = require('./routes/landing');
 const moviesRouter = require('./routes/movieTab');
 const accountRouter = require('./routes/account');
+const profilesRouter = require('./routes/profiles');
 const homeRouter = require('./routes/home');
+const videoDetailRouter = require('./routes/video-detail');
 const { restoreAccount } = require('./auth');
 const app = express();
 app.use(express.static('public'))
@@ -24,17 +26,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(restoreAccount);
 app.use(accountRouter);
 app.use(homeRouter);
+app.use(profilesRouter);
 app.use('/', landingRouter)
 app.use(moviesRouter)
-// app.post('/login', (req, res) => {
-//     const { email, password } = req.body;
-//     const account = await Account.findOne({ where: { email } })
-//     const hashPassword = bCrypt.hash(password, 10)
-//     if (account.passwordDigest === hashPassword){
 
-//     }
-// });
+app.use(homeRouter);
+app.use('/', landingRouter)
+app.use(moviesRouter)
 
 
-
+app.use(videoDetailRouter);
 module.exports = app;
