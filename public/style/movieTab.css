@@ -23,8 +23,8 @@ h1 {
 }
 .wrapper {
     position: absolute;
-    top: 55%;
-    left: 25%;
+    top: 29px;
+    left: 247px;
     transform: translate(-50%,-50%);
     
 }
@@ -42,7 +42,7 @@ h1 {
     position: relative;
     cursor: pointer;
     height: 38px;
-    width: 125px;
+    width: 160px;
     align-items: center;
     display: flex;
 }
