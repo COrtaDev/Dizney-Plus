@@ -1,0 +1,25 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        style
+            include ../public/style/navBar.css
+        title Disney+ | Movies and Shows
+    body
+        div
+            div
+                button Disney+ Logo
+            div
+                button Home
+                button Search
+                button Watchlist
+                button Originals
+                button Movies
+                button Series
+            div
+                ul profile dropdown
+                    each profile in profiles
+                        li= profile.name
+
+block content
