@@ -1,0 +1,31 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        script(src='scripts/video-detail-tabs.js')
+        style
+            include ../public/style/video-detail.css
+    body
+        div
+            button.playVideo(type="get") PLAY
+        div.videoInfo
+            div#rating
+                p #{video.rating}
+            div#year
+                p #{video.year}
+            div#genres
+                p #{video.genres}
+        div#description
+            p #{video.description}
+
+        div.tab
+            button.tablinks(onclick="openCity(event, 'suggested')") Suggested
+            button.tablinks(onclick="openCity(event, 'details')") Details
+
+        div#suggested.tabcontent
+            p Here are suggested videos
+
+        div#details.tabcontent
+            p Here are the details
+
