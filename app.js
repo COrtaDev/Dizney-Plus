@@ -26,14 +26,6 @@ app.use(accountRouter);
 app.use(homeRouter);
 app.use('/', landingRouter)
 app.use(moviesRouter)
-// app.post('/login', (req, res) => {
-//     const { email, password } = req.body;
-//     const account = await Account.findOne({ where: { email } })
-//     const hashPassword = bCrypt.hash(password, 10)
-//     if (account.passwordDigest === hashPassword){
-
-//     }
-// });
 
 
 
