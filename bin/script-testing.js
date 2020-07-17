@@ -1,11 +1,7 @@
 const fetch = require('node-fetch');
-// const parse = require('csv-parse');
 const table = require('./export.js')
-// const fs = require('fs');
 const apiKey = '272fff24';
 const write = require('./write.js');
-//http://www.omdbapi.com/?i=tt3896198&apikey=272fff24
-// const title = 'the+clone+wars'
 let isMovie;
 let isOriginal = false;
 let videoData;
@@ -34,7 +30,6 @@ async function omdbFetch() {
             } catch (e) {
                 return res.end();
             }
-            //(title, description, rating, year, isOriginal, isMovie, runtime, director, starring, seasons, genres, details, videoUrl, titleImg, backgroundImg, buttonImg, brandId)
             if (!seasons | seasons === 'N/A') seasons = null;
             if (rating === 'Not Rated') rating = null;
             if (data.Director === 'N/A') data.Director = null;
@@ -43,12 +38,11 @@ async function omdbFetch() {
             if (data.Plot === 'N/A' && details.Plot === 'N/A') await handleEmptyPlots(data, details)
             if (runtime === 'NaNmins') await handleNaNmins()
             if (data.Actors === 'N/A') data.Actors = null
-            //A cooking competition that challenges five food-loving families to create delicious dishes inspired by the magic of Disney. In each episode, two families go head-to-head in a themed cooking challenge at Walt Disney World.
-            // let titleImg = `https://dizneyplus.s3.us-east-2.amazonaws.com/images/disneyPlusRips/titles/\/${title}\/g-title.png`
             videoData = `
             (${data.Title}, ${data.Plot}, ${rating}, ${data.Year}, ${isOriginal}, ${isMovie}, ${runtime}, ${data.Director}, "${data.Actors}", ${seasons}, "${data.Genre}", ${details.Plot}, ${table[i]['url']})
             `;
             await write(videoData);
+            isOriginal = false;
         }
     }
 }
@@ -131,7 +125,7 @@ async function handleOriginal(data) {
     if (data.Production === 'Walt Disney Pictures') {
         isOriginal = true;
         console.log(`This is a Disney Original, set the value of "isOriginal: ${isOriginal}".`);
-        isOriginal = false;
+        // isOriginal = false;
     } else {
         console.log(`This is not a Disney Original, set the value of "isOriginal: ${isOriginal}".`);
     }
@@ -179,10 +173,6 @@ async function handleEmptyPlots(data, details) {
         data.Plot = "'Secrets of the Zoo: Tampa' embraces the wild side of the Sunshine State with a stellar zoo team devoted to the exotic cast of animals."
     }
 }
-// async function handleError(title, i) {
-//     console.log(`!!!\n!!!\n!!!\nThere is an issue with ${title} at index:${i}!!!\n!!!\n!!!\n`);
-//     return res.end();
-// }
 omdbFetch();
 
 
