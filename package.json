@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/COrtaDev/Dizney-Plus#readme",
   "dependencies": {
+    "aws-sdk": "^2.714.2",
     "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",

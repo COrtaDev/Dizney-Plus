@@ -9,5 +9,6 @@ module.exports = {
     host: process.env.DB_HOST,
   },
   access_id: process.env.AWS_S3_ACCESS_ID,
-  secret: process.env.AWS_S3_SECRET
+  secret: process.env.AWS_S3_SECRET,
+  bucket: process.env.S3_BUCKET_NAME
 };
