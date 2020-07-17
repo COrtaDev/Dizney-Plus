@@ -2,11 +2,8 @@ const fetch = require('node-fetch');
 const { Video } = require('../db/models')
 // const parse = require('csv-parse');
 const table = require('./export.js')
-// const fs = require('fs');
 const apiKey = '272fff24';
 const write = require('./write.js');
-//http://www.omdbapi.com/?i=tt3896198&apikey=272fff24
-// const title = 'the+clone+wars'
 let isMovie;
 let isOriginal = false;
 let videoData;
@@ -36,7 +33,6 @@ async function omdbFetch() {
             } catch (e) {
                 return res.end();
             }
-            //(title, description, rating, year, isOriginal, isMovie, runtime, director, starring, seasons, genres, details, videoUrl, titleImg, backgroundImg, buttonImg, brandId)
             if (!seasons | seasons === 'N/A') seasons = null;
             if (rating === 'Not Rated') rating = null;
             if (data.Director === 'N/A') data.Director = null;
@@ -52,7 +48,7 @@ async function omdbFetch() {
             // await write(videoDataJSON);
 
             await Video.create({
-                
+
                 title: data.Title,
                 description: data.Plot,
                 rating: rating,
@@ -213,10 +209,6 @@ async function handleEmptyPlots(data, details) {
         data.Plot = "'Secrets of the Zoo: Tampa' embraces the wild side of the Sunshine State with a stellar zoo team devoted to the exotic cast of animals."
     }
 }
-// async function handleError(title, i) {
-//     console.log(`!!!\n!!!\n!!!\nThere is an issue with ${title} at index:${i}!!!\n!!!\n!!!\n`);
-//     return res.end();
-// }
 omdbFetch();
 
 
