@@ -6,6 +6,7 @@ const { environment, sessionSecret } = require("./config");
 const landingRouter = require('./routes/landing');
 const moviesRouter = require('./routes/movieTab');
 const accountRouter = require('./routes/account');
+const profilesRouter = require('./routes/profiles');
 const homeRouter = require('./routes/home');
 const { restoreAccount } = require('./auth');
 const app = express();
@@ -23,6 +24,11 @@ app.use(session({
 app.use(express.urlencoded({ extended: false }));
 app.use(restoreAccount);
 app.use(accountRouter);
+app.use(homeRouter);
+app.use(profilesRouter);
+app.use('/', landingRouter)
+app.use(moviesRouter)
+
 app.use(homeRouter);
 app.use('/', landingRouter)
 app.use(moviesRouter)
