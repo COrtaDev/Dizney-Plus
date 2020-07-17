@@ -10,7 +10,7 @@ const fs = require('fs');
 // let videoData = [];
 
 async function write(videoData) {
-    fs.appendFile('videos.csv', videoData, err => {
+    fs.appendFile('db/seeders/videos.csv', videoData, err => {
         flag: 'a';
         if (err) throw Error;
     })

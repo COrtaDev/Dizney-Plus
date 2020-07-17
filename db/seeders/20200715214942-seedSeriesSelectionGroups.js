@@ -1,17 +1,54 @@
 'use strict';
+const { Video } = require('../models')
+const { SeriesSelection } = require('../models')
 
 module.exports = {
-  up: (queryInterface, Sequelize) => {
-    return queryInterface.bulkInsert('SeriesSelectionGroups', [
-      { videoId: 8, seriesSelectionId: 3 },
-      { videoId: 9, seriesSelectionId: 4 },
-      { videoId: 10, seriesSelectionId: 5 },
-      { videoId: 11, seriesSelectionId: 6 },
-      { videoId: 12, seriesSelectionId: 5 },
-      { videoId: 8, seriesSelectionId: 4 },
-      { videoId: 9, seriesSelectionId: 3 },
-      { videoId: 10, seriesSelectionId: 6 },
-    ], {});
+  up: async (queryInterface, Sequelize) => {
+
+    const selectionsQuery = await SeriesSelection.findAll({
+      attributes: ["id", "selection"]
+    });
+    const selections = selectionsQuery.map(selection => selection.selection);
+
+    const allSeries = await Video.findAll({
+      attributes: ["id", "genres"],
+      where: {
+        isMovie: false,
+      }
+    });
+
+    const seriesList = [];
+    allSeries.forEach(series => {
+      const genres = series.genres.split(", ");
+      let seenActionAdventure = false;
+      const seriesPusher = (matchingSeriesSelectionObj) => {
+        const seriesIdSelectionId = {
+          videoId: series.id,
+          seriesSelectionId: matchingSeriesSelectionObj.id
+        };
+        seriesList.push(seriesIdSelectionId);
+      }
+
+      genres.forEach(genre => {
+        if ((genre === "Action" || genre === "Adventure") && !seenActionAdventure) {
+          seenActionAdventure = true;
+          const matchingSeriesSelectionObj = selectionsQuery.find((selectionObj) => {
+            return selectionObj.selection === "ACTION/ADVENTURE";
+          });
+          seriesPusher(matchingSeriesSelectionObj);
+
+        } else {
+          if (selections.includes(genre.toUpperCase())) {
+
+            const matchingSeriesSelectionObj = selectionsQuery.find((selectionObj) => {
+              return selectionObj.selection === genre.toUpperCase();
+            });
+            seriesPusher(matchingSeriesSelectionObj);
+          }
+        }
+      });
+    });
+    return queryInterface.bulkInsert('SeriesSelectionGroups', seriesList, {});
   },
 
   down: (queryInterface, Sequelize) => {

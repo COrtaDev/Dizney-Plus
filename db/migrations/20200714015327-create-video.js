@@ -10,12 +10,11 @@ module.exports = {
       },
       title: {
         allowNull: false,
-        type: Sequelize.STRING,
-        unique: true
+        type: Sequelize.STRING
       },
       description: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
       },
       rating: {
         allowNull: false,
@@ -23,7 +22,7 @@ module.exports = {
       },
       year: {
         allowNull: false,
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       isOriginal: {
         allowNull: false,
@@ -43,8 +42,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       starring: {
-        allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
       },
       seasons: {
         type: Sequelize.INTEGER
@@ -55,26 +53,26 @@ module.exports = {
       },
       details: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
       },
       videoUrl: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
       },
       titleImg: {
-        allowNull: false,
+        // allowNull: false,
         type: Sequelize.STRING
       },
       backgroundImg: {
-        allowNull: false,
+        // allowNull: false,
         type: Sequelize.STRING
       },
       buttonImg: {
-        allowNull: false,
+        // allowNull: false,
         type: Sequelize.STRING
       },
       brandId: {
-        allowNull: false,
+        // allowNull: false,
         type: Sequelize.INTEGER,
         references: { model: 'Brands' }
       }
