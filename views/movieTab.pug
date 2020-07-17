@@ -16,7 +16,9 @@ html(lang="en")
                         ul.default_option.dropDown
                             li
                                 .dropDown
-                                    p Featured
-                        ul.select_ul.dropDown
+                                    p#displayChoice Featured
+                        ul.select_ul.is-hidden.dropDown
                             each val in ['Featured', 'All Movies A-Z', 'Action', 'Adventure', 'Kid']
                                 li= val
+            .mainContent
+                each val in ("info returned from quarry")
