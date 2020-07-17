@@ -130,9 +130,4 @@ router.post('/account/logout', (req, res) => {
     res.redirect('/');
 });
 
-
-router.get('/account/billing', (req,res)=>{
-
-})
-
 module.exports = router;
