@@ -1,4 +1,6 @@
 const fetch = require('node-fetch');
+const { Video } = require('../db/models')
+// const parse = require('csv-parse');
 const table = require('./export.js')
 const apiKey = '272fff24';
 const write = require('./write.js');
@@ -11,6 +13,7 @@ let rating;
 
 async function omdbFetch() {
     for (let i = 0; i < table.length; i++) {
+        // for (let i = 0; i < 20; i++) {
         title = table[i]['title'];
         let encoded = encodeURI(title);
         let url = `http://www.omdbapi.com/?t=${encoded}&apikey=${apiKey}`;
@@ -38,10 +41,28 @@ async function omdbFetch() {
             if (data.Plot === 'N/A' && details.Plot === 'N/A') await handleEmptyPlots(data, details)
             if (runtime === 'NaNmins') await handleNaNmins()
             if (data.Actors === 'N/A') data.Actors = null
-            videoData = `
-            (${data.Title}, ${data.Plot}, ${rating}, ${data.Year}, ${isOriginal}, ${isMovie}, ${runtime}, ${data.Director}, "${data.Actors}", ${seasons}, "${data.Genre}", ${details.Plot}, ${table[i]['url']})
-            `;
-            await write(videoData);
+            //A cooking competition that challenges five food-loving families to create delicious dishes inspired by the magic of Disney. In each episode, two families go head-to-head in a themed cooking challenge at Walt Disney World.
+            // let titleImg = `https://dizneyplus.s3.us-east-2.amazonaws.com/images/disneyPlusRips/titles/\/${title}\/g-title.png`
+            // videoData = `{title: ${data.Title}, ${data.Plot}, ${rating}, ${data.Year}, ${isOriginal}, ${isMovie}, ${runtime}, ${data.Director}, "${data.Actors}", ${seasons}, "${data.Genre}", ${details.Plot}, ${table[i]['url']}}`;
+            // const videoDataJSON = JSON.stringify(videoData);
+            // await write(videoDataJSON);
+
+            await Video.create({
+
+                title: data.Title,
+                description: data.Plot,
+                rating: rating,
+                year: data.Year,
+                isOriginal: isOriginal,
+                isMovie: isMovie,
+                runtime: runtime,
+                director: data.Director,
+                starring: data.Actors,
+                seasons: seasons,
+                genres: data.Genre,
+                details: details.Plot,
+                videoUrl: table[i]['url']
+            });
             isOriginal = false;
         }
     }
@@ -125,7 +146,6 @@ async function handleOriginal(data) {
     if (data.Production === 'Walt Disney Pictures') {
         isOriginal = true;
         console.log(`This is a Disney Original, set the value of "isOriginal: ${isOriginal}".`);
-        // isOriginal = false;
     } else {
         console.log(`This is not a Disney Original, set the value of "isOriginal: ${isOriginal}".`);
     }
@@ -138,10 +158,26 @@ async function handleRemakes(title, i) {
     let remakeLongRes = await fetch(remakeLongUrl)
     let data = await remakeRes.json();
     let details = await remakeLongRes.json();
-    videoData = `
-        (${data.Title}, ${data.Plot}, ${rating}, ${data.Year}, ${isOriginal}, ${isMovie}, ${runtime}, ${data.Director}, ${data.Actors}, ${seasons}, ${data.Genre}, ${details.Plot}, ${table[i]['url']})
-        `;
-    await write(videoData);
+    // videoData = `
+    //     (${data.Title}, ${data.Plot}, ${rating}, ${data.Year}, ${isOriginal}, ${isMovie}, ${runtime}, ${data.Director}, ${data.Actors}, ${seasons}, ${data.Genre}, ${details.Plot}, ${table[i]['url']})
+    //     `;
+    // await write(videoData);
+    await Video.create({
+        title: data.Title,
+        description: data.Plot,
+        rating: rating,
+        year: data.Year,
+        isOriginal: isOriginal,
+        isMovie: isMovie,
+        runtime: runtime,
+        director: data.Director,
+        starring: data.Actors,
+        seasons: seasons,
+        genres: data.Genre,
+        details: details.Plot,
+        videoUrl: table[i]['url']
+    });
+    isOriginal = false;
 }
 async function handleNaNmins() {
     randomMins = Math.floor(Math.random() * (Math.floor(59) - Math.ceil(20) + 1)) + Math.ceil(20);
