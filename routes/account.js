@@ -125,10 +125,10 @@ router.post('/account/login', csrfProtection, loginValidators,
     })
 );
 
-// router.post('/account/logout', (req, res) => {
-//     logoutAccount(req, res);
-//     res.redirect('/');
-// });
+router.post('/account/logout', (req, res) => {
+    logoutAccount(req, res);
+    res.redirect('/');
+});
 
 
 router.get('/account/billing', (req,res)=>{

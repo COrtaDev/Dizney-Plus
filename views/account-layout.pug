@@ -4,8 +4,12 @@ html(lang="en")
         meta(charset="UTF-8")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         style
-            include ../style/account.css
+            include ../public/style/account.css
         title #{title} | Dizney+
     body
         img.logo(src="https://prod-static.disney-plus.net/us-east-1/builds/04d47001a1cd5fb6323787be372ca527c1841758_1594068400312/images/logo.svg")
+        if title === 'Sign up'
+            .logInButtons
+                div
+                    button#logIn(type="get") LOG IN
         block content

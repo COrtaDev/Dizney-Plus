@@ -2,7 +2,28 @@ html {
     background-color: rgb(26, 29, 41);
 }
 
+.logInButtons {
+    display: flex;
+    justify-content: flex-end;
+    top: 5px;
+    position: absolute;
+    right: 0%;
+}
 
+#logIn {
+    background-color: rgba(0,0,0,.5);
+    color: white;
+    margin: 5px;
+    border-style: none;
+    padding: 10px;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
+#logIn:hover {
+    background-color: white;
+    color: black;
+}
 
 h3 {
     color: white;
