@@ -1,13 +1,22 @@
-// window.addEventListener('click', event => {
-    
-//     document.getElementsByClassName('.select_ul')
-//     .classList.add('.is-hidden')
-// })
 document.addEventListener('DOMContentLoaded', () => {
-    const dropdown = document.querySelector('.select_ul')
+    const choiceContainer = document.querySelector('.default_option')
+    const choices = document.querySelector('.select_ul')
+    
+    choiceContainer.addEventListener('click', e => {
+        choices.classList.toggle('is-hidden');
+    });
 
-    dropdown.addEventListener('click', e => {
-        dropdown.classList.toggle('is-hidden');
-        console.log('test')
+    choices.addEventListener('click', async (e) => {
+        const genre = e.target.innerHTML
+        const displayChoice = document.getElementById('displayChoice')
+        displayChoice.innerHTML = genre
+        choices.classList.toggle('is-hidden')
+        try {
+            const res = await fetch(`/movies/${genre}`, {
+                method: 'GET'
+            })
+        } catch {
+            console.log('error')
+        }
     });
 });

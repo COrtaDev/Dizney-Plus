@@ -24,7 +24,7 @@ app.use(restoreAccount);
 app.use(accountRouter);
 
 app.use('/', landingRouter)
-app.use('/movies', moviesRouter)
+app.use(moviesRouter)
 // app.post('/login', (req, res) => {
 //     const { email, password } = req.body;
 //     const account = await Account.findOne({ where: { email } })
