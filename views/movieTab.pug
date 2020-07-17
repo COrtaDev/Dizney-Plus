@@ -21,4 +21,5 @@ html(lang="en")
                             each val in ['Featured', 'All Movies A-Z', 'Action', 'Adventure', 'Kid']
                                 li= val
             .mainContent
-                each val in ("info returned from quarry")
+                each video in videos
+                    a(href=`/movies/${video.id}`)= video.title
