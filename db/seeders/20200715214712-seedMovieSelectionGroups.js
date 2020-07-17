@@ -9,14 +9,12 @@ module.exports = {
         attributes: ["id", "selection"]
       });
       const selections = selectionsQuery.map(selection => selection.selection);
-    console.log(selectionsQuery)
       const movies = await Video.findAll({ 
         attributes: ["id", "genres"],
         where: {
           isMovie: true,
         }
       });
-    console.log(movies)
       const movieList = [];
       movies.forEach(movie => {
           const genres = movie.genres.split(", ");

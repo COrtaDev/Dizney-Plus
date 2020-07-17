@@ -10,6 +10,13 @@ module.exports = {
       { avatarImg: '***URL***' },
       { avatarImg: '***URL***' },
       { avatarImg: '***URL***' },
+      { avatarImg: '***URL***' },
+      { avatarImg: '***URL***' },
+      { avatarImg: '***URL***' },
+      { avatarImg: '***URL***' },
+      { avatarImg: '***URL***' },
+      { avatarImg: '***URL***' },
+      { avatarImg: '***URL***' },
     ], {});
   },
 
