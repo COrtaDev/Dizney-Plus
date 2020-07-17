@@ -4,7 +4,7 @@ html(lang="en")
     head
         meta(charset="UTF-8")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        script(src='scripts/dropDown.js')
+        script(src='/scripts/dropDown.js'  type ='text/javascript')
         style
             include ../public/style/movieTab.css
     body    
@@ -18,8 +18,8 @@ html(lang="en")
                                 .dropDown
                                     p#displayChoice Featured
                         ul.select_ul.is-hidden.dropDown
-                            each val in ['Featured', 'All Movies A-Z', 'Action', 'Adventure', 'Kid']
+                            each val in ['Featured', 'Comedy', 'Action', 'Adventure', 'Family']
                                 li= val
             .mainContent
                 each video in videos
-                    a(href=`/movie/${video.title}`)= video.title
+                    a(href=`/video/${video.title}`)= video.title
