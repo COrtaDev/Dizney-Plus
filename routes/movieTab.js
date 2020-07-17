@@ -1,15 +1,27 @@
 const express = require('express');
 const { asyncHandler } = require("../utils");
 const router = express.Router();
-const { Videos} = require('../db/models')
+const { Video } = require('../db/models')
+
 router.get('/movies', asyncHandler(async (req, res) => {
-    const videos = Videos.findAll();
+    const videos = await Video.findAll({
+      where: {
+        isMovie: true,
+      },
+      limit: 50,
+    });
     res.render("movieTab", {videos});
-  })
-);
+}));
 
-router.get('/movies/:genre', asyncHandler(async (req, res) => {
-    console.log(req.params.genre)
+router.get('/movies/:genres', asyncHandler(async (req, res) => {
+  let selectedGenre = req.params.genre
+  const selectedVideos = await Video.findAll({
+    where: {
+      genres: `${selectedGenre}`
+    },
+    limit: 50,
+  });
+  res.render("movieTab", { selectedVideos });
+}));
 
-}))
 module.exports = router;

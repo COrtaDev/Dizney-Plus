@@ -69,8 +69,6 @@ h1 {
     color: #dddddd;
     line-height: 1.5;
     border-radius: 5px;
-    /* display: flex;
-    flex-direction: column; */
 } 
 .select_ul li {
 cursor: pointer;
@@ -98,4 +96,22 @@ display: block;
 .select_wrap.active .default_option:before {
 top: 25px;
 transform: rotate(-225deg);
+}
+
+.mainContent {
+    position: absolute;
+    margin-top: 100px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    box-sizing: border-box;
+    z-index: -1;
+}
+
+a:hover {
+    box-shadow: rgba(0, 0, 0, 0.8) 0px 40px 58px -16px, rgba(0, 0, 0, 0.72) 0px 30px 22px -10px;
+    transform: scale(1.05) translateZ(0px) translate3d(0px, 0px, 0px);
+    transition-duration: 300ms;
+    transition-property: transform, box-shadow;
+    transition-timing-function: ease-out;
 }

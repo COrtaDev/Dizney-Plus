@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const displayChoice = document.getElementById('displayChoice')
         displayChoice.innerHTML = genre
         choices.classList.toggle('is-hidden')
+        
         try {
             const res = await fetch(`/movies/${genre}`, {
                 method: 'GET'
