@@ -10,18 +10,20 @@ router.get(
 //   requireAuth,
   asyncHandler(async (req, res) => {
     const videoTitle = req.params.title;
-    const video = await Video.findOne(videoTitle);
+    const video = await Video.findOne({ where: { title: videoTitle } });
     res.render('video-detail', { video });
   })
 );
 
-// router.get(
-//   '/video/:id(\\d+)/:videoUrl(\\)',
-//   asyncHandler(async (req, res) => {
-//     const videoId = parseInt(req.params.id, 10);
-//     const videoUrl = req.params.videoUrl;
-    
-//   })
-// );
+router.get(
+  '/video/:title/player',
+//   requireAuth,
+  asyncHandler(async (req, res) => {
+    const videoTitle = req.params.title;
+    const video = await Video.findOne({ where: { title: videoTitle } });
+    const videoUrl = video.videoUrl;
+    res.render('video-player', { videoUrl });
+  })
+);
 
 module.exports = router;
