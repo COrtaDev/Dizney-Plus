@@ -1,37 +1,19 @@
 * {
-    /* background-color:#040813; */
     padding: 0%;
     margin: 0%;
 }
 
-#background {
-    background: url('https://prod-static.disney-plus.net/us-east-1/builds/04d47001a1cd5fb6323787be372ca527c1841758_1594068400312/node_modules/dss-junglebook/components/themes/images/background.png') no-repeat;
-    background-size: contain;
+html {
+    background: url("https://dizneyplus.s3.us-east-2.amazonaws.com/images/disneyPlusRips/background.png") no-repeat center center fixed;
+    -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
-
-/* body {
-    position: relative;
-} */
 
 html {
     background-color: #040813;
 }
-
-.bgimg {
-    position: absolute;
-}
-
-#backgroundimg {
-    /* max-width:100%; */
-    height:auto;
-    width: 100%;
-    /* background-repeat: no-repeat;
-    background-size: contain; */
-}
-
-/* .nav__block {
-    position: absolute;
-} */
 
 .nav {
     position: relative;
@@ -62,11 +44,13 @@ html {
     font-family: avenir;
     font-weight: 500;
     letter-spacing: 2px;
+    align-self: center;
+    text-decoration: none;
 }
 
 #dizneyLogo{
     width: 79px;
-    height: 48px;
+    height: auto;
 }
 
 .nav__dropdown {
