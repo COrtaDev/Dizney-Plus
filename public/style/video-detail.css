@@ -1,7 +1,42 @@
-.content-container {
+.content {
+  position: absolute;
+  top: 900px;
+  left: 125px;
+  font-family: avenir;
+  font-size: 25px;
+  color: white;
+  width: 1200px;
+}
+
+.content__playButton {
   display: flex;
 }
 
-/* .videoInfo {
+.content__videoInfo {
+  display: flex;
+  flex-direction: row;
+}
 
-} */
+.videoInfo__property {
+  align-self: flex-start;
+}
+
+.content__description {
+  display: flex;
+}
+
+html {
+  background-color:#040813;   
+}
+
+#bgImg {
+  position: relative;
+  width: 100%;
+  z-index: -5;
+}
+#titleImg {
+  position: absolute;
+  width: 30%;
+  left: 125px;
+  top: 30%;
+}

@@ -5,11 +5,11 @@ const { requireAuth } = require('../auth');
 const { Profile } = require('../db/models');
 
 router.get("/home",
-  // requireAuth,
+  requireAuth,
   asyncHandler(async (req, res) => {
   const profiles = await Profile.findAll({
     where: {
-      // accountId: req.session.auth.accountId
+      accountId: req.session.auth.accountId
     }
   });
   res.render("home", { profiles });
