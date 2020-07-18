@@ -5,12 +5,12 @@ module.exports = (sequelize, DataTypes) => {
   }, { timestamps: false });
 
   MovieSelection.associate = function(models) {
-    const columnMapping = {
-      through: 'MovieSelectionGroups',
-      foreignKey: 'movieSelectionId',
-      otherKey: 'videoId'
-    }
-    MovieSelection.belongsToMany(models.Video, columnMapping);
+    // const columnMapping = {
+    //   through: 'MovieSelectionGroups',
+    //   foreignKey: 'movieSelectionId',
+    //   otherKey: 'videoId'
+    // }
+    // MovieSelection.belongsToMany(models.Video, columnMapping);
   };
   return MovieSelection;
 };
