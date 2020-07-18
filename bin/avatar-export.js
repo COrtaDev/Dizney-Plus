@@ -1,4 +1,5 @@
-// This is the exact seed for
+// This is the exact seed for the avatars table
+
 [
     {
         "id": 1,
