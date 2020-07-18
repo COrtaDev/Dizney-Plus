@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
     titleImg: DataTypes.STRING,
     backgroundImg: DataTypes.STRING,
     buttonImg: DataTypes.STRING,
-    brandId: DataTypes.INTEGER
+    // brandId: DataTypes.INTEGER
   }, {
       timestamps: false,
       indexes: [
@@ -28,7 +28,7 @@ module.exports = (sequelize, DataTypes) => {
       ]
   });
   Video.associate = function(models) {
-    Video.belongsTo(models.Brand, { foreignKey: 'brandId' });
+    // Video.belongsTo(models.Brand, { foreignKey: 'brandId' });
     // Video.hasMany(models.WatchListedVideo, { foreignKey: 'videoId' });
   };
   return Video;

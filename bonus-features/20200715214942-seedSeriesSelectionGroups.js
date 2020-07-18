@@ -1,6 +1,6 @@
 'use strict';
-const { Video } = require('../models')
-const { SeriesSelection } = require('../models')
+const { Video } = require('../db/models')
+const { SeriesSelection } = require('../db/models')
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
