@@ -1,3 +1,6 @@
+// This is used in access the OMDB API Database
+// Titles have been modified to return accurate data from their API and should not be used to populate Dizneyplus
+
 const table = [
     {
         "title": "avengers infinity war",
