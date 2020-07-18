@@ -1,6 +1,6 @@
 const express = require('express');
 const { check, validationResult } = require('express-validator')
-const db = require('../db/models');
+const { Avatar } = require('../db/models');
 const { csrfProtection, asyncHandler } = require('../utils');
 // const multer  = require('multer');//may be optional
 const { access_id, secret, bucket } = require('../config');
@@ -8,17 +8,22 @@ const router = express.Router();
 
 
 //Who's Watching???
-router.get('/profiles/select-profile', (req, res) => {
-  // const profiles
-  res.render('profiles-select-profile')
-})
+router.get('/profiles/select-profile', asyncHandler(async (req, res) => {
+  const avatars = await Avatar.findAll({
+    limit: 20
+  })
+  res.render('profiles-select-profile', { avatars })
+}))
 
-router.get('/profiles/select-avatar', (req, res) => {
-  res.render('./profile-views/profiles-select-avatar')
-})
+router.get('/profiles/select-avatar', asyncHandler(async (req, res) => {
+  const avatars = await Avatar.findAll({
+    limit: 20
+  })
+  res.render('profiles-select-avatar', { avatars })
+}))
 
 router.get('/profiles/add', (req, res) => {
-  res.render('profiles-add-profile')
+  res.render('profiles-add-profile', { avatars })
 })
 
 router.post('/profiles/add:id', (req, res) => {

@@ -1,0 +1,9 @@
+extends profiles-layout.pug
+style
+  include ../public/style/profiles.css
+block content
+  h1 Who's Watching?
+    div.avatarContainer
+      each avatar in avatars
+        div.avatarButton
+          a(href=`/home`): img(src=`${avatar.avatarImg}`)
