@@ -1,7 +1,7 @@
 .content-container {
-  display: flex;
+  display: grid;
 }
 
-/* .videoInfo {
-
-} */
+.videoInfo {
+  display: inline;
+}
