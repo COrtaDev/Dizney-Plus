@@ -116,11 +116,11 @@ img {
 .videoDisplayImg {
     margin: 10px;
     max-width: 340px;
-    max-height: 191.25px;
+    max-height: 194.25px;
+    box-sizing: border-box;
     border-radius: 4px;
 }
 .videoDisplayImg:hover {
-    z-index: 2;
     box-shadow: rgba(0, 0, 0, 0.8) 0px 40px 58px -16px, rgba(0, 0, 0, 0.72) 0px 30px 22px -10px;
     transform: scale(1.05) translateZ(0px) translate3d(0px, 0px, 0px);
     transition-duration: 300ms;
