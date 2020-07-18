@@ -6,6 +6,7 @@ html(lang="en")
         link(rel='icon' href='https://dizneyplus.s3.us-east-2.amazonaws.com/images/disneyPlusRips/favicon.ico' type='image/x-icon')
         style
             include ../public/style/video-player.css
+        title Dizney+ | #{video.title}
     body
         div.resp-container
-            #{videoUrl}
+            #{video.videoUrl}

@@ -4,22 +4,35 @@ html(lang="en")
         meta(charset="UTF-8")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         link(rel='icon' href='https://dizneyplus.s3.us-east-2.amazonaws.com/images/disneyPlusRips/favicon.ico' type='image/x-icon')
-        script(src='scripts/video-detail-tabs.js')
+        script(src='scripts/video-detail.js')
         style
             include ../public/style/video-detail.css
     body
-        div.content-container
-            div.playButton
+        img#bgImg(src=`${video.backgroundImg}`)
+        img#titleImg(src=`${video.titleImg}`)
+        div.content
+            div.content__playButton
                 a(class='btn btn-primary' href=`/video/${video.title}/player` role='button') PLAY
-            div.videoInfo
-                div#rating
+            div.content__videoInfo
+                div.videoInfo__property
                     p #{video.rating}
-                div#year
+                div.videoInfo__property
                     p #{video.year}
-                div#genres
+                div.videoInfo__property
+                    p &nbsp;•&nbsp;
+                div.videoInfo__property
+                if video.isMovie
+                    p #{video.runtime}
+                else
+                    p #{video.seasons} Seasons
+                div.videoInfo__property
+                    p &nbsp;•&nbsp;
+                div.videoInfo__property
                     p #{video.genres}
-            div#description
+            div.content__description
                 p #{video.description}
+
+                
 
 
 
