@@ -1,3 +1,7 @@
+html {
+    margin: 0;
+    padding: 0;
+}
 .dropDown {
     margin: 0;
     padding: 0;
@@ -8,12 +12,13 @@
     display: none;
 }
 body {
-    background-color: #141721;
+    background-color: #171a25;
 }
 .topBlock {
-    margin: 25px;
+    padding: 25px;
     position: fixed;
     width: 100%;
+    background-color: #171a25;
     display: flex;
 }
 h1 {
@@ -23,8 +28,8 @@ h1 {
 }
 .wrapper {
     position: absolute;
-    top: 29px;
-    left: 247px;
+    top: 50px;
+    left: 275px;
     transform: translate(-50%,-50%);
     
 }
@@ -97,21 +102,29 @@ display: block;
 top: 25px;
 transform: rotate(-225deg);
 }
-
+img {
+    max-width: 100%;
+}
 .mainContent {
     position: absolute;
-    margin-top: 100px;
     display: flex;
-    flex-flow: row wrap;
     justify-content: center;
-    box-sizing: border-box;
+    flex-flow: row wrap;
+    margin-top: 100px;
     z-index: -1;
 }
-
-a:hover {
+.videoDisplayImg {
+    margin: 10px;
+    max-width: 340px;
+    max-height: 194.25px;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+.videoDisplayImg:hover {
     box-shadow: rgba(0, 0, 0, 0.8) 0px 40px 58px -16px, rgba(0, 0, 0, 0.72) 0px 30px 22px -10px;
     transform: scale(1.05) translateZ(0px) translate3d(0px, 0px, 0px);
     transition-duration: 300ms;
     transition-property: transform, box-shadow;
     transition-timing-function: ease-out;
+    border: 3px solid white;
 }

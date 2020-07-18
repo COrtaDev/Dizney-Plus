@@ -8,15 +8,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     choices.addEventListener('click', async (e) => {
         const genre = e.target.innerHTML
-        const displayChoice = document.getElementById('displayChoice')
-        displayChoice.innerHTML = genre
-        choices.classList.toggle('is-hidden')
-
-        try {
-            window.location.href= `/movies/${genre}`
-            
-        } catch {
-            console.log('error')
+        if(genre === 'Featured') {
+            window.location.href= `/movies`
+        } else {
+            const displayChoice = document.getElementById('displayChoice')
+            displayChoice.innerHTML = genre
+            choices.classList.toggle('is-hidden')
+            try {
+                
+                window.location.href= `/movies/${genre}`
+                
+            } catch {
+                console.log('error')
+            }
         }
     });
 });
