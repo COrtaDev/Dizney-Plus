@@ -58,15 +58,15 @@ module.exports = {
         type: Sequelize.TEXT
       },
       titleImg: {
-        // allowNull: false,
+        allowNull: false,
         type: Sequelize.STRING
       },
       backgroundImg: {
-        // allowNull: false,
+        allowNull: false,
         type: Sequelize.STRING
       },
       buttonImg: {
-        // allowNull: false,
+        allowNull: false,
         type: Sequelize.STRING
       },
       // brandId: {
