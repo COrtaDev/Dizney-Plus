@@ -8,6 +8,7 @@ const moviesRouter = require('./routes/movieTab');
 const accountRouter = require('./routes/account');
 const profilesRouter = require('./routes/profiles');
 const homeRouter = require('./routes/home');
+const videoDetailRouter = require('./routes/video-detail');
 const { restoreAccount } = require('./auth');
 const app = express();
 app.use(express.static('public'))
@@ -34,5 +35,5 @@ app.use('/', landingRouter)
 app.use(moviesRouter)
 
 
-
+app.use(videoDetailRouter);
 module.exports = app;
