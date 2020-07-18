@@ -6,17 +6,15 @@ html(lang="en")
         link(rel='icon' href='https://dizneyplus.s3.us-east-2.amazonaws.com/images/disneyPlusRips/favicon.ico' type='image/x-icon')
         style
             include ../public/style/navBar.css
-        title Disney+ | Movies and Shows
+        block head
+            title Disney+ | Movies and Shows
     body
-        //- img#backgroundimg(src="https://dizneyplus.s3.us-east-2.amazonaws.com/images/disneyPlusRips/background.png")
         div.nav
             div.nav__routes
-                button.nav__button
+                a(class='nav__button' href=`/home` role='button')
                     img#dizneyLogo(src="https://dizneyplus.s3.us-east-2.amazonaws.com/images/disneyPlusRips/dizneylogoWHT.png")
-                    
                 a(class='nav__button' href=`/home` role='button') HOME
                 a(class='nav__button' href=`/search` role='button').nav__button SEARCH
-                //- button.nav__button WATCHLIST
                 a(class='nav__button' href=`/originals` role='button').nav__button ORIGINALS
                 a(class='nav__button' href=`/movies` role='button').nav__button MOVIES
                 a(class='nav__button' href=`/series` role='button').nav__button SERIES
@@ -31,6 +29,4 @@ html(lang="en")
                     //- li Account
                     //- li Help
                     //- li Log Out
-                    
-
-block content
+        block content

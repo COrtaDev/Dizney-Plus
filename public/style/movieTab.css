@@ -1,7 +1,7 @@
-html {
+/* html {
     margin: 0;
     padding: 0;
-}
+} */
 .dropDown {
     margin: 0;
     padding: 0;
@@ -15,6 +15,7 @@ body {
     background-color: #171a25;
 }
 .topBlock {
+    top: 72px;
     padding: 25px;
     position: fixed;
     width: 100%;

@@ -2,26 +2,26 @@
     padding: 0%;
     margin: 0%;
 }
+/* html {
+    background-color: #040813;
+} */
 
-html {
+body {
     background: url("https://dizneyplus.s3.us-east-2.amazonaws.com/images/disneyPlusRips/background.png") no-repeat center center fixed;
     -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    /* background-color: #040813; */
 }
 
-html {
-    background-color: #040813;
-}
 
 .nav {
-    position: relative;
-    top: 0px;
+    background-color: #131313;
+    position: fixed;
     display: flex;
     align-items: center;
     height: 72px;
-    background-color: #131313;
 }
 
 .nav__routes {
