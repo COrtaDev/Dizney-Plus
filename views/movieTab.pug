@@ -22,4 +22,4 @@ html(lang="en")
                                 li= val
             .mainContent
                 each video in videos
-                    a(href=`/video/${video.title}`)= img(src=`${video.buttonImg}`)
+                    a(href=`/video/${video.title}`): img(src=`${video.buttonImg}`)

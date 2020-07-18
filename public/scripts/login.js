@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     DemologInButton.addEventListener('click', async (e) => {
         try {
-            window.location.href= "/home"
+            window.location.href= "/account/demologin"
             
         } catch {
             console.log('error')
