@@ -1871,8 +1871,8 @@
         "details": "When young Victor's pet dog Sparky (who stars in Victor's home-made monster movies) is hit by a car, Victor decides to bring him back to life the only way he knows how. But when the bolt-necked \"monster\" wreaks havoc and terror in the hearts of Victor's neighbors, he has to convince them (and his parents) that despite his appearance, Sparky's still the good loyal friend he's always been.",
         "videourl": "<iframe class=\"resp-iframe\" src=\"https://www.youtube.com/embed/29vIJQohUWE?iv_load_policy=3&color=white&modestbranding=1&autohide=1&mute=1&showinfo=0&controls=1&autoplay=1\" frameborder=\"0\"  allowfullscreen></iframe>",
         "titleimg": "https://dizneyplus.s3.us-east-2.amazonaws.com/images/disneyPlusRips/titles/frankenweenie-title.png",
-        "backgroundimg": "https://dizneyplus.s3.us-east-2.amazonaws.com/images/disneyPlusRips/backgrounds/frankenweenie-background.jpg",
-        "buttonimg": "https://dizneyplus.s3.us-east-2.amazonaws.com/images/disneyPlusRips/buttons/frankenweenie-button.jpg"
+        "backgroundimg": "https://dizneyplus.s3.us-east-2.amazonaws.com/images/disneyPlusRips/backgrounds/frankenweenie-background.jpeg",
+        "buttonimg": "https://dizneyplus.s3.us-east-2.amazonaws.com/images/disneyPlusRips/buttons/frankenweenie-button.jpeg"
     },
     {
         "id": 109,
