@@ -1,9 +1,18 @@
-extends profiles-layout.pug
-style
-  include ../public/style/profiles.css
-block content
-  h1 Who's Watching?
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    link(rel='icon' href='https://dizneyplus.s3.us-east-2.amazonaws.com/images/disneyPlusRips/favicon.ico' type='image/x-icon')
+    script(src="https://kit.fontawesome.com/563691f269.js" crossorigin="anonymous")
+    style
+      include ../public/style/profiles.css
+    title #{title} | Dizney+
+  body
+    h2 Choose Avatar
     div.avatarContainer
       each avatar in avatars
-        div.avatarButton
-          a(href=`/home`): img(src=`${avatar.avatarImg}`)
+        div
+          a(href=`/home`): img.avatarButton(src=`${avatar.avatarImg}`)
+        div
+          a(href=`/profiles/add`): img.avatarButton(src=`${avatar.avatarImg}`)

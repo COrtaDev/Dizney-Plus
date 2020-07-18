@@ -1,3 +1,10 @@
+/* html {
+    background: url(“https://dizneyplus.s3.us-east-2.amazonaws.com/images/disneyPlusRips/background.png”) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+} */
 .dropDown {
     margin: 0;
     padding: 0;
@@ -8,6 +15,7 @@
     display: none;
 }
 body {
+    font-family: avenir;
     background-color: #141721;
 }
 .topBlock {
@@ -17,9 +25,20 @@ body {
     display: flex;
 }
 h1 {
+    display: flex;
+    justify-content: center;
     color: rgb(249, 249, 249);
-    margin: 0;
+    margin-top: 200px;
     font-size: 44px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+h2 {
+    display: flex;
+    align-self: left;
+    color: rgb(249, 249, 249);
+    margin-top: 135px;
+    font-size: 30px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .wrapper {
     position: absolute;
@@ -98,7 +117,7 @@ top: 25px;
 transform: rotate(-225deg);
 }
 
-.mainContent {
+/* .mainContent {
     position: absolute;
     margin-top: 100px;
     display: flex;
@@ -106,21 +125,34 @@ transform: rotate(-225deg);
     justify-content: center;
     box-sizing: border-box;
     z-index: -1;
-}
+} */
 .avatarContainer {
     position: absolute;
-    margin-top: 100px;
+    align-self: center;
+    margin-top: 50px;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
-    box-sizing: border-box;
-    z-index: -1;
+}
+p{
+    font-size: 30px;
+}
+.profileButton{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.avatarButton{
+    width: 170px;
+    margin: 10px 20px 0px;
+    -webkit-filter: drop-shadow(5px 5px 5px #222);
+    filter: drop-shadow(5px 5px 5px #222);
 }
 
 a:hover {
-    box-shadow: rgba(0, 0, 0, 0.8) 0px 40px 58px -16px, rgba(0, 0, 0, 0.72) 0px 30px 22px -10px;
     transform: scale(1.05) translateZ(0px) translate3d(0px, 0px, 0px);
     transition-duration: 300ms;
-    transition-property: transform, box-shadow;
+    transition-property: transform;
     transition-timing-function: ease-out;
 }
