@@ -21,8 +21,7 @@ router.get(
   asyncHandler(async (req, res) => {
     const videoTitle = req.params.title;
     const video = await Video.findOne({ where: { title: videoTitle } });
-    const videoUrl = video.videoUrl;
-    res.render('video-player', { videoUrl });
+    res.render('video-player', { video });
   })
 );
 

@@ -28,3 +28,77 @@ html {
 h3 {
     color: white;
 }
+
+.logo {
+    position: relative;
+    top: 50px;
+    left: 45%;
+    width: 225px;
+}
+
+.form {
+    position: relative;
+    top: 50px;
+    left: 40%;
+    width: 500px;
+    height: 500px;
+}
+
+form {
+    font-family: avenir;
+    font-weight: bold;
+    color: white;
+}
+
+.form__label {
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.form__submit {
+    color: rgb(249, 249, 249);
+    font-size: 15px;
+    text-transform: uppercase;
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    font-stretch: normal;
+    font-style: normal;
+    height: 60px;
+    justify-content: center;
+    letter-spacing: 1.5px;
+    line-height: 1.5;
+    text-align: center;
+    width: 106%;
+    opacity: 1;
+    background: rgb(0, 114, 210);
+    border-style: none;
+    border-radius: 4px;
+    padding: 0px 24px;
+    overflow: hidden;
+    transition: all 0.2s ease-in-out 0s;
+}
+
+input {
+    backdrop-filter: blur(50px);
+    background-color: rgb(49, 52, 62);
+    caret-color: rgb(2, 231, 245);
+    font-size: 20px;
+    font-stretch: normal;
+    font-style: normal;
+    font-weight: normal;
+    height: 48px;
+    letter-spacing: normal;
+    line-height: 1.53;
+    width: 100%;
+    border-width: 1px;
+    border-style: solid;
+    border-color: transparent;
+    border-image: initial;
+    border-radius: 4px;
+    margin: 0px;
+    outline: none;
+    padding: 7px 12px;
+    transition: all 0.1s ease 0s;
+    margin-bottom: 40px;
+}
