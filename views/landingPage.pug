@@ -6,13 +6,16 @@ html(lang="en")
         script(src='/scripts/login.js'  type ='text/javascript')
         style
             include ../public/style/landingPage.css
+        title Dizney + 
     body
         .bgimg
             img#backgroundimg(src="https://cannonball-cdn.bamgrid.com/assets/originals/Hero_MLP_1440_1.jpg")
 
             .logInButtons
                 div
-                    button#demoLogIn(type="get") DEMO LOG IN
+                    form(action="/account/demologin" method='POST')
+                        input(type='hidden' name='_csrf' value=csrfToken)
+                        button#demoLogIn(type="submit") DEMO LOG IN
                 div
                     button#logIn(type="get" ) LOG IN
         .contentMain

@@ -125,6 +125,13 @@ router.post('/account/login', csrfProtection, loginValidators,
     })
 );
 
+router.post('/account/demologin', asyncHandler(async (req, res) => {
+    const account = await db.Account.findOne({ where: { email:'demo1@demo.com' }});
+    loginAccount(req, res, account);             
+   return res.redirect('/home');
+                
+}));
+
 router.post('/account/logout', (req, res) => {
     logoutAccount(req, res);
     res.redirect('/');
