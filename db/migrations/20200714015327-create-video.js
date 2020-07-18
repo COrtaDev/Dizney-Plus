@@ -25,12 +25,10 @@ module.exports = {
         type: Sequelize.STRING
       },
       isOriginal: {
-        allowNull: false,
         defaultValue: false,
         type: Sequelize.BOOLEAN
       },
       isMovie: {
-        allowNull: false,
         defaultValue: false,
         type: Sequelize.BOOLEAN
       },
@@ -71,11 +69,11 @@ module.exports = {
         // allowNull: false,
         type: Sequelize.STRING
       },
-      brandId: {
-        // allowNull: false,
-        type: Sequelize.INTEGER,
-        references: { model: 'Brands' }
-      }
+      // brandId: {
+      //   // allowNull: false,
+      //   type: Sequelize.INTEGER,
+      //   references: { model: 'Brands' }
+      // }
     });
   },
   down: (queryInterface, Sequelize) => {

@@ -7,19 +7,31 @@ html(lang="en")
             include ../public/style/navBar.css
         title Disney+ | Movies and Shows
     body
-        div
-            div
-                button Disney+ Logo
-            div
-                button Home
-                button Search
-                button Watchlist
-                button Originals
-                button Movies
-                button Series
-            div
-                ul profile dropdown
-                    each profile in profiles
-                        li= profile.name
+        //- div#background
+        .bgimg
+            img#backgroundimg(src="https://prod-static.disney-plus.net/us-east-1/builds/04d47001a1cd5fb6323787be372ca527c1841758_1594068400312/node_modules/dss-junglebook/components/themes/images/background.png")
+        div.nav
+            div.nav__routes
+                button.nav__button
+                    img#dizneyLogo(src="https://prod-static.disney-plus.net/us-east-1/builds/04d47001a1cd5fb6323787be372ca527c1841758_1594068400312/images/logo.svg")
+                    
+                button.nav__button HOME
+                button.nav__button SEARCH
+                button.nav__button WATCHLIST
+                button.nav__button ORIGINALS
+                button.nav__button MOVIES
+                button.nav__button SERIES
+            //- div
+            //-     ul 
+            //-         li Dundo
+                    //- each profile in profiles
+                    //-     li= profile.name
+                    //- li Add New Profile
+                    //- li Edit Profiles
+                    //- li App Settings
+                    //- li Account
+                    //- li Help
+                    //- li Log Out
+                    
 
 block content
