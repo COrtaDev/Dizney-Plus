@@ -3,6 +3,7 @@ const router = express.Router();
 const { asyncHandler } = require("../utils");
 const { requireAuth } = require('../auth');
 const { Profile } = require('../db/models');
+const { Video } = require('../db/models');
 
 router.get("/home",
   requireAuth,
@@ -12,6 +13,7 @@ router.get("/home",
       accountId: req.session.auth.accountId
     }
   });
+  const videos = await Video.findAll({ });
   res.render("home", { profiles });
 }));
 
