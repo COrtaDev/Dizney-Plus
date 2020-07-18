@@ -14,7 +14,6 @@ module.exports = {
         allAvatarImgs.push({ avatarImg: `${baseUrl}${i}.png` });
       }
     }
-    console.log(allAvatarImgs);
     return queryInterface.bulkInsert('Avatars', allAvatarImgs, {});
   },
 
