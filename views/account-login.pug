@@ -3,14 +3,15 @@ extends account-layout.pug
 include utils.pug
 
 block content
-    +validationErrorSummary(errors)
     div.form
         form(action='/account/login' method='post')
             input(type='hidden' name='_csrf' value=csrfToken)
             p.form__label Enter your email
-            +field('email', email)
+            +field('email', email, 'text', 'Email')
             p.form__label Enter your password
-            +field('password', null, 'password')
+            +field('password', null, 'password', 'Password')
             button.form__submit(type='submit') Login
-        div
-            p: a(href='/account/sign-up') Sign up
+            +validationErrorSummary(errors)
+        div.form__altSignUp
+            p New to Dizney+?&nbsp;
+            p: a.form__altSignUpLink(href='/account/sign-up') Sign up
