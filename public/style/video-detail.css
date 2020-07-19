@@ -1,20 +1,62 @@
-.content {
-  position: absolute;
-  top: 900px;
-  left: 125px;
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: rgb(26, 29, 41);
   font-family: avenir;
   font-size: 25px;
   color: white;
-  width: 1200px;
+}
+
+#bgImg {
+  position: absolute;
+  width: 100%;
+  z-index: -5;
+}
+
+#titleImg {
+  position: absolute;
+  width: 30%;
+  left: 125px;
+  top: 30%;
+}
+
+.content {
+  position: absolute;
+  top: 70%;
+  left: 125px;
+  width: 50%;
 }
 
 .content__playButton {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 180px;
+  height: 75px;
+  border-radius: 6px;
+  background-color: white;
+  color: black;
+}
+
+.fa-play {
+  padding-right: 20px;
+}
+
+.content__playText {
+  font-size: 20px;
+  font-weight: 700;
+  color: black;
 }
 
 .content__videoInfo {
   display: flex;
   flex-direction: row;
+  padding-top: 20px;
+  font-size: 20px;
+  font-weight: 0;
 }
 
 .videoInfo__property {
@@ -23,20 +65,95 @@
 
 .content__description {
   display: flex;
+  padding-top: 20px;
 }
 
-html {
-  background-color:#040813;   
-}
-
-#bgImg {
-  position: relative;
-  width: 100%;
-  z-index: -5;
-}
-#titleImg {
+.bar {
   position: absolute;
-  width: 30%;
   left: 125px;
-  top: 30%;
+  right: 125px;
+  width: 100%;
+  top: 90%;
+}
+
+ul {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+}
+
+li {
+  align-self: flex-start;
+  padding-right: 125px;
+}
+
+a {
+  text-decoration: none;
+  font-weight: 300;
+  letter-spacing: 2px;
+}
+
+a.bar__tabs {
+  color: rgb(172, 172, 172);
+}
+
+.tabContent {
+  display: none;
+  padding: 0 18px;
+}
+
+.bar__tabs--active {
+  display: block;
+}
+
+.tabContent#details {
+  display: grid;
+  grid-template-columns: 50% 25% 25%;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "title duration director"
+    "details year starring"
+    "details genre starring"
+    "details rating starring"
+    "details . starring"
+    "details . starring"
+    "details . starring"
+    "details . starring"
+    "details . starring";
+}
+
+.detailsColOne__title {
+  grid-area: title;
+}
+
+.detailsColOne__details {
+  grid-area: details;
+}
+
+.detailsColTwo__duration {
+  grid-area: duration;
+}
+
+.detailsColTwo__seasons {
+  grid-area: seasons;
+}
+
+.detailsColTwo__year {
+  grid-area: year;
+}
+
+.detailsColTwo__genres {
+  grid-area: genres;
+}
+
+.detailsColTwo__rating {
+  grid-area: rating;
+}
+
+.detailsColThree__director {
+  grid-area: director;
+}
+
+.detailsColThree__starring {
+  grid-area: starring;
 }

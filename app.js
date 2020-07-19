@@ -28,12 +28,11 @@ app.use(restoreAccount);
 app.use(accountRouter);
 app.use(homeRouter);
 app.use(profilesRouter);
-app.use('/', landingRouter)
-app.use(moviesRouter)
-app.use(seriesRouter)
-app.use(homeRouter);
-app.use('/', landingRouter)
-app.use(moviesRouter)
+app.use(landingRouter);
+app.use(moviesRouter);
+app.use(seriesRouter);
+
+
 
 
 app.use(videoDetailRouter);

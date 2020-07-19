@@ -4,7 +4,8 @@ html(lang="en")
         meta(charset="UTF-8")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         link(rel='icon' href='https://dizneyplus.s3.us-east-2.amazonaws.com/images/disneyPlusRips/favicon.ico' type='image/x-icon')
-        script(src='scripts/video-detail.js')
+        script(src='/scripts/video-detail-tabs.js'  type ='text/javascript')
+        script(src='https://kit.fontawesome.com/563691f269.js' crossorigin='anonymous')
         style
             include ../public/style/video-detail.css
     body
@@ -12,12 +13,13 @@ html(lang="en")
         img#titleImg(src=`${video.titleImg}`)
         div.content
             div.content__playButton
-                a(class='btn btn-primary' href=`/video/${video.title}/player` role='button') PLAY
+                i.fa.fa-play.fa-fw(aria-hidden='false')
+                a.content__playText(href=`/video/${video.title}/player` role='button') PLAY
             div.content__videoInfo
                 div.videoInfo__property
-                    p #{video.rating}
+                    img#ratingImg(src=`https://dizneyplus.s3.us-east-2.amazonaws.com/images/disneyPlusRips/ratings/movie-${video.rating.toLowerCase()}.png`)
                 div.videoInfo__property
-                    p #{video.year}
+                    p &nbsp;&nbsp;#{video.year}
                 div.videoInfo__property
                     p &nbsp;•&nbsp;
                 div.videoInfo__property
@@ -31,8 +33,40 @@ html(lang="en")
                     p #{video.genres}
             div.content__description
                 p #{video.description}
-
-                
-
-
-
+        div.bar
+            nav.bar__tabs
+                ul
+                    li.bar__tabs--active
+                        a.bar__tabs(href="#suggested") SUGGESTED
+                    li
+                        a.bar__tabs(href="#details") DETAILS
+            section(class="tabContent bar__tabs--active" id="suggested")
+            section(class="tabContent" id="details")
+                div.detailsColOne
+                    p.detailsColOne__title #{video.title}
+                    p.detailsColOne__details #{video.details}
+                div.detailsColTwo
+                    if video.isMovie
+                        div.detailsColTwo__duration
+                        p.detailsColTwo__durationHead Duration:
+                        p.detailsColTwo__durationText #{video.duration}
+                    else
+                        div.detailsColTwo__seasons
+                        p.detailsColTwo__seasonsHead Seasons:
+                        p.detailsColTwo__seasonsText #{video.seasons}
+                    div.detailsColTwo__year
+                    p.detailsColTwo__yearHead Release Date:
+                    p.detailsColTwo__yearText #{video.year}
+                    div.detailsColTwo__genres
+                    p.detailsColTwo__genresHead Genre:
+                    p.detailsColTwo__genresText #{video.genres}
+                    div.detailsColTwo__rating
+                    p.detailsColTwo__ratingHead Rating:
+                    img.detailsColTwo__ratingImg(src=`https://dizneyplus.s3.us-east-2.amazonaws.com/images/disneyPlusRips/ratings/movie-${video.rating.toLowerCase()}.png`)
+                div.detailsColThree
+                    div.detailsColThree__director
+                    p.detailsColThree__directorHead Director:
+                    p.detailsColThree__directorText #{video.director}
+                    div.detailsColThree__starring
+                    p.detailsColThree__starringHead Starring:
+                    p.detailsColThree__starringText #{video.starring}
