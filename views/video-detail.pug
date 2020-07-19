@@ -4,11 +4,12 @@ block head
     script(src='/scripts/video-detail-tabs.js'  type ='text/javascript')
     style
         include ../public/style/video-detail.css
+    title Watch #{video.title}
 block content
     img#bgImg(src=`${video.backgroundImg}`)
     img#titleImg(src=`${video.titleImg}`)
     div.content
-        div(play-route=`${video.title}`).content__playButton
+        div(play-route= `${video.title}`).content__playButton
             i.fa.fa-play.fa-fw(aria-hidden='false')
             p.content__playText PLAY
         div.content__videoInfo
