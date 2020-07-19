@@ -5,3 +5,4 @@ window.addEventListener('DOMContentLoaded', (e) => {
     window.addEventListener('click', (e) => {
         console.log(window.location.search)
     })
+})

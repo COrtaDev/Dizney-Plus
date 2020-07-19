@@ -10,12 +10,10 @@ html(lang="en")
       include ../public/style/profiles.css
     title #{title} | Dizney+
   body
+    div.topButtons
+      a(href=`/home`): img.logo(src=`https://dizneyplus.s3.us-east-2.amazonaws.com/images/disneyPlusRips/dizneylogoWHT.png`)
     h2 Choose Avatar
     div.avatarContainer
       each avatar in avatars
-            form(action='/profiles/add' method='post' style="display:none")
         div
           a(href=`/profiles/add?${avatar.avatarImg}`): img.avatarButton(src=`${avatar.avatarImg}`)
-          //- img.avatarButton(src=`${avatar.avatarImg}`)
-          //-  img.avatarButton(src=`${avatar.avatarImg}`)
-            //- button(style=`background: url(${avatar.avatarImg})`)
