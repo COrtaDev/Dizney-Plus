@@ -1,32 +1,24 @@
 html {
     background-color: rgb(26, 29, 41);
+    font-family: avenir;
+    font-weight: bold;
+    color: white;
 }
 
-.logInButtons {
+.altLogInLink {
     display: flex;
     justify-content: flex-end;
-    top: 5px;
+    top: 50px;
     position: absolute;
-    right: 0%;
+    right: 100px;
+    color: rgb(172, 172, 172);
+    text-decoration: none;
+    font-size: 20px;
 }
 
-#logIn {
-    background-color: rgba(0,0,0,.5);
-    color: white;
-    margin: 5px;
-    border-style: none;
-    padding: 10px;
-    border: 1px solid white;
-    border-radius: 5px;
-}
-
-#logIn:hover {
-    background-color: white;
-    color: black;
-}
-
-h3 {
-    color: white;
+.altLogInLink:hover {
+    transition: color 0.3s ease;
+    color: rgb(222, 220, 220);
 }
 
 .logo {
@@ -40,24 +32,18 @@ h3 {
     position: relative;
     top: 50px;
     left: 40%;
-    width: 500px;
+    width: 460px;
     height: 500px;
 }
 
-form {
-    font-family: avenir;
-    font-weight: bold;
-    color: white;
-}
-
 .form__label {
-    font-size: 35px;
-    font-weight: bold;
+    font-size: 32px;
+    font-weight: 500;
 }
 
 .form__submit {
     color: rgb(249, 249, 249);
-    font-size: 15px;
+    font-size: 20px;
     text-transform: uppercase;
     align-items: center;
     cursor: pointer;
@@ -69,7 +55,7 @@ form {
     letter-spacing: 1.5px;
     line-height: 1.5;
     text-align: center;
-    width: 106%;
+    width: 105.5%;
     opacity: 1;
     background: rgb(0, 114, 210);
     border-style: none;
@@ -79,6 +65,28 @@ form {
     transition: all 0.2s ease-in-out 0s;
 }
 
+.form__submit:hover {
+    transition: background-color 0.5s ease;
+    background-color:  rgb(28, 149, 255);
+}
+
+.form__altSignUp {
+    display: flex;
+    color: rgb(172, 172, 172);
+    font-weight: 100;
+    font-size: 20px;
+}
+
+.form__altSignUpLink {
+    color: white;
+    text-decoration: none;
+}
+
+.form__altSignUpLink:hover {
+    color: rgb(107, 184, 252);
+    text-decoration: underline;
+}
+
 input {
     backdrop-filter: blur(50px);
     background-color: rgb(49, 52, 62);
@@ -86,7 +94,8 @@ input {
     font-size: 20px;
     font-stretch: normal;
     font-style: normal;
-    font-weight: normal;
+    font-weight: lighter;
+    color: white;
     height: 48px;
     letter-spacing: normal;
     line-height: 1.53;
@@ -101,4 +110,14 @@ input {
     padding: 7px 12px;
     transition: all 0.1s ease 0s;
     margin-bottom: 40px;
+}
+
+input:focus {
+    border-color: rgb(125, 124, 124);
+}
+
+ul {
+    list-style-type: none;
+    color: rgb(177, 64, 64);
+    padding-left: 10px;
 }
