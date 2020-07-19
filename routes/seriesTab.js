@@ -2,18 +2,25 @@ const express = require('express');
 const { asyncHandler } = require("../utils");
 const router = express.Router();
 const { requireAuth } = require('../auth');
-const { Profile, Video, Sequelize } = require('../db/models')
+const { Profile, Avatar, Video, Sequelize } = require('../db/models')
 const op = Sequelize.Op;
 
 
 router.get('/series/:genres', requireAuth, asyncHandler(async (req, res) => {
   let selectedGenre = req.params.genres
+  const profile1 = await Profile.findOne({
+    where: {
+      id: req.session.auth.whosWatching
+    },
+    include: Avatar
+  });
+
   const profiles = await Profile.findAll({
     where: {
       accountId: req.session.auth.accountId
-    }
+    },
+    include: Avatar
   });
-  const profile1 = profiles.shift();
   const videos = await Video.findAll({
     where: {
       genres: {
