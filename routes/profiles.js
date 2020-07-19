@@ -102,7 +102,7 @@ router.patch('/profiles/edit:id(\\d+)', requireAuth, asyncHandler(async (req, re
   profile.avatarId = avatarId;
   await profile.save()
   await tweet.save();
-  res.render('profiles-edit')
+  res.redirect('/profiles/edit', { profiles, Avatar })
 }))
 
 router.delete('/profiles/delete', requireAuth, asyncHandler(async (req, res) => {
