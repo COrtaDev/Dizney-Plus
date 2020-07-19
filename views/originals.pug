@@ -13,8 +13,11 @@ html(lang="en")
             .topBlock
                 h1 Originals
             .slideButton
-                        p.right NEXT
-                        p.left Back
+                        .right 
+                            <i class="fa fa-angle-right" aria-hidden="true"></i>
+
+                        .left 
+                            <i class="fa fa-angle-left" aria-hidden="true"></i>
             .featured
                 each video in featuredVideos
                     .videoDisplayImg
