@@ -4,6 +4,8 @@ const { Avatar, Profile } = require('../db/models');
 const { csrfProtection, asyncHandler } = require('../utils');
 const { requireAuth } = require('../auth');
 const router = express.Router();
+const fetch = require('node-fetch');
+// let { avatarUrl } = require('../public/scripts/select-avatar.js')
 
 
 //Who's Watching???
@@ -27,10 +29,8 @@ router.get('/profiles/select-avatar', requireAuth, asyncHandler(async (req, res)
 }))
 
 router.get('/profiles/add', requireAuth, asyncHandler(async (req, res) => {
-  let id = req
-  console.log(id);
+  // console.log(document.URL)
   res.render('profiles-add-profile', { Profile, Avatar })
-  res.send(event.target)
 }))
 
 router.post('/profiles/add:id', (req, res) => {
