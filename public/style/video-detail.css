@@ -11,7 +11,7 @@ body {
 }
 
 #bgImg {
-  position: absolute;
+  position: fixed;
   width: 100%;
   z-index: -5;
 }
@@ -70,9 +70,9 @@ body {
 
 .bar {
   position: absolute;
-  left: 125px;
-  right: 125px;
-  width: 100%;
+  padding-left: 125px;
+  padding-right: 125px;
+  width: 80%;
   top: 90%;
 }
 
@@ -99,14 +99,13 @@ a.bar__tabs {
 
 .tabContent {
   display: none;
-  padding: 0 18px;
 }
 
-.bar__tabs--active {
+.tabContent#suggested.bar__tabs--active {
   display: block;
 }
 
-.tabContent#details {
+.tabContent#details.bar__tabs--active {
   display: grid;
   grid-template-columns: 50% 25% 25%;
   grid-template-rows: auto;
