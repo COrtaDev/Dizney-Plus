@@ -26,10 +26,11 @@ router.get('/profiles/select-avatar', requireAuth, asyncHandler(async (req, res)
   res.render('profiles-select-avatar', { avatars })
 }))
 
-router.get('/profiles/add', requireAuth, asyncHandler(async((req, res) => {
-  
-
-  res.render('profiles-add-profile')
+router.get('/profiles/add', requireAuth, asyncHandler(async (req, res) => {
+  let id = req
+  console.log(id);
+  res.render('profiles-add-profile', { Profile, Avatar })
+  res.send(event.target)
 }))
 
 router.post('/profiles/add:id', (req, res) => {

@@ -1,1 +1,23 @@
-extends profiles-layout.pug
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    link(rel='icon' href='https://dizneyplus.s3.us-east-2.amazonaws.com/images/disneyPlusRips/favicon.ico' type='image/x-icon')
+    script(src="https://kit.fontawesome.com/563691f269.js" crossorigin="anonymous")
+    style
+      include ../public/style/profiles.css
+      include ../public/style/isKid-button.css
+    title #{title} | Dizney+
+  body
+    include utils.pug
+    div.addMenu
+      div.addMenu_left
+        p.addMenu_label Add Profile
+        div.addMenu_left--form
+          form(action='/profiles/select-profile' method='post')
+            +field('name', name)
+            label#toggle-control(for="isKid")
+              input(type="checkbox" checked="checked")
+              span#control
+      div.addMenu_left
