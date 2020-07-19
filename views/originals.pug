@@ -1,0 +1,34 @@
+//- extends layout.pug
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel='icon' href='https://dizneyplus.s3.us-east-2.amazonaws.com/images/disneyPlusRips/favicon.ico' type='image/x-icon')
+        script(src='/scripts/slide.js'  type ='text/javascript')
+        style
+            include ../public/style/originals.css
+    body    
+        block content
+            .topBlock
+                h1 Originals
+            .slideButton
+                        p.right NEXT
+                        p.left Back
+            .featured
+                each video in featuredVideos
+                    .videoDisplayImg
+                        a(href=`/video/${video.title}`): img(src=`${video.buttonImg}`) 
+            //- .series
+            //-     .slideButton
+            //-             span NEXT
+            //-     each video in seriesVideos
+            //-         .videoDisplayImg
+            //-             a(href=`/video/${video.title}`): img(src=`${video.buttonImg}`) 
+            //- .movies
+            //-     .slideButton
+            //-             span NEXT
+            //-     each video in moviesVideos
+            //-         .videoDisplayImg
+            //-             a(href=`/video/${video.title}`): img(src=`${video.buttonImg}`)
+            

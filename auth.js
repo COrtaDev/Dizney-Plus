@@ -18,7 +18,6 @@ const requireAuth = (req, res, next) => {
 };
 
 const restoreAccount = async (req, res, next) => {
-    console.log(req.session);
 
     if (req.session.auth) {
         const { accountId } = req.session.auth;
