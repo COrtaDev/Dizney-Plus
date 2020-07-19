@@ -77,7 +77,8 @@ i {
 
 } */
 
-/* .activeProfile {
+.activeProfile {
+    width: 96px;
     font-size: 13px;
     font-family: avenir;
-} */
+}

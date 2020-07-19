@@ -11,7 +11,7 @@ const accountRouter = require('./routes/account');
 const profilesRouter = require('./routes/profiles');
 const homeRouter = require('./routes/home');
 const videoDetailRouter = require('./routes/video-detail');
-const { restoreAccount } = require('./auth');
+const { restoreAccount, whosWatching } = require('./auth');
 const app = express();
 app.use(express.static('public'))
 app.set('view engine', 'pug');
@@ -33,6 +33,7 @@ app.use(landingRouter)
 app.use(moviesRouter)
 app.use(seriesRouter)
 app.use(originalsRouter)
+// app.use(whosWatching)
 
 
 app.use(videoDetailRouter);

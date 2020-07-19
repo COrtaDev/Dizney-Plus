@@ -2,20 +2,26 @@ const express = require("express");
 const router = express.Router();
 const { asyncHandler } = require("../utils");
 const { requireAuth } = require('../auth');
-const { Profile } = require('../db/models');
-const { Video } = require('../db/models');
+const { Profile, Video, Avatar } = require('../db/models');
+const { whosWatching, logoutAccount } = require('../auth');
 
-router.get("/home",
-  requireAuth,
+router.get("/home", requireAuth, 
   asyncHandler(async (req, res) => {
-  const profiles = await Profile.findAll({
-    where: {
-      accountId: req.session.auth.accountId
-    }
-  });
-  const profile1 = profiles.shift();
-  // const videos = await Video.findAll({ });
-  console.log(profiles);
+
+    const profile1 = await Profile.findOne({ 
+      where: {
+        id: req.session.auth.whosWatching
+      },
+      include: Avatar
+    });
+
+    const profiles = await Profile.findAll({ 
+      where: {
+        accountId: req.session.auth.accountId
+      },
+      include: Avatar
+    });
+
   res.render("home", { profiles, profile1 });
 }));
 

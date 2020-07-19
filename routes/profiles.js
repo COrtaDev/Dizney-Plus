@@ -2,7 +2,7 @@ const express = require('express');
 const { check, validationResult } = require('express-validator')
 const { Avatar, Profile, Sequelize } = require('../db/models');
 const { csrfProtection, asyncHandler } = require('../utils');
-const { requireAuth } = require('../auth');
+const { requireAuth, whosWatching } = require('../auth');
 const router = express.Router();
 const fetch = require('node-fetch');
 const op = Sequelize.Op;
@@ -10,7 +10,7 @@ const op = Sequelize.Op;
 
 
 //Who's Watching???
-router.get('/profiles/select-profile', requireAuth, asyncHandler(async (req, res) => {
+router.get('/profiles/select-profile', requireAuth, whosWatching, asyncHandler(async (req, res) => {
   let id = req.session.auth.accountId
   const profiles = await Profile.findAll({
     where: { accountId: id },

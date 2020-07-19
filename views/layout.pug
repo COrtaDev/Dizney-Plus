@@ -33,11 +33,12 @@ html(lang="en")
                 ul
                     li
                         div 
-                            label= profiles.name
+                            img.avatarImg.activeProfile(src=`${profile1.Avatar.avatarImg}`)
+                            label= profile1.name
                 ul
-                    //- each profile in profiles
-                    //-     li 
-                    //-         div(data-profile= `active#{profile.id}`)= profile.name
+                    each profile in profiles
+                        li 
+                            div(data-profile= `active#{profile.id}`)= profile.name
                     li 
                         div(data-route= "profiles-avatar")
                             label Add New Profile

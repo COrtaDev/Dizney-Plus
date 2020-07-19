@@ -3,6 +3,13 @@ const db = require('./db/models');
 const loginAccount = (req, res, account) => {
     req.session.auth = {
         accountId: account.id,
+        whosWatching: 1
+    };
+};
+
+const whosWatching = (req, res, profile) => {
+    req.session.auth = {
+        whosWatching: profile.id,
     };
 };
 
@@ -45,4 +52,5 @@ module.exports = {
     logoutAccount,
     requireAuth,
     restoreAccount,
+    whosWatching
 };
