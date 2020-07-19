@@ -1,0 +1,19 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    link(rel='icon' href='https://dizneyplus.s3.us-east-2.amazonaws.com/images/disneyPlusRips/favicon.ico' type='image/x-icon')
+    script(src="https://kit.fontawesome.com/563691f269.js" crossorigin="anonymous")
+    style
+      include ../public/style/profiles.css
+    title #{title} | Dizney+
+  body
+    h1 Who's Watching?
+    div.avatarContainer
+      each profile in profiles
+        div.profileButton
+          a(href=`/home`): img.avatarButton(src=`${profile.Avatar.avatarImg}`)
+          p=`${profile.name}`
+      div.addProfileButton
+          a(href=`/profiles/select-avatar`): span.circle

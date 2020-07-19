@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 extends layout.pug
 
 block head
@@ -22,3 +23,32 @@ block content
         each video in videos
             .videoDisplayImg
                 a(href=`/video/${video.title}`): img(src=`${video.buttonImg}`) 
+=======
+//- extends layout.pug
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel='icon' href='https://dizneyplus.s3.us-east-2.amazonaws.com/images/disneyPlusRips/favicon.ico' type='image/x-icon')
+        script(src='/scripts/dropDown.js'  type ='text/javascript')
+        style
+            include ../public/style/movies-series.css
+    body    
+        block content
+            .topBlock
+                h1 Movies
+                .wrapper.dropDown
+                    .select_wrap.dropDown
+                        ul.default_option.dropDown
+                            li
+                                .dropDown
+                                    p#displayChoice Featured
+                        ul.select_ul.is-hidden.dropDown
+                            each val in ['Featured', 'Comedy', 'Action', 'Adventure', 'Family']
+                                li= val
+            .mainContent
+                each video in videos
+                    .videoDisplayImg
+                        a(href=`/video/${video.title}`): img(src=`${video.buttonImg}`) 
+>>>>>>> 421dfd0df00e128f664038a4888bdc0b5262accb

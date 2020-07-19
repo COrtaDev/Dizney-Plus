@@ -3,12 +3,12 @@ extends account-layout.pug
 include utils.pug
 
 block content
-    +validationErrorSummary(errors)
     div.form
         form(action='/account/sign-up' method='post')
             input(type='hidden' name='_csrf' value=csrfToken)
-            p.form__label Log in with your email
-            +field('email', account.email)
+            p.form__label Sign up with your email
+            +field('email', account.email, 'text', 'Email')
             p.form__label Enter your password
-            +field('password', account.password, 'password')
+            +field('password', account.password, 'password', 'Password')
             button.form__submit(type='submit') Sign up
+            +validationErrorSummary(errors)
