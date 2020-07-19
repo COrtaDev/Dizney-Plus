@@ -14,12 +14,13 @@ html(lang="en")
     include utils.pug
     div.addMenu
       div.addMenu_left
-        p.addMenu_label Add Profile
-        div.addMenu_left--form
-          form(action='/profiles/select-profile' method='post')
-            +field('name', name)
-            label#toggle-control(for="isKid")
-              input(type="checkbox" checked="checked")
-              span#control
-    div.right
-      a(href=`/profiles/select-avatar`): img#newAvatar(src="")
+        form(action='/profiles/add:id' method='post')
+          p.addMenu_label Add Profile
+          div.addMenu_left--form
+            +field('name', name,'text', 'Profile Name')
+            label.toggle-control
+              input(type='checkbox' checked='checked')
+              span.control
+            button.addMenu_submit(type='submit') Save
+      div.right
+        a(href=`/profiles/select-avatar`): img#newAvatar(src="")

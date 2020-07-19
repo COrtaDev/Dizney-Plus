@@ -1,3 +1,14 @@
+/* Follow me for more pens like this! */
+/*
+  Note: This demo could have easily been written in vanilla CSS.
+  The reason I opted into using SCSS, was just so that I could
+  enable easy customization for you, the viewer.
+
+  If you want to use this control in your own project as vanilla CSS;
+  customize the variables to whatever you'd like, and then click on the
+  down arrow button in the top right of this CSS editor and then select
+  "View Compiled CSS".
+*/
 .toggle-control {
     display: block;
     position: relative;
@@ -5,22 +16,25 @@
     margin-bottom: 12px;
     cursor: pointer;
     font-size: 22px;
-    user-select: none;
-}
-.toggle-control input {
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+  }
+  .toggle-control input {
     position: absolute;
     opacity: 0;
     cursor: pointer;
     height: 0;
     width: 0;
-}
-.toggle-control input:checked ~ .control {
+  }
+  .toggle-control input:checked ~ .control {
     background-color: dodgerblue;
-}
-.toggle-control input:checked ~ .control:after {
+  }
+  .toggle-control input:checked ~ .control:after {
     left: 55px;
-}
-.toggle-control .control {
+  }
+  .toggle-control .control {
     position: absolute;
     top: 0;
     left: 0;
@@ -28,9 +42,10 @@
     width: 100px;
     border-radius: 25px;
     background-color: darkgray;
+    -webkit-transition: background-color 0.15s ease-in;
     transition: background-color 0.15s ease-in;
-}
-.toggle-control .control:after {
+  }
+  .toggle-control .control:after {
     content: "";
     position: absolute;
     left: 5px;
@@ -39,14 +54,19 @@
     height: 40px;
     border-radius: 25px;
     background: white;
+    -webkit-transition: left 0.15s ease-in;
     transition: left 0.15s ease-in;
-}
-/* Center the control */
-body {
+  }
+
+  /* Center the control */
+  body {
+    display: -webkit-box;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+            align-items: center;
     min-height: 100vh;
-    background-color: #222229;
+    /* background-color: #222229; */
     color: white;
-}
+  }

@@ -117,25 +117,67 @@ top: 25px;
 transform: rotate(-225deg);
 }
 
-/* .mainContent {
-    position: absolute;
-    margin-top: 100px;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    box-sizing: border-box;
-    z-index: -1;
-} */
+input {
+    backdrop-filter: blur(50px);
+    background-color: rgb(49, 52, 62);
+    caret-color: rgb(2, 231, 245);
+    font-size: 20px;
+    font-stretch: normal;
+    font-style: normal;
+    font-weight: lighter;
+    color: white;
+    height: 48px;
+    letter-spacing: normal;
+    line-height: 1.53;
+    width: 100%;
+    border-width: 1px;
+    border-style: solid;
+    border-color: transparent;
+    border-image: initial;
+    border-radius: 4px;
+    margin: 0px;
+    outline: none;
+    padding: 7px 12px;
+    transition: all 0.1s ease 0s;
+    margin-bottom: 40px;
+}
+.addMenu{
+    display: inline-flex;
+    flex-direction: row;
+}
 .avatarContainer {
-    position: absolute;
+    display: flex;
     align-self: center;
     margin-top: 50px;
-    display: flex;
     flex-flow: row wrap;
     justify-content: center;
 }
 p{
     font-size: 30px;
+}
+.addMenu_submit{
+    color: rgb(249, 249, 249);
+    font-size: 20px;
+    text-transform: uppercase;
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    font-stretch: normal;
+    font-style: normal;
+    height: 60px;
+    justify-content: center;
+    letter-spacing: 1.5px;
+    line-height: 1.5;
+    text-align: center;
+    width: 105.5%;
+    opacity: 1;
+    background: rgb(0, 114, 210);
+    border-style: none;
+    border-radius: 4px;
+    padding: 0px 24px;
+    overflow: hidden;
+    transition: all 0.2s ease-in-out 0s;
+
 }
 .profileButton{
     display:flex;
@@ -149,10 +191,32 @@ p{
     -webkit-filter: drop-shadow(5px 5px 5px #222);
     filter: drop-shadow(5px 5px 5px #222);
 }
+#newAvatar{
+    width: 170px;
+    margin: 0px 20px 0px;
+    -webkit-filter: drop-shadow(5px 5px 5px #222);
+    filter: drop-shadow(5px 5px 5px #222);
 
+}
+.circle::before {
+    display: flex;
+    content: ' \25CF';
+    font-size: 380px;
+    color: #33353e;
+}
 a:hover {
     transform: scale(1.05) translateZ(0px) translate3d(0px, 0px, 0px);
     transition-duration: 300ms;
     transition-property: transform;
     transition-timing-function: ease-out;
+}
+.logo{
+    width: 90px;
+}
+.edit{
+    display: flex;
+    justify-content: center;
+    color: rgb(249, 249, 249);
+    font-size: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
