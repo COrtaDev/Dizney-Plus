@@ -8,7 +8,7 @@ block content
     img#bgImg(src=`${video.backgroundImg}`)
     img#titleImg(src=`${video.titleImg}`)
     div.content
-        div(play-route=`/video/${video.title}/player`).content__playButton
+        div(play-route=`${video.title}`).content__playButton
             i.fa.fa-play.fa-fw(aria-hidden='false')
             p.content__playText PLAY
         div.content__videoInfo

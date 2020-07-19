@@ -10,6 +10,15 @@ document.addEventListener("DOMContentLoaded", (event) => {
     });
   });
 
+  const playRoutes = document.querySelectorAll('[play-route]');
+  playRoutes.forEach(playRoute => {
+    playRoute.addEventListener('click', e => {
+      e.stopPropagation();
+      const route = e.currentTarget.getAttribute('play-route');
+      window.location.href = `/video/${route}/player`;
+    });
+  });
+
   const removeActiveTab = () => {
     tabs.forEach((tab) => {
       tab.classList.remove("bar__tabs--active");
