@@ -9,7 +9,6 @@ const op = Sequelize.Op;
 router.get('/movies/:genres', requireAuth, asyncHandler(async (req, res) => {
   let selectedGenre = req.params.genres
   const profiles = await Profile.findAll({
-    // raw: true,
     where: {
       accountId: req.session.auth.accountId
     }
