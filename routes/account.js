@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs');
 
 const db = require('../db/models');
 const { csrfProtection, asyncHandler } = require('../utils');
-const { loginAccount, whosWatching, logoutAccount } = require('../auth');
+const { loginAccount, logoutAccount } = require('../auth');
 
 
 
@@ -121,14 +121,6 @@ router.post('/account/login', csrfProtection, loginValidators,
 router.post('/account/demologin', asyncHandler(async (req, res) => {
     const account = await db.Account.findOne({ where: { email:'demo1@demo.com' }});
     loginAccount(req, res, account);  
-    // try{
-    // const profile = await db.Profile.findByPk(1)
-    // // console.log(profile)
-    // // console.log(profile.id)
-    // whosWatching(req, res, profile);         
-    // }catch(e){
-    //     console.error(e);
-    // }
     return res.redirect('/home');
 }));
 

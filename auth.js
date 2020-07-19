@@ -7,11 +7,11 @@ const loginAccount = (req, res, account) => {
     };
 };
 
-const whosWatching = (req, res, profile) => {
-    req.session.auth = {
-        whosWatching: profile.id,
-    };
-};
+// const whosWatching = (req, res, profile) => {
+//     req.session.auth = {
+//         whosWatching: profile.id,
+//     };
+// };
 
 const logoutAccount = (req, res) => {
     delete req.session.auth;
@@ -52,5 +52,5 @@ module.exports = {
     logoutAccount,
     requireAuth,
     restoreAccount,
-    whosWatching
+    // whosWatching
 };

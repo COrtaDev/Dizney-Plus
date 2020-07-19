@@ -1,4 +1,5 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', (e) => {//DOMContentLoaded
+    
     const routes = document.querySelectorAll('[data-route]');
     routes.forEach(div => {
         div.addEventListener('click', e => {
@@ -8,16 +9,17 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    const dropdown = document.querySelectorAll('.nav__dropdown');
-    dropdown.addEventListener('click', e => {
-        e.stopPropagation();
+    const profileDropdown = document.querySelector('.nav__dropdown');
+    // console.log(dropdown);
+    profileDropdown.addEventListener('click', e => {
+        // e.stopPropagation();
         const route = e.currentTarget.getAttribute('data-route');
         window.location.href = `/${route}`;
-    })
+    });
 
     const logoutButton = document.querySelector('.logoutButton')
     logoutButton.addEventListener('click', e => {
         e.stopPropagation();
         window.location.href = "/"; 
-    })
+    });
 });

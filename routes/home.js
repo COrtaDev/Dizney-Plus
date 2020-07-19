@@ -3,7 +3,7 @@ const router = express.Router();
 const { asyncHandler } = require("../utils");
 const { requireAuth } = require('../auth');
 const { Profile, Video, Avatar } = require('../db/models');
-const { whosWatching, logoutAccount } = require('../auth');
+// const { logoutAccount } = require('../auth');
 
 router.get("/home", requireAuth, 
   asyncHandler(async (req, res) => {

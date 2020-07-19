@@ -11,7 +11,7 @@ const accountRouter = require('./routes/account');
 const profilesRouter = require('./routes/profiles');
 const homeRouter = require('./routes/home');
 const videoDetailRouter = require('./routes/video-detail');
-const { restoreAccount, whosWatching } = require('./auth');
+const { restoreAccount } = require('./auth');
 const app = express();
 app.use(express.static('public'))
 app.set('view engine', 'pug');
