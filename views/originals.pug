@@ -1,0 +1,32 @@
+extends layout.pug
+block head
+    link(rel='icon' href='https://dizneyplus.s3.us-east-2.amazonaws.com/images/disneyPlusRips/favicon.ico' type='image/x-icon')
+    script(src='/scripts/slide.js'  type ='text/javascript')
+    style
+        include ../public/style/originals.css
+block content
+        .topBlock
+            h1 Originals
+        .slideButton
+                    .right 
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+
+                    .left 
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        .featured
+            each video in featuredVideos
+                .videoDisplayImg
+                    a(href=`/video/${video.title}`): img(src=`${video.buttonImg}`) 
+        //- .series
+        //-     .slideButton
+        //-             span NEXT
+        //-     each video in seriesVideos
+        //-         .videoDisplayImg
+        //-             a(href=`/video/${video.title}`): img(src=`${video.buttonImg}`) 
+        //- .movies
+        //-     .slideButton
+        //-             span NEXT
+        //-     each video in moviesVideos
+        //-         .videoDisplayImg
+        //-             a(href=`/video/${video.title}`): img(src=`${video.buttonImg}`)
+        
