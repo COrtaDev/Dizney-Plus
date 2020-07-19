@@ -1,7 +1,8 @@
-html {
+/* html {
     margin: 0;
     padding: 0;
-}
+} */
+
 .dropDown {
     margin: 0;
     padding: 0;
@@ -11,21 +12,26 @@ html {
 .is-hidden {
     display: none;
 }
+
 body {
-    background-color: #171a25;
+    background-color: rgb(26,29,41);
 }
+
 .topBlock {
+    top: 72px;
     padding: 25px;
     position: fixed;
     width: 100%;
-    background-color: #171a25;
+    background-color: rgb(26,29,41);
     display: flex;
 }
+
 h1 {
     color: rgb(249, 249, 249);
     margin: 0;
     font-size: 44px;
 }
+
 .wrapper {
     position: absolute;
     top: 50px;
@@ -33,13 +39,16 @@ h1 {
     transform: translate(-50%,-50%);
     
 }
+
 .li {
     color: #fff;
 }
+
 .select_wrap {
     width: 175px;
     position: relative;
 }
+
 .default_option {
     background: #2e3038;
     color: #dddddd;
@@ -51,9 +60,11 @@ h1 {
     align-items: center;
     display: flex;
 }
+
 .default_option li {
     padding: 0px 15px;
 } 
+
 .default_option:before {
     content: "";
     position: absolute;
@@ -65,6 +76,7 @@ h1 {
     border-color: transparent transparent #555555 #555555;
     transform: rotate(-45deg);
 }
+
 .select_ul {
     position: absolute;
     top: 50px;
@@ -75,44 +87,53 @@ h1 {
     line-height: 1.5;
     border-radius: 5px;
 } 
-.select_ul li {
-cursor: pointer;
-padding-left: 25px;
-}
-.select_ul li:first-child:hover {
-border-top-left-radius: 5px;
-border-top-right-radius: 5px;
-}
-.select_ul li:last-child:hover {
-border-bottom-left-radius: 5px;
-border-bottom-right-radius: 5px;
-}
-.select_ul li:hover {
-background-color: #33353e;
 
+.select_ul li {
+    cursor: pointer;
+    padding-left: 25px;
 }
+
+.select_ul li:first-child:hover {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.select_ul li:last-child:hover {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.select_ul li:hover {
+    background-color: #33353e;
+}
+
 .option {
-display: flex;
-align-items: center;
+    display: flex;
+    align-items: center;
 }
+
 .select_wrap.active .select_ul {
-display: block;
+    display: block;
 }
+
 .select_wrap.active .default_option:before {
-top: 25px;
-transform: rotate(-225deg);
+    top: 25px;
+    transform: rotate(-225deg);
 }
+
 img {
     max-width: 100%;
 }
+
 .mainContent {
     position: absolute;
     display: flex;
     justify-content: center;
     flex-flow: row wrap;
-    margin-top: 100px;
+    margin-top: 172px;
     z-index: -1;
 }
+
 .videoDisplayImg {
     margin: 10px;
     max-width: 340px;
@@ -120,6 +141,7 @@ img {
     box-sizing: border-box;
     border-radius: 4px;
 }
+
 .videoDisplayImg:hover {
     box-shadow: rgba(0, 0, 0, 0.8) 0px 40px 58px -16px, rgba(0, 0, 0, 0.72) 0px 30px 22px -10px;
     transform: scale(1.05) translateZ(0px) translate3d(0px, 0px, 0px);

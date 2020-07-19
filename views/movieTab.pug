@@ -1,3 +1,29 @@
+<<<<<<< HEAD
+extends layout.pug
+
+block head
+    title Disney+ | Movies and Shows
+    script(src='/scripts/dropDown.js'  type ='text/javascript')
+    script(src='/scripts/homeNavButtons.js'  type ='text/javascript')
+    style
+        include ../public/style/movieTab.css
+block content
+    .topBlock
+        h1 Movies
+        .wrapper.dropDown
+            .select_wrap.dropDown
+                ul.default_option.dropDown
+                    li
+                        .dropDown
+                            p#displayChoice Featured
+                ul.select_ul.is-hidden.dropDown
+                    each val in ['Featured', 'Comedy', 'Action', 'Adventure', 'Family']
+                        li= val
+    .mainContent
+        each video in videos
+            .videoDisplayImg
+                a(href=`/video/${video.title}`): img(src=`${video.buttonImg}`) 
+=======
 //- extends layout.pug
 doctype html
 html(lang="en")
@@ -25,3 +51,4 @@ html(lang="en")
                 each video in videos
                     .videoDisplayImg
                         a(href=`/video/${video.title}`): img(src=`${video.buttonImg}`) 
+>>>>>>> 421dfd0df00e128f664038a4888bdc0b5262accb

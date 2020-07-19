@@ -9,12 +9,15 @@ router.get("/home",
   requireAuth,
   asyncHandler(async (req, res) => {
   const profiles = await Profile.findAll({
+    // raw: true,
     where: {
       accountId: req.session.auth.accountId
     }
   });
-  const videos = await Video.findAll({ });
-  res.render("home", { profiles });
+  const profile1 = profiles.shift();
+  // const videos = await Video.findAll({ });
+  console.log(profiles);
+  res.render("home", { profiles, profile1 });
 }));
 
 module.exports = router;
