@@ -21,9 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function moveRight() {
-        if(count < 12) {
+        if(count < 4) {
             count++;
-            pixals -= 570;
+            pixals -= 1635;
             slideContainer.style.transform = `translate(${pixals}px)`
             console.log(count)
         } else {
@@ -36,10 +36,10 @@ document.addEventListener('DOMContentLoaded', () => {
     function moveLeft() {
         if( count === 0) {
             return
-        }else(count <= 12) 
+        }else(count <= 4) 
             console.log(count)
             count--;
-            pixals += 570;
+            pixals += 1635;
             slideContainer.style.transform = `translate(${pixals}px)`
             console.log(count)
         } 
