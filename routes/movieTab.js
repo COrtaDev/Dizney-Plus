@@ -2,7 +2,7 @@ const express = require('express');
 const { asyncHandler } = require("../utils");
 const router = express.Router();
 const { requireAuth } = require('../auth');
-const { Profile, Account, Video, Sequelize } = require('../db/models')
+const { Profile, Video, Sequelize } = require('../db/models')
 const op = Sequelize.Op;
 
 

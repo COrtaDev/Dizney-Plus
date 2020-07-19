@@ -9,7 +9,6 @@ router.get("/home",
   requireAuth,
   asyncHandler(async (req, res) => {
   const profiles = await Profile.findAll({
-    // raw: true,
     where: {
       accountId: req.session.auth.accountId
     }
