@@ -2,57 +2,82 @@
     padding: 0%;
     margin: 0%;
 }
-/* html {
-    background-color: #040813;
-} */
-
-body {
-    background: url("https://dizneyplus.s3.us-east-2.amazonaws.com/images/disneyPlusRips/background.png") no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    /* background-color: #040813; */
-}
-
 
 .nav {
-    background-color: #131313;
     position: fixed;
     display: flex;
     align-items: center;
     height: 72px;
-}
-
-.nav__routes {
-    position: absolute;
-    left: 40px;
-    display: flex;
-    justify-content: space-between;
-    width: 800px;
+    background-color: rgb(9, 11, 19);
+    width: 100%;
+    padding-left: 8px;
 }
 
 .nav__button {
     background-color: transparent;
-    background-repeat:no-repeat;
+    background-repeat: no-repeat;
     border: none;
-    cursor:pointer;
+    cursor: pointer;
     overflow: hidden;
     outline: none;
-    color: white;
+    align-self: center;
+    width: auto;
+    height: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 20px 0px;
+}
+
+i {
     font-size: 14px;
+    color: white;
+    position: relative;
+}
+
+.nav__link {
+    padding-left: 12px;
+    color: white;
+    font-size: 13px;
     font-family: avenir;
     font-weight: 500;
     letter-spacing: 2px;
-    align-self: center;
     text-decoration: none;
+    cursor: pointer;
+}
+
+.nav__logo {
+    visibility: hidden;
+    position: absolute;
 }
 
 #dizneyLogo{
-    width: 79px;
+    position: relative;
+    width: 72px;
     height: auto;
+    padding-right: 18px;
 }
 
 .nav__dropdown {
+    color: white;
+    position: relative;
+    top: 20px;
+    margin-left: auto;
+    margin-top: auto;
+}
+
+.profile_list {
+    list-style: none;
+    font-size: 16px;
+    font-family: avenir;
+}
+
+.logoutButton {
 
 }
+
+/* .activeProfile {
+    font-size: 13px;
+    font-family: avenir;
+} */

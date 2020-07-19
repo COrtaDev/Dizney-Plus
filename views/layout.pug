@@ -4,29 +4,47 @@ html(lang="en")
         meta(charset="UTF-8")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         link(rel='icon' href='https://dizneyplus.s3.us-east-2.amazonaws.com/images/disneyPlusRips/favicon.ico' type='image/x-icon')
+        script(src="https://kit.fontawesome.com/563691f269.js" crossorigin="anonymous")
+        script(src='/scripts/homeNavButtons.js'  type ='text/javascript')
         style
             include ../public/style/navBar.css
         block head
-            title Disney+ | Movies and Shows
     body
         div.nav
-            div.nav__routes
-                a(class='nav__button' href=`/home` role='button')
-                    img#dizneyLogo(src="https://dizneyplus.s3.us-east-2.amazonaws.com/images/disneyPlusRips/dizneylogoWHT.png")
-                a(class='nav__button' href=`/home` role='button') HOME
-                a(class='nav__button' href=`/search` role='button').nav__button SEARCH
-                a(class='nav__button' href=`/originals` role='button').nav__button ORIGINALS
-                a(class='nav__button' href=`/movies` role='button').nav__button MOVIES
-                a(class='nav__button' href=`/series` role='button').nav__button SERIES
-            //- div
-            //-     ul 
-            //-         li Dundo
+            div(data-route= "home").nav__button
+                img.nav__link#dizneyLogo(src="https://dizneyplus.s3.us-east-2.amazonaws.com/images/disneyPlusRips/dizneylogoWHT.png")
+            div(data-route= "home").nav__button
+                i.fa.fa-home.fa-fw(aria-hidden="true")
+                label.nav__link HOME
+            div(data-route= "search").nav__button
+                i.fa.fa-search.fa-fw(aria-hidden="true")
+                label.nav__link SEARCH
+            div(data-route= "originals").nav__button
+                i.fa.fa-star.fa-fw(aria-hidden="true")
+                label.nav__link ORIGINALS
+            div(data-route= "movies").nav__button
+                i.fa.fa-film.fa-fw(aria-hidden="true")
+                label.nav__link MOVIES
+            div(data-route= "series").nav__button
+                i.fa.fa-television.fa-fw(aria-hidden="true")
+                label.nav__link SERIES  
+            div.nav__dropdown
+                ul
+                    li
+                        div 
+                            label= profiles.name
+                ul
                     //- each profile in profiles
-                    //-     li= profile.name
-                    //- li Add New Profile
-                    //- li Edit Profiles
-                    //- li App Settings
-                    //- li Account
-                    //- li Help
-                    //- li Log Out
-        block content
+                    //-     li 
+                    //-         div(data-profile= `active#{profile.id}`)= profile.name
+                    li 
+                        div(data-route= "profiles-avatar")
+                            label Add New Profile
+                    li 
+                        div(data-route= "profiles-edit")
+                            label Edit Profiles
+                    li  
+                        form(action="/account/logout" method='POST')
+                            div(type="submit").logoutButton
+                                label Log Out
+    block content
