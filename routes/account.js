@@ -20,26 +20,18 @@ router.get('/account/sign-up', csrfProtection, (req, res) => {
 
 const signupValidators = [
     check("email")
-        .exists({ checkFalsy: true })
-        .withMessage("Please enter a value for Email")
-        // .isLength({ max: 255 })
-        // .withMessage('Email must not be more than 255 characters long'),
         .isEmail()
-        .withMessage("Email is not valid")
+        .withMessage("Sorry, your email address is not in a valid format: yourname@example.com.")
         .custom((value) => {
             return db.Account.findOne({ where: { email: value } }).then((account) => {
                 if (account) {
-                    return Promise.reject("The Email is already in use");
+                    return Promise.reject("The Email is already in use.");
                 }
             });
     }),
     check("password")
-        .exists({ checkFalsy: true })
-        .withMessage("Please enter a value for Password")
-        // .isLength({ max: 50 })
-        // .withMessage("Password must not be more than 50 characters long")
         .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])/, "g")
-        .withMessage('Password must contain at least 1 lowercase letter, uppercase letter, number, and special character (i.e. "!@#$%^&*")'),
+        .withMessage('Password must contain at least 1 lowercase letter, uppercase letter, number, and special character.'),
 ];
 
 router.post('/account/sign-up', csrfProtection, signupValidators,
@@ -83,10 +75,10 @@ router.get('/account/login', csrfProtection, (req, res) => {
 const loginValidators = [
     check('email')
         .exists({ checkFalsy: true })
-        .withMessage('Please enter a value for Email'),
+        .withMessage('Please enter a value for Email.'),
     check('password')
         .exists({ checkFalsy: true })
-        .withMessage('Please enter a value for Password'),
+        .withMessage('Please enter a value for Password.'),
 ];
 
 router.post('/account/login', csrfProtection, loginValidators,
@@ -111,7 +103,7 @@ router.post('/account/login', csrfProtection, loginValidators,
                 }
             }
 
-            errors.push('Incorrect login credentials.');
+            errors.push('Unknown login credentials. Please check your spelling.');
         } else {
             errors = validatorErrors.array().map((error) => error.msg);
         }
