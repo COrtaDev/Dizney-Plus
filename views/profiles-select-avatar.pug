@@ -1,0 +1,19 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    link(rel='icon' href='https://dizneyplus.s3.us-east-2.amazonaws.com/images/disneyPlusRips/favicon.ico' type='image/x-icon')
+    script(src="https://kit.fontawesome.com/563691f269.js" crossorigin="anonymous")
+    //- script(src='/scripts/select-avatar.js'  type ='text/javascript')
+    style
+      include ../public/style/profiles.css
+    title #{title} | Dizney+
+  body
+    div.topButtons
+      a(href=`/home`): img.logo(src=`https://dizneyplus.s3.us-east-2.amazonaws.com/images/disneyPlusRips/dizneylogoWHT.png`)
+    h2 Choose Avatar
+    div.avatarContainer
+      each avatar in avatars
+        div
+          a(href=`/profiles/add?${avatar.avatarImg}`): img.avatarButton(src=`${avatar.avatarImg}`)

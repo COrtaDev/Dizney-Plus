@@ -13,8 +13,10 @@ router.get("/home",
       accountId: req.session.auth.accountId
     }
   });
-  const videos = await Video.findAll({ });
-  res.render("home", { profiles });
+  const profile1 = profiles.shift();
+  // const videos = await Video.findAll({ });
+  console.log(profiles);
+  res.render("home", { profiles, profile1 });
 }));
 
 module.exports = router;

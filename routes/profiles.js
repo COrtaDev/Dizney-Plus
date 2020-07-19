@@ -1,49 +1,117 @@
 const express = require('express');
 const { check, validationResult } = require('express-validator')
-const db = require('../db/models');
+const { Avatar, Profile, Sequelize } = require('../db/models');
 const { csrfProtection, asyncHandler } = require('../utils');
-// const multer  = require('multer');//may be optional
-const { access_id, secret, bucket } = require('../config');
+const { requireAuth } = require('../auth');
 const router = express.Router();
+const fetch = require('node-fetch');
+const op = Sequelize.Op;
+
 
 
 //Who's Watching???
-router.get('/profiles/select-profile', (req, res) => {
-  // const profiles
-  res.render('profiles-select-profile')
-})
+router.get('/profiles/select-profile', requireAuth, asyncHandler(async (req, res) => {
+  let id = req.session.auth.accountId
+  const profiles = await Profile.findAll({
+    where: { accountId: id },
+    include: [{
+      model: Avatar,
+    }],
+    limit: 7
+  })
+  res.render('profiles-select-profile', { profiles, Avatar })
+}))
 
-router.get('/profiles/select-avatar', (req, res) => {
-  res.render('./profile-views/profiles-select-avatar')
-})
+router.get('/profiles/select-avatar', requireAuth, asyncHandler(async (req, res) => {
+  let id = req.session.auth.accountId
+  const avatars = await Avatar.findAll({
+    genres: {
+      [op.ne]: id
+    },
+    exclude: [{
+      id: id,
+      model: Profile,
+    }],
+    limit: 50
+  })
+  res.render('profiles-select-avatar', { avatars, Profile })
+}))
+router.get('/profiles/add', requireAuth, asyncHandler(async (req, res) => {
+  res.render('profiles-add-profile', { Profile, Avatar })
+}))
 
-router.get('/profiles/add', (req, res) => {
-  res.render('profiles-add-profile')
-})
+router.post('/profiles/add:id', requireAuth,
+  asyncHandler(async (req, res) => {
+    const {
+      name,
+      isKid,
+      avatarId
+    } = req.body;
 
-router.post('/profiles/add:id', (req, res) => {
-  res.redirect('profiles-select-profile')
-})
+    await Profile.create({
+      name: name,
+      isKid: isKid,
+      avatarId: avatarId
+    });
+    // let errors = [];
+    // const validatorErrors = validationResult(req);
+
+    // if (validatorErrors.isEmpty()) {
+
+    //   if (name !== null) {
+
+    //   } else {
+    //     errors = validatorErrors.array().map((error) => error.msg);
+    //   }
+    res.redirect('select-profile')
+  }))
+
 
 
 //Edit profiles: Select a profile to edit
 //Will display all available profiles associated to your account
-router.get('/profiles/edit', (req, res) => {
-  res.render('profiles-edit')
-})
+router.get('/profiles/edit', requireAuth, asyncHandler(async (req, res) => {
+  let id = req.session.auth.accountId
+  const profiles = await Profile.findAll({
+    where: { accountId: id },
+    include: [{
+      model: Avatar,
+    }],
+    limit: 7
+  })
+  res.render('profiles-edit-profile', { profiles, Avatar })
+}))
 
 //This is the page where you change the name of the profile and set it to kids mode if you want
-router.get('/profiles/edit:id', (req, res) => {
-  res.render('profiles-edit')
-})
+router.get('/profiles/edit:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
+  const id = parseInt(req.params.id, 10);
+  const profile = await Profile.findByPk(id);
+  res.render('profiles-edit', { profile, Avatar })
+}))
 
-router.patch('/profiles/edit:id', (req, res) => {
-  res.render('profiles-edit')
-})
+router.patch('/profiles/edit:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
+  const id = parseInt(req.params.id);
+  const profile = await Profile.findByPk(id);
+  const {
+    name,
+    isKid,
+    avatarId
+  } = req.body;
+  profile.name = name;
+  profile.isKid = isKid;
+  profile.avatarId = avatarId;
+  await profile.save()
+  await tweet.save();
+  res.redirect('/profiles/edit', { profiles, Avatar })
+}))
 
-router.delete('/profiles/edit:id', (req, res) => {
-  res.render('profiles-edit-profile')
-})
+router.delete('/profiles/delete', requireAuth, asyncHandler(async (req, res) => {
+  const id = req.session.auth.accountId
+  const profile = await Profile.findByPk(id)
+  await profile.destroy();
+  res.status(204).end();
+  res.render('profiles-edit-profile', { profiles, Avatar });
+}))
 
 
 
