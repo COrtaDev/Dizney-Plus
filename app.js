@@ -5,6 +5,7 @@ const morgan = require('morgan');
 const { environment, sessionSecret } = require("./config");
 const landingRouter = require('./routes/landing');
 const moviesRouter = require('./routes/movieTab');
+const seriesRouter = require('./routes/seriesTab');
 const accountRouter = require('./routes/account');
 const profilesRouter = require('./routes/profiles');
 const homeRouter = require('./routes/home');
@@ -29,7 +30,7 @@ app.use(homeRouter);
 app.use(profilesRouter);
 app.use('/', landingRouter)
 app.use(moviesRouter)
-
+app.use(seriesRouter)
 app.use(homeRouter);
 app.use('/', landingRouter)
 app.use(moviesRouter)
