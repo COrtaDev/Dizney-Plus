@@ -3,39 +3,6 @@
     margin: 0%;
 }
 
-<<<<<<< HEAD
-/* html {
-    background: url("https://dizneyplus.s3.us-east-2.amazonaws.com/images/disneyPlusRips/background.png") no-repeat center center fixed;
-    -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-} */
-
-/* html {
-    background-color: #040813;
-} */
-
-body {
-}
-
-.nav {
-    background-color: #131313;
-    position: fixed;
-    top: 0px;
-    display: flex;
-    align-items: center;
-    height: 72px;
-    
-}
-
-.nav__routes {
-    position: absolute;
-    left: 40px;
-    display: flex;
-    justify-content: space-between;
-    width: 800px;
-=======
 .nav {
     position: fixed;
     display: flex;
@@ -44,7 +11,6 @@ body {
     background-color: rgb(9, 11, 19);
     width: 100%;
     padding-left: 8px;
->>>>>>> 65263563c9549ddfe1d2c54e26b1cc6d62f364cf
 }
 
 .nav__button {
@@ -107,9 +73,9 @@ i {
     font-family: avenir;
 }
 
-.logoutButton {
+/* .logoutButton {
 
-}
+} */
 
 /* .activeProfile {
     font-size: 13px;
