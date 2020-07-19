@@ -4,9 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
         div.addEventListener('click', e => {
             e.stopPropagation()
             const route = e.currentTarget.getAttribute('data-route');
-            // window.location.href = `/${route}`;
-            const { profiles } = req.body;
-            res.render('movieTab', { profiles, profile1 });
+            window.location.href = `/${route}`;
         });
     });
 
