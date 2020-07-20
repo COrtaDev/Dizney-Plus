@@ -32,7 +32,7 @@ router.get('/profiles/add', requireAuth, asyncHandler(async (req, res) => {
   res.render('profiles-add-profile', { Profile, Avatar })
 }))
 
-router.post('/profiles/add:id', requireAuth,
+router.post('/profiles/add/:id', requireAuth,
   asyncHandler(async (req, res) => {
     const {
       name,
@@ -75,26 +75,35 @@ router.get('/profiles/edit-profile', requireAuth, asyncHandler(async (req, res) 
 }))
 
 //This is the page where you change the name of the profile and set it to kids mode if you want
-router.get('/profiles/edit', requireAuth, asyncHandler(async (req, res) => {
-
-  const profile = await Profile.findByPk(id);
+router.get('/profiles/edit/:id', requireAuth, asyncHandler(async (req, res) => {
+  const id = parseInt(req.params.id);
+  const profile = await Profile.findByPk(id, { include: Avatar });
   res.render('profile-edit-profile', { profile, Avatar })
 }))
 
-router.patch('/profiles/edit:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
+
+//this updates a selected profile on the current account
+router.post('/profiles/edit/:id', requireAuth, asyncHandler(async (req, res) => {
   const id = parseInt(req.params.id);
+  // const accountId = req.session.auth.accountId;
+  // console.accountId;
+  console.log("name");
   const profile = await Profile.findByPk(id);
   const {
     name,
     isKid,
     avatarId
   } = req.body;
+  console.log(name);
+  console.log(isKid);
+  console.log(avatarId);
+  console.log(profile);
   profile.name = name;
   profile.isKid = isKid;
+  // profile.accountId = accountId;
   profile.avatarId = avatarId;
   await profile.save()
-  await tweet.save();
-  res.redirect('/profiles/edit', { profiles, Avatar })
+  res.redirect('/profiles/edit-profile')
 }))
 
 router.delete('/profiles/delete', requireAuth, asyncHandler(async (req, res) => {
