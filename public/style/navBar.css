@@ -1,27 +1,3 @@
-* {
-    padding: 0%;
-    margin: 0%;
-}
-.whoMadeMe {
-    background-color: rgb(9, 11, 19);
-    position: fixed;
-    display: flex;
-    justify-content: space-evenly;
-    list-style: none;
-    color: white;
-    width: 100%;
-    font-size: 24px;
-}
-.fa-fw {
-    font-size: 25px;
-}
-i {
-    padding: 5px;
-}
-.fab:hover{
-    background-color: lime;
-    border-radius: 5px;
-}
 .nav {
     position: fixed;
     display: flex;
