@@ -1,27 +1,39 @@
 extends layout.pug
 block head
     link(rel='icon' href='https://dizneyplus.s3.us-east-2.amazonaws.com/images/disneyPlusRips/favicon.ico' type='image/x-icon')
-    script(src='/scripts/slide.js'  type ='text/javascript')
+    //- script(src='/scripts/slide.js'  type ='text/javascript')
     style
-        include ../public/style/originals.css
+        include ../public/style/movies-series.css
 block content
-    .featured
-        each video in featuredVideos
+    .topBlock
+        h1 Originals
+    .mainContent
+        each video in videos
             .videoDisplayImg
                 a(href=`/video/${video.title}`): img(src=`${video.buttonImg}`) 
-        //- .series
-        //-     .slideButton
-        //-             span NEXT
-        //-     each video in seriesVideos
-        //-         .videoDisplayImg
-        //-             a(href=`/video/${video.title}`): img(src=`${video.buttonImg}`) 
-        //- .movies
-        //-     .slideButton
-        //-             span NEXT
-        //-     each video in moviesVideos
-        //-         .videoDisplayImg
-        //-             a(href=`/video/${video.title}`): img(src=`${video.buttonImg}`)
-    .right 
-        <i class="fa fa-angle-right fa-5x" aria-hidden="true"></i>
-    .left 
-        <i class="fa fa-angle-left" aria-hidden="true"></i>
+    //-                         Not working needs work
+    //- .featured
+    //-     each video in featuredVideos
+    //-         .videoDisplayImg
+    //-             a(href=`/video/${video.title}`): img(src=`${video.buttonImg}`) 
+    //-     .right 
+    //-         <i class="fa fa-angle-right fa-5x" aria-hidden="true" style= "left: 45px"></i>
+    //-     .left 
+    //-         <i class="fa fa-angle-left fa-5x" aria-hidden="true"></i>
+    //- .series
+    //-     each video in seriesVideos
+    //-         .videoDisplayImg
+    //-             a(href=`/video/${video.title}`): img(src=`${video.buttonImg}`)
+    //-     .right 
+    //-         <i class="fa fa-angle-right fa-5x" aria-hidden="true" style= "left: 45px"></i>
+    //-     .left 
+    //-         <i class="fa fa-angle-left fa-5x" aria-hidden="true"></i> 
+    //- .movies
+    //-     each video in moviesVideos
+    //-         .videoDisplayImg
+    //-             a(href=`/video/${video.title}`): img(src=`${video.buttonImg}`)
+    //-     .right 
+    //-         <i class="fa fa-angle-right fa-5x" aria-hidden="true"></i>
+    //-     .left 
+    //-         <i class="fa fa-angle-left fa-5x" aria-hidden="true"></i> 
+    
