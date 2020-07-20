@@ -1,8 +1,8 @@
 const express = require('express');
 const { asyncHandler } = require('../utils');
 const { requireAuth } = require('../auth');
-const { Profile, Video } = require('../db/models');
-
+const { Profile, Avatar, Video, Sequelize } = require('../db/models');
+const op = Sequelize.Op;
 const router = express.Router();
 
 router.get(
@@ -10,13 +10,23 @@ router.get(
   requireAuth,
   asyncHandler(async (req, res) => {
 
-    const profiles = await Profile.findAll({
+    const profile1 = await Profile.findOne({
       where: {
-        accountId: req.session.auth.accountId,
+        id: req.session.auth.whosWatching
       },
+      include: Avatar
     });
 
-    const profile1 = profiles.shift();
+    const profiles = await Profile.findAll({
+      where: {
+        [op.and]: [
+          { [op.not]: { id: req.session.auth.whosWatching } },
+          { accountId: req.session.auth.accountId }
+        ]
+      },
+      include: Avatar
+    });
+
     const videoTitle = req.params.title;
     const video = await Video.findOne({ where: { title: videoTitle } });
     res.render('video-detail', { video, profiles, profile1 });
@@ -28,12 +38,22 @@ router.get(
   requireAuth,
   asyncHandler(async (req, res) => {
 
+    const profile1 = await Profile.findOne({
+      where: {
+        id: req.session.auth.whosWatching
+      },
+      include: Avatar
+    });
+
     const profiles = await Profile.findAll({
       where: {
-        accountId: req.session.auth.accountId,
+        [op.and]: [
+          { [op.not]: { id: req.session.auth.whosWatching } },
+          { accountId: req.session.auth.accountId }
+        ]
       },
+      include: Avatar
     });
-    const profile1 = profiles.shift();
 
     const videoTitle = req.params.title;
     const video = await Video.findOne({ where: { title: videoTitle } });

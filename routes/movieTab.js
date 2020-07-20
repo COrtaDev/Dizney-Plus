@@ -18,7 +18,10 @@ router.get('/movies/:genres', requireAuth,
 
     const profiles = await Profile.findAll({
       where: {
-        accountId: req.session.auth.accountId
+        [op.and]: [
+          { [op.not]: { id: req.session.auth.whosWatching } },
+          { accountId: req.session.auth.accountId }
+        ]
       },
       include: Avatar
     });
@@ -46,7 +49,10 @@ router.get('/movies', requireAuth, asyncHandler(async (req, res) => {
 
   const profiles = await Profile.findAll({
     where: {
-      accountId: req.session.auth.accountId
+      [op.and]: [
+        { [op.not]: { id: req.session.auth.whosWatching } },
+        { accountId: req.session.auth.accountId }
+      ]
     },
     include: Avatar
   });
