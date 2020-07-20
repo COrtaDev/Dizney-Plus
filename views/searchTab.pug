@@ -1,0 +1,16 @@
+extends layout.pug
+block head
+    title Disney+ | Movies and Shows
+    script(src='/scripts/homeNavButtons.js'  type ='text/javascript')
+    style
+        include ../public/style/movies-series.css
+        include ../public/style/searchTab.css
+block content
+    form(action=`/video/search` method='POST')
+        input.searchBar(type="text", value='', name="title", placeholder='search by title...')
+    .header
+        h2 Explore
+    .videoBlock
+        each video in videos
+            .videoDisplayImg
+                a(href=`/video/${video.title}`): img(src=`${video.buttonImg}`) 
