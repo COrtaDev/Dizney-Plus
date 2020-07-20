@@ -8,10 +8,33 @@
     display: flex;
     align-items: center;
     height: 72px;
+    /* background-color: rgb(9, 11, 19); */
+    width: 100%;
+    padding-left: 8px;
+    z-index: 2;
+}
+
+.nav-opacity {
+    z-index: 2;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    height: 72px;
     background-color: rgb(9, 11, 19);
     width: 100%;
     padding-left: 8px;
+    opacity: 0;
+}
+
+.nav-gradient {
     z-index: 1;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    height: 72px;
+    width: 100%;
+    padding-left: 8px;
+    background-image: linear-gradient( rgba(0,0,0,0.68), rgba(0,0,0,0));
 }
 
 .nav__button {
@@ -31,10 +54,28 @@
     padding: 0px 20px 0px;
 }
 
-i {
+.fa-fw {
     font-size: 14px;
     color: white;
     position: relative;
+}
+
+.fa-search.fa-fw {
+    font-size: 13px;
+}
+
+.fa-star.fa-fw {
+    font-size: 13px;
+    position: relative;
+    bottom: 1px;
+}
+
+.fa-film.fa-fw {
+    font-size: 16px;
+}
+
+.fa-television.fa-fw {
+    font-size: 12px;
 }
 
 .nav__link {
@@ -60,32 +101,180 @@ i {
     padding-right: 18px;
 }
 
+
+
+
 .nav__dropdown {
+    cursor: pointer;
+    z-index: 5;
+    display: flex;
+    justify-self: flex-end;
+    align-self: flex-start;
+    flex-direction: column;
     color: white;
+    position: fixed;
+    right: 0px;
+    width: 240px;
+    height: 72px;
+}
+
+.nav__menu {
+    visibility:hidden;
+    opacity:0;
+    transition: visibility 0.1s ease, opacity 0.1s ease, height 0.1s ease;
+    cursor: pointer;
+    z-index: 5;
+    display: flex;
+    justify-self: flex-end;
+    align-self: flex-start;
+    flex-direction: column;
+    color: white;
+    position: fixed;
+    padding-top: 72px;
+    right: 0px;
+    width: 240px;
+    height: 0px;
+    background-color: rgb(19, 19, 19);
+    border-width: thin;
+    border-style: solid;
+    border-color: rgb(64, 64, 64);
+    border-radius: 4px;
+}
+
+div.nav__dropdown:hover > .nav__menu {
+    visibility: visible;
+    opacity: 1;
+    height: 358px;
+}
+
+.nav__dropdown-items-appear {
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.2s ease;
+    transition-delay: 0.1s;
+}
+
+.nav__dropdown-items-appear:hover > * {
+    visibility: visible;
+    opacity: 1;
+}
+
+.nav__dropdown-active {
+    pointer-events: none;
+}
+
+.nav__dropdown-active {
+    cursor: pointer;
+    position: fixed;
+    right: 0px;
+    z-index: 6;
+    display: flex;
+    justify-self: flex-end;
+    align-self: flex-start;
+    align-items: center;
+    justify-content: flex-end;
+    height: 72px;
+    width: 128px;
+    margin-right: 21px;
+}
+
+.nav__dropdown-profile {
+    cursor: pointer;
     position: relative;
-    top: 20px;
-    margin-left: auto;
-    margin-top: auto;
+    width: 198px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    margin-left: 21px;
+}
+
+.nav__active-profile-label {
+    cursor: pointer;
+    margin-right: 15px;
+    color: white;
+}
+
+.nav__dropdown-separator {
+    position: relative;
+    margin-left: 21px;
+    width: 198px;
+    height: 1px;
+    background-color: rgb(42, 42, 42);
+    margin-bottom: 8px;
+}
+
+.nav__profile-label {
+    cursor: pointer;
+    margin-left: 15px;
+}
+
+.avatarImg {
+    cursor: pointer;
+    position: relative;
+    width: 48px;
+    height: 48px;
+    font-size: 13px;
+    font-family: avenir;
+}
+
+.nav__add-profile {
+    cursor: pointer;
+    position: relative;
+    width: 198px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    margin-left: 21px;
+}
+
+.nav__add-profile-circle {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    background-color: rgb(42, 42, 42);
+}
+
+.nav__add-profile-circle:hover {
+    cursor: pointer;
+    background-color: rgb(65, 65, 65);
+}
+
+.fa-plus {
+    cursor: pointer;
+    font-size: 26px;
+    color: white;
+    -webkit-text-stroke: 3px rgb(42, 42, 42);
+    position: relative;
+}
+
+.fa-plus:hover {
+    cursor: pointer;
+    -webkit-text-stroke: 3px rgb(65, 65, 65);
 }
 
 .profile_list {
+    cursor: pointer;
     list-style: none;
     font-size: 16px;
     font-family: avenir;
 }
 
-.logoutButton {
-
+.nav__dropdown-option {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-left: 21px;
+    height: 40px;
 }
 
-.activeProfile {
-    width: 96px;
-    font-size: 13px;
-    font-family: avenir;
-}
 
-.avatarImg {
-    width: 96px;
-    font-size: 13px;
-    font-family: avenir;
-}
+
+
+
+
+

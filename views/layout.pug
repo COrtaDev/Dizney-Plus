@@ -12,6 +12,8 @@ html(lang="en")
 
         block head
     body
+        div.nav-opacity
+        div.nav-gradient
         div.nav
             div(data-route= "home").nav__button
                 img.nav__link#dizneyLogo(src="https://dizneyplus.s3.us-east-2.amazonaws.com/images/disneyPlusRips/dizneylogoWHT.png")
@@ -31,24 +33,51 @@ html(lang="en")
                 i.fa.fa-television.fa-fw(aria-hidden="true")
                 label.nav__link SERIES  
             div.nav__dropdown
-                ul
-                    li
-                        div 
-                            img.avatarImg.activeProfile(src=`${profile1.Avatar.avatarImg}`)
-                            label= profile1.name
-                ul
+                div.nav__dropdown-active
+                    label.nav__active-profile-label= profile1.name
+                    img.avatarImg.activeProfile(src=`${profile1.Avatar.avatarImg}`)
+                ul.nav__menu.nav__dropdown-items-appear
+                    div.nav__dropdown-separator.nav__dropdown-items-appear
                     each profile in profiles
-                        li 
-                            img.avatarImg(src=`${profile.Avatar.avatarImg}`)
-                            div(data-profile= `active#{profile.id}`)= profile.name
-                    li 
-                        div(data-route= "profiles-avatar")
-                            label Add New Profile
-                    li 
-                        div(data-route= "profiles/edit-profile")
-                            label Edit Profiles
-                    li  
-                        form(action="/account/logout" method='POST')
+                        li.nav__dropdown-items-appear 
+                            div(data-profile= `${profile.id}`).nav__dropdown-profile
+                                img.avatarImg(src=`${profile.Avatar.avatarImg}`)
+                                label.nav__profile-label= profile.name
+                    li.nav__dropdown-items-appear 
+                        div(data-route= "profiles/select-avatar").nav__add-profile
+                            div.nav__add-profile-circle
+                                i.fa.fa-plus(aria-hidden="true")
+                            label.nav__profile-label Add New Profile
+                    li.nav__dropdown-items-appear 
+                        div(data-route= "profiles/edit-profile").nav__dropdown-option
+                            label.nav__profile-label Edit Profiles
+                    li.nav__dropdown-items-appear  
+                        form(action="/account/logout" method='POST').nav__dropdown-option
                             div(type="submit").logoutButton
-                                label Log Out
+                                label.nav__profile-label Log Out
     block content
+
+
+    //- div.nav__dropdown
+    //-             div.nav__dropdown-active
+    //-                 label.nav__active-profile-label= profile1.name
+    //-                 img.avatarImg.activeProfile(src=`${profile1.Avatar.avatarImg}`)
+    //-             ul.nav__menu
+    //-                 div.nav__dropdown-separator
+    //-                 each profile in profiles
+    //-                     li 
+    //-                         div(data-profile= `${profile.id}`).nav__dropdown-profile
+    //-                             img.avatarImg(src=`${profile.Avatar.avatarImg}`)
+    //-                             label.nav__profile-label= profile.name
+    //-                 li 
+    //-                     div(data-route= "profiles/select-avatar").nav__add-profile
+    //-                         div.nav__add-profile-circle
+    //-                             i.fa.fa-plus(aria-hidden="true")
+    //-                         label.nav__profile-label Add New Profile
+    //-                 li 
+    //-                     div(data-route= "profiles/edit-profile").nav__dropdown-option
+    //-                         label.nav__profile-label Edit Profiles
+    //-                 li  
+    //-                     form(action="/account/logout" method='POST').nav__dropdown-option
+    //-                         div(type="submit").logoutButton
+    //-                             label.nav__profile-label Log Out
