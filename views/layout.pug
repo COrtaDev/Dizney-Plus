@@ -54,25 +54,25 @@ html(lang="en")
                 label.nav__link MOVIES
             div(data-route= "series").nav__button
                 i.fa.fa-television.fa-fw(aria-hidden="true")
-                label.nav__link SERIES  
+                label.nav__link SERIES
             div.nav__dropdown
                 ul
                     li
-                        div 
+                        div
                             img.avatarImg.activeProfile(src=`${profile1.Avatar.avatarImg}`)
                             label= profile1.name
                 ul
                     each profile in profiles
-                        li 
+                        li
                             img.avatarImg(src=`${profile.Avatar.avatarImg}`)
                             div(data-profile= `active#{profile.id}`)= profile.name
-                    li 
-                        div(data-route= "profiles-avatar")
+                    li
+                        div(data-route= "profiles/select-avatar")
                             label Add New Profile
-                    li 
+                    li
                         div(data-route= "profiles/edit-profile")
                             label Edit Profiles
-                    li  
+                    li
                         form(action="/account/logout" method='POST')
                             div(type="submit").logoutButton
                                 label Log Out
