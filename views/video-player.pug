@@ -4,9 +4,13 @@ html(lang="en")
         meta(charset="UTF-8")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         link(rel='icon' href='https://dizneyplus.s3.us-east-2.amazonaws.com/images/disneyPlusRips/favicon.ico' type='image/x-icon')
+        script(src='/scripts/video-player-back.js'  type ='text/javascript')
         style
             include ../public/style/video-player.css
-        title Dizney+ | #{video.title}
+        title Dizney+ | Video Player - #{video.title}
     body
-        div.resp-container
-            #{video.videoUrl}
+        div.video-background
+            div.video-foreground
+                #{video.videoUrl}
+            div.backButton
+                p &lt; Back
