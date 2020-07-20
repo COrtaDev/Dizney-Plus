@@ -27,7 +27,7 @@ body {
   position: absolute;
   top: 70%;
   left: 125px;
-  width: 50%;
+  width: 45%;
 }
 
 .content__playButton {
@@ -39,6 +39,11 @@ body {
   border-radius: 6px;
   background-color: white;
   color: black;
+}
+
+.content__playButton:hover {
+  transition: background-color 0.5s ease;
+  background-color: rgb(210, 210, 210);
 }
 
 .fa-play {
@@ -67,6 +72,7 @@ body {
 .content__description {
   display: flex;
   padding-top: 20px;
+  line-height: 30pt;
 }
 
 .bar {
@@ -74,7 +80,7 @@ body {
   padding-left: 125px;
   padding-right: 125px;
   width: 80%;
-  top: 90%;
+  top: 96%;
 }
 
 ul {
@@ -96,6 +102,27 @@ a {
 
 a.bar__tabs {
   color: rgb(172, 172, 172);
+}
+
+a.bar__tabs:hover {
+  transition: color 0.3s ease;
+  transition: font-weight 0.3s ease;
+  transition: text-shadow 0.3s ease;
+  color: white;
+  font-weight: 400;
+  text-shadow: 1px 1px 1px rgb(92, 92, 92);
+}
+
+a.bar__tabs:focus {
+  transition: border-bottom;
+  border-bottom: white;
+}
+
+.bar__tabs:not(a) {
+  display: block;
+  padding-bottom: 22px;
+  margin-bottom: 40px;
+  border-bottom: 2pt solid rgb(172, 172, 172);
 }
 
 .tabContent {
