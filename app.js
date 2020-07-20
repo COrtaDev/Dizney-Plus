@@ -6,7 +6,7 @@ const { environment, sessionSecret } = require("./config");
 const landingRouter = require('./routes/landing');
 const moviesRouter = require('./routes/movieTab');
 const seriesRouter = require('./routes/seriesTab');
-const searchRouter = require('./routes/searchTab');
+const searchRouter = require('./routes/search');
 const originalsRouter = require('./routes/originals');
 const accountRouter = require('./routes/account');
 const profilesRouter = require('./routes/profiles');
@@ -34,6 +34,7 @@ app.use(landingRouter)
 app.use(moviesRouter)
 app.use(seriesRouter)
 app.use(originalsRouter)
+app.use(searchRouter)
 // app.use(whosWatching)
 
 

@@ -1,0 +1,46 @@
+h2 {
+    color: rgb(249, 249, 249);
+    margin: 0;
+    font-size: 44px;
+}
+.header {
+    top: 72px;
+    padding: 25px;
+    position: relative;
+    width: 100%;
+    background-color: rgb(26,29,41);
+    display: flex;
+}
+.videoBlock {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+    margin-top: 75px;
+    z-index: -1;
+}
+form {
+    position: relative;
+    padding: 5px;
+    z-index: 5;
+    top: 72px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.searchBar {
+    background-color: #494c58;
+    padding: 5px;
+    width: 100%;
+    height: 50px;
+    border-style: none;
+    font-size: 35px;
+    display: flex;
+    color: #e5e5e5;
+}
+.button {
+    width: 19%;
+    background-color: #494c58;
+    border-style: none;
+}
