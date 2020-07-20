@@ -34,8 +34,11 @@ router.get(
     const videos = await Video.findAll({
       where: {
         genres: {
-          [op.like]: `%${selectedGenre}%`
+          [op.like]: `%${selectedGenre}%`,
         },
+        title: {
+          [op.not]: videoTitle,
+        }
       },
       limit: 10,
     });
