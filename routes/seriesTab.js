@@ -17,10 +17,14 @@ router.get('/series/:genres', requireAuth, asyncHandler(async (req, res) => {
 
   const profiles = await Profile.findAll({
     where: {
-      accountId: req.session.auth.accountId
+      [op.and]: [
+        { [op.not]: { id: req.session.auth.whosWatching } },
+        { accountId: req.session.auth.accountId }
+      ]
     },
     include: Avatar
   });
+
   const videos = await Video.findAll({
     where: {
       genres: {
@@ -30,23 +34,34 @@ router.get('/series/:genres', requireAuth, asyncHandler(async (req, res) => {
     },
     limit: 50,
   });
+
   res.render("seriesTab", { videos, profiles, profile1 });
 }));
 
 router.get('/series', requireAuth,asyncHandler(async (req, res) => {
+  const profile1 = await Profile.findOne({
+    where: {
+      id: req.session.auth.whosWatching
+    },
+    include: Avatar
+  });
+
   const profiles = await Profile.findAll({
     where: {
-      accountId: req.session.auth.accountId
-    }
+      [op.and]: [
+        { [op.not]: { id: req.session.auth.whosWatching } },
+        { accountId: req.session.auth.accountId }
+      ]
+    },
+    include: Avatar
   });
-  const profile1 = profiles.shift();
-    const videos = await Video.findAll({
-      where: {
-        isMovie: null,
-      },
-      limit: 50,
-    });
-    res.render("seriesTab", {videos, profiles, profile1});
+  const videos = await Video.findAll({
+    where: {
+      isMovie: null,
+    },
+    limit: 50,
+  });
+  res.render("seriesTab", {videos, profiles, profile1});
 }));
 
 module.exports = router;

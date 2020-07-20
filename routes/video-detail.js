@@ -1,8 +1,8 @@
 const express = require('express');
 const { asyncHandler } = require('../utils');
 const { requireAuth } = require('../auth');
-const { Profile, Avatar, Video } = require('../db/models');
-
+const { Profile, Avatar, Video, Sequelize } = require('../db/models');
+const op = Sequelize.Op;
 const router = express.Router();
 
 router.get(
@@ -19,7 +19,10 @@ router.get(
 
     const profiles = await Profile.findAll({
       where: {
-        accountId: req.session.auth.accountId
+        [op.and]: [
+          { [op.not]: { id: req.session.auth.whosWatching } },
+          { accountId: req.session.auth.accountId }
+        ]
       },
       include: Avatar
     });
@@ -44,7 +47,10 @@ router.get(
 
     const profiles = await Profile.findAll({
       where: {
-        accountId: req.session.auth.accountId
+        [op.and]: [
+          { [op.not]: { id: req.session.auth.whosWatching } },
+          { accountId: req.session.auth.accountId }
+        ]
       },
       include: Avatar
     });

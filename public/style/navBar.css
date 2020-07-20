@@ -74,11 +74,17 @@ i {
     font-family: avenir;
 }
 
-/* .logoutButton {
+.logoutButton {
 
-} */
+}
 
 .activeProfile {
+    width: 96px;
+    font-size: 13px;
+    font-family: avenir;
+}
+
+.avatarImg {
     width: 96px;
     font-size: 13px;
     font-family: avenir;

@@ -39,12 +39,13 @@ html(lang="en")
                 ul
                     each profile in profiles
                         li 
+                            img.avatarImg(src=`${profile.Avatar.avatarImg}`)
                             div(data-profile= `active#{profile.id}`)= profile.name
                     li 
                         div(data-route= "profiles-avatar")
                             label Add New Profile
                     li 
-                        div(data-route= "profiles-edit")
+                        div(data-route= "profiles/edit-profile")
                             label Edit Profiles
                     li  
                         form(action="/account/logout" method='POST')
