@@ -11,6 +11,7 @@
     background-color: rgb(9, 11, 19);
     width: 100%;
     padding-left: 8px;
+    z-index: 1;
 }
 
 .nav__button {
@@ -73,11 +74,18 @@ i {
     font-family: avenir;
 }
 
-/* .logoutButton {
+.logoutButton {
 
-} */
+}
 
-/* .activeProfile {
+.activeProfile {
+    width: 96px;
     font-size: 13px;
     font-family: avenir;
-} */
+}
+
+.avatarImg {
+    width: 96px;
+    font-size: 13px;
+    font-family: avenir;
+}

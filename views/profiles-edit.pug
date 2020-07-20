@@ -14,7 +14,7 @@ html(lang="en")
       div.avatarContainer
         each profile in profiles
           div.profileButton
-            a(href=`/home`): img.avatarButton(src=`${profile.Avatar.avatarImg}`)
+            a(href=`/profiles/edit`): img.avatarButton(src=`${profile.Avatar.avatarImg}`)
             p=`${profile.name}`
         div.addProfileButton
           a(href=`/profiles/select-avatar`): span.circle
