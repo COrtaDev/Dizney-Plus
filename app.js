@@ -6,6 +6,7 @@ const { environment, sessionSecret } = require("./config");
 const landingRouter = require('./routes/landing');
 const moviesRouter = require('./routes/movieTab');
 const seriesRouter = require('./routes/seriesTab');
+const searchRouter = require('./routes/searchTab');
 const originalsRouter = require('./routes/originals');
 const accountRouter = require('./routes/account');
 const profilesRouter = require('./routes/profiles');
