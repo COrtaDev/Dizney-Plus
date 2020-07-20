@@ -6,3 +6,13 @@ block head
         include ../public/style/home.css
 
 block content
+    .wrapper
+        .displayBanner
+            each video in videos
+                .videoDisplayImg
+                    a(href=`/video/${video.title}`): img.banner(src=`${video.buttonImg}`) 
+    h1 Popular Titles
+    .mainContent
+        each video in mainVideos
+            .mainVideosDisplay
+                a(href=`/video/${video.title}`): img.mainImgs(src=`${video.buttonImg}`)                 

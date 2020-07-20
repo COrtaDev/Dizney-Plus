@@ -1,8 +1,63 @@
-html {
-    background: url("https://dizneyplus.s3.us-east-2.amazonaws.com/images/disneyPlusRips/background.png") no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    background-color: #040813;
+body {
+    background-color: #181922;
+    
+}
+
+.wrapper {
+    position: relative;
+    top: 85px;
+}
+.wrapper .displayBanner {
+    height:400px;
+    display: flex;
+    overflow-x: auto;
+    scrollbar-track-color: dark;
+    
+}
+.videoDisplayImg {
+    margin: 10px;;
+}
+
+.videoDisplayImg:hover {
+    box-shadow: rgba(0, 0, 0, 0.8) 0px 40px 58px -16px, rgba(0, 0, 0, 0.72) 0px 30px 22px -10px;
+    transform: translateZ(0px) translate3d(0px, 0px, 0px);
+    transition-duration: 300ms;
+    transition-property: transform, box-shadow;
+    transition-timing-function: ease-out;
+    border: 3px solid white;
+}
+.banner {
+    width: 1000px;
+    height: 100%;
+}
+.mainContent {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+}
+.mainVideosDisplay {
+    margin: 10px;
+    max-width: 340px;
+    max-height: 194.25px;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+.mainVideosDisplay:hover {
+    box-shadow: rgba(0, 0, 0, 0.8) 0px 40px 58px -16px, rgba(0, 0, 0, 0.72) 0px 30px 22px -10px;
+    transform: scale(1.05) translateZ(0px) translate3d(0px, 0px, 0px);
+    transition-duration: 300ms;
+    transition-property: transform, box-shadow;
+    transition-timing-function: ease-out;
+    border: 3px solid white;
+}
+.mainImgs {
+    width: 100%;
+}
+h1 {
+    position: relative;
+    margin-top: 100px;
+    margin-left: 25px;
+    font-size: 44px;
+    color: #f5f5f5;
 }

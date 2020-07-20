@@ -5,15 +5,20 @@
 
 body {
   background-color: rgb(26, 29, 41);
+}
+
+p {
   font-family: avenir;
   font-size: 25px;
   color: white;
+  letter-spacing: 0.5px;
 }
 
 #bgImg {
   position: fixed;
+  display: block;
   width: 100%;
-  z-index: -5;
+  z-index: -1;
 }
 
 #titleImg {
@@ -23,11 +28,22 @@ body {
   top: 30%;
 }
 
+/* .gradient {
+  z-index: 1;
+  position: fixed;
+  display: flex;
+  height: 800px;
+  width: 100%;
+  /* background-size: cover; */
+  /* background-image: linear-gradient(to bottom, rgba(26, 29, 41, 0.0), rgba(26, 29, 41, 0.0))
+} */
+
 .content {
   position: absolute;
   top: 70%;
   left: 125px;
   width: 45%;
+  margin-bottom: 200px; 
 }
 
 .content__playButton {
@@ -39,6 +55,7 @@ body {
   border-radius: 6px;
   background-color: white;
   color: black;
+  margin-bottom: 20px;
 }
 
 .content__playButton:hover {
@@ -48,54 +65,69 @@ body {
 
 .fa-play {
   padding-right: 20px;
-  color: black
+  color: black;
+  font-size: 22px;
 }
 
 .content__playText {
   font-size: 20px;
   font-weight: 700;
   color: black;
+  letter-spacing: 2px;
+  font-weight: 500;
 }
 
-.content__videoInfo {
+div.content__videoInfo {
   display: flex;
   flex-direction: row;
-  padding-top: 20px;
+  padding: 20px;
   font-size: 20px;
   font-weight: 0;
+  background-color: rgba(0, 0, 0, 0.33);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 
 .videoInfo__property {
   align-self: flex-start;
 }
 
+p.videoInfo__property {
+  font-size: 20px;
+  font-weight: lighter;
+}
+
 .content__description {
   display: flex;
-  padding-top: 20px;
+  padding: 20px;
   line-height: 30pt;
+  /* background-color: rgba(0, 0, 0, 0.33); */
+  background-image: linear-gradient( rgba(0,0,0,0.33), rgba(0,0,0,0));
+  height: 400px;
 }
 
 .bar {
   position: absolute;
   padding-left: 125px;
   padding-right: 125px;
-  width: 80%;
+  width: 90%;
   top: 96%;
 }
 
-ul {
+.tabs {
   display: flex;
   flex-direction: row;
   list-style-type: none;
 }
 
-li {
+.tab {
   align-self: flex-start;
   padding-right: 125px;
 }
 
 a {
   text-decoration: none;
+  font-size: 25px;
   font-weight: 300;
   letter-spacing: 2px;
 }
@@ -108,18 +140,18 @@ a.bar__tabs:hover {
   transition: color 0.3s ease;
   transition: font-weight 0.3s ease;
   transition: text-shadow 0.3s ease;
-  color: white;
+  color: rgb(215, 215, 215);
   font-weight: 400;
   text-shadow: 1px 1px 1px rgb(92, 92, 92);
 }
 
 a.bar__tabs:focus {
-  transition: border-bottom;
-  border-bottom: white;
+  color: white;
+  font-weight: 400;
+  text-shadow: 1px 1px 1px rgb(92, 92, 92);
 }
 
 .bar__tabs:not(a) {
-  display: block;
   padding-bottom: 22px;
   margin-bottom: 40px;
   border-bottom: 2pt solid rgb(172, 172, 172);
@@ -132,6 +164,8 @@ a.bar__tabs:focus {
 .tabContent#suggested.bar__tabs--active {
   display: block;
 }
+
+
 
 .tabContent#details.bar__tabs--active {
   display: grid;
@@ -149,38 +183,97 @@ a.bar__tabs:focus {
     "details . starring";
 }
 
-.detailsColOne__title {
+p.detailsColTwo__durationHead,
+p.detailsColTwo__seasonsHead,
+p.detailsColTwo__yearHead,
+p.detailsColTwo__genresHead,
+p.detailsColTwo__ratingHead,
+p.detailsColThree__directorHead,
+p.detailsColThree__starringHead {
+  font-size: 18px;
+  color: rgb(172, 172, 172);
+  padding-bottom: 10px;
+}
+
+p.detailsColTwo__durationText,
+p.detailsColTwo__seasonsText,
+p.detailsColTwo__yearText,
+p.detailsColTwo__genresText,
+p.detailsColThree__directorText,
+p.detailsColThree__starringText {
+  font-size: 18px;
+  padding-bottom: 20px;
+}
+
+div.detailsColOne {
+  padding-right: 40px;
+}
+
+p.detailsColOne__title {
   grid-area: title;
+  padding-bottom: 40px;
+  font-size: 30px;
+  font-weight: 700;
+  
 }
 
-.detailsColOne__details {
+p.detailsColOne__details {
   grid-area: details;
+  font-weight: 200;
+  line-height: 35px;
 }
 
-.detailsColTwo__duration {
+p.detailsColTwo__duration {
   grid-area: duration;
 }
 
-.detailsColTwo__seasons {
+p.detailsColTwo__seasons {
   grid-area: seasons;
 }
 
-.detailsColTwo__year {
+p.detailsColTwo__year {
   grid-area: year;
 }
 
-.detailsColTwo__genres {
+p.detailsColTwo__genres {
   grid-area: genres;
 }
 
-.detailsColTwo__rating {
+p.detailsColTwo__rating {
   grid-area: rating;
 }
 
-.detailsColThree__director {
+p.detailsColThree__director {
   grid-area: director;
 }
 
-.detailsColThree__starring {
+p.detailsColThree__starring {
   grid-area: starring;
+}
+
+.suggested {
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.suggested__video {
+  height: 240px;
+  padding: 10px 10px 10px 10px;
+  
+}
+
+.suggestedVideoImg {
+  width: 350px;
+  height: 200px;
+  box-shadow: rgba(0, 0, 0, 0.8) 0px 20px 29px -8px, rgba(0, 0, 0, 0.72) 0px 15px 11px -5px;
+}
+
+.suggestedVideoImg:hover {
+    box-shadow: rgba(0, 0, 0, 0.8) 0px 40px 58px -16px, rgba(0, 0, 0, 0.72) 0px 30px 22px -10px;
+    transform: scale(1.05) translateZ(0px) translate3d(0px, 0px, 0px);
+    transition-duration: 300ms;
+    transition-property: transform, box-shadow;
+    transition-timing-function: ease-out;
+    border: 3px solid white;
 }

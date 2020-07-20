@@ -3,7 +3,7 @@ const router = express.Router();
 const { asyncHandler } = require("../utils");
 const { requireAuth } = require('../auth');
 const { Profile, Video, Avatar, Sequelize } = require('../db/models');
-const op = Sequelize.Op;
+const Op = Sequelize.Op;
 
 
 router.get("/home/:id", 
@@ -27,41 +27,70 @@ router.get("/home/:id",
 
     const profiles = await Profile.findAll({
       where: {
-        [op.and]: [
-          { [op.not]: { id: req.session.auth.whosWatching } },
+        [Op.and]: [
+          { [Op.not]: { id: req.session.auth.whosWatching } },
           { accountId: req.session.auth.accountId }
         ]
       },
       include: Avatar
     });
 
-    res.render("home", { profiles, profile1 });
+    const videos = await Video.findAll({
+      where: {
+        isMovie: true,
+      },
+      limit: 10,
+    });
+
+    const mainVideos = await Video.findAll({
+      where: {
+        id: {
+          [Op.between]: [25, 100]
+        },
+      },
+    });
+
+    res.render("home", { mainVideos, videos, profiles, profile1 });
   })
 );
 
 
-router.get("/home", requireAuth, 
+router.get("/home", requireAuth,
   asyncHandler(async (req, res) => {
 
-    const profile1 = await Profile.findOne({ 
+    const profile1 = await Profile.findOne({
       where: {
         id: req.session.auth.whosWatching
       },
       include: Avatar
     });
 
-    const profiles = await Profile.findAll({ 
+    const profiles = await Profile.findAll({
       where: {
-        [op.and]: [
-          { [op.not]: { id: req.session.auth.whosWatching } },
+        [Op.and]: [
+          { [Op.not]: { id: req.session.auth.whosWatching } },
           { accountId: req.session.auth.accountId }
         ]
       },
       include: Avatar
     });
 
-  res.render("home", { profiles, profile1 });
-  })
-);
+    const videos = await Video.findAll({
+      where: {
+        isMovie: true,
+      },
+      limit: 10,
+    });
+
+    const mainVideos = await Video.findAll({
+      where: {
+        id: {
+          [Op.between]: [25, 100]
+        },
+      },
+    });
+    
+  res.render("home", { mainVideos, videos, profiles, profile1 });
+}));
 
 module.exports = router;

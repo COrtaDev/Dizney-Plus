@@ -1,17 +1,12 @@
-* {
-    padding: 0%;
-    margin: 0%;
-}
-
 .nav {
     position: fixed;
     display: flex;
     align-items: center;
     height: 72px;
-    /* background-color: rgb(9, 11, 19); */
     width: 100%;
     padding-left: 8px;
-    z-index: 2;
+    z-index: 6;
+    cursor: pointer;
 }
 
 .nav-opacity {
@@ -24,6 +19,7 @@
     width: 100%;
     padding-left: 8px;
     opacity: 0;
+    cursor: pointer;
 }
 
 .nav-gradient {
@@ -34,6 +30,7 @@
     height: 72px;
     width: 100%;
     padding-left: 8px;
+    cursor: pointer;
     background-image: linear-gradient( rgba(0,0,0,0.68), rgba(0,0,0,0));
 }
 
@@ -58,6 +55,7 @@
     font-size: 14px;
     color: white;
     position: relative;
+    cursor: pointer;
 }
 
 .fa-search.fa-fw {
@@ -87,11 +85,13 @@
     letter-spacing: 2px;
     text-decoration: none;
     cursor: pointer;
+    cursor: pointer;
 }
 
 .nav__logo {
     visibility: hidden;
     position: absolute;
+    cursor: pointer;
 }
 
 #dizneyLogo{
@@ -99,6 +99,7 @@
     width: 72px;
     height: auto;
     padding-right: 18px;
+    cursor: pointer;
 }
 
 
