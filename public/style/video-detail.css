@@ -28,11 +28,22 @@ p {
   top: 30%;
 }
 
+/* .gradient {
+  z-index: 1;
+  position: fixed;
+  display: flex;
+  height: 800px;
+  width: 100%;
+  /* background-size: cover; */
+  /* background-image: linear-gradient(to bottom, rgba(26, 29, 41, 0.0), rgba(26, 29, 41, 0.0))
+} */
+
 .content {
   position: absolute;
   top: 70%;
   left: 125px;
   width: 45%;
+  margin-bottom: 200px; 
 }
 
 .content__playButton {
@@ -44,6 +55,7 @@ p {
   border-radius: 6px;
   background-color: white;
   color: black;
+  margin-bottom: 20px;
 }
 
 .content__playButton:hover {
@@ -53,21 +65,27 @@ p {
 
 .fa-play {
   padding-right: 20px;
-  color: black
+  color: black;
+  font-size: 22px;
 }
 
 .content__playText {
   font-size: 20px;
   font-weight: 700;
   color: black;
+  letter-spacing: 2px;
+  font-weight: 500;
 }
 
 div.content__videoInfo {
   display: flex;
   flex-direction: row;
-  padding-top: 20px;
+  padding: 20px;
   font-size: 20px;
   font-weight: 0;
+  background-color: rgba(0, 0, 0, 0.33);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 
 .videoInfo__property {
@@ -81,15 +99,18 @@ p.videoInfo__property {
 
 .content__description {
   display: flex;
-  padding-top: 20px;
+  padding: 20px;
   line-height: 30pt;
+  /* background-color: rgba(0, 0, 0, 0.33); */
+  background-image: linear-gradient( rgba(0,0,0,0.33), rgba(0,0,0,0));
+  height: 400px;
 }
 
 .bar {
   position: absolute;
   padding-left: 125px;
   padding-right: 125px;
-  width: 80%;
+  width: 90%;
   top: 96%;
 }
 
@@ -143,6 +164,8 @@ a.bar__tabs:focus {
 .tabContent#suggested.bar__tabs--active {
   display: block;
 }
+
+
 
 .tabContent#details.bar__tabs--active {
   display: grid;

@@ -8,6 +8,7 @@ block head
 block content
     img#bgImg(src=`${video.backgroundImg}`)
     img#titleImg(src=`${video.titleImg}`)
+    //- div.gradient
     div.content
         div(play-route= `${video.title}`).content__playButton
             i.fa.fa-play.fa-fw(aria-hidden='false')
@@ -30,44 +31,44 @@ block content
                 p.videoInfo__property #{video.genres}
         div.content__description
             p #{video.description}
-    div.bar
-        nav.bar__tabs
-            ul.tabs
-                li.tab.bar__tabs--active
-                    a.bar__tabs(href="#suggested") SUGGESTED
-                li.tab
-                    a.bar__tabs(href="#details") DETAILS
-        section(class="tabContent bar__tabs--active" id="suggested")
-            div.suggested
-                each suggestedVideo in videos
-                    div.suggested__video
-                        a(href=`/video/${suggestedVideo.title}`): img.suggestedVideoImg(src=`${suggestedVideo.buttonImg}`)
-        section(class="tabContent" id="details")
-            div.detailsColOne
-                    p.detailsColOne__title #{video.title}
-                    p.detailsColOne__details #{video.details}
-            div.detailsColTwo
-                    if video.isMovie
-                        div.detailsColTwo__duration
-                        p.detailsColTwo__durationHead Duration:
-                        p.detailsColTwo__durationText #{video.runtime}
-                    else
-                        div.detailsColTwo__seasons
-                        p.detailsColTwo__seasonsHead Seasons:
-                        p.detailsColTwo__seasonsText #{video.seasons}
-                    div.detailsColTwo__year
-                    p.detailsColTwo__yearHead Release Date:
-                    p.detailsColTwo__yearText #{video.year}
-                    div.detailsColTwo__genres
-                    p.detailsColTwo__genresHead Genre:
-                    p.detailsColTwo__genresText #{video.genres}
-                    div.detailsColTwo__rating
-                    p.detailsColTwo__ratingHead Rating:
-                    img.detailsColTwo__ratingImg(src=`https://dizneyplus.s3.us-east-2.amazonaws.com/images/disneyPlusRips/ratings/movie-${video.rating.toLowerCase()}.png`)
-            div.detailsColThree
-                    div.detailsColThree__director
-                    p.detailsColThree__directorHead Director:
-                    p.detailsColThree__directorText #{video.director}
-                    div.detailsColThree__starring
-                    p.detailsColThree__starringHead Starring:
-                    p.detailsColThree__starringText #{video.starring}
+    //- div.bar
+    //-     nav.bar__tabs
+    //-         ul.tabs
+    //-             li.tab.bar__tabs--active
+    //-                 a.bar__tabs(href="#suggested") SUGGESTED
+    //-             li.tab
+    //-                 a.bar__tabs(href="#details") DETAILS
+    //-     section(class="tabContent bar__tabs--active" id="suggested")
+            //- div.suggested
+                //- each suggestedVideo in videos
+                //-     div.suggested__video
+                //-         a(href=`/video/${suggestedVideo.title}`): img.suggestedVideoImg(src=`${suggestedVideo.buttonImg}`)
+        //- section(class="tabContent" id="details")
+        //-     div.detailsColOne
+        //-             p.detailsColOne__title #{video.title}
+        //-             p.detailsColOne__details #{video.details}
+        //-     div.detailsColTwo
+        //-             if video.isMovie
+        //-                 div.detailsColTwo__duration
+        //-                 p.detailsColTwo__durationHead Duration:
+        //-                 p.detailsColTwo__durationText #{video.runtime}
+        //-             else
+        //-                 div.detailsColTwo__seasons
+        //-                 p.detailsColTwo__seasonsHead Seasons:
+        //-                 p.detailsColTwo__seasonsText #{video.seasons}
+        //-             div.detailsColTwo__year
+        //-             p.detailsColTwo__yearHead Release Date:
+        //-             p.detailsColTwo__yearText #{video.year}
+        //-             div.detailsColTwo__genres
+        //-             p.detailsColTwo__genresHead Genre:
+        //-             p.detailsColTwo__genresText #{video.genres}
+        //-             div.detailsColTwo__rating
+        //-             p.detailsColTwo__ratingHead Rating:
+        //-             img.detailsColTwo__ratingImg(src=`https://dizneyplus.s3.us-east-2.amazonaws.com/images/disneyPlusRips/ratings/movie-${video.rating.toLowerCase()}.png`)
+        //-     div.detailsColThree
+        //-             div.detailsColThree__director
+        //-             p.detailsColThree__directorHead Director:
+        //-             p.detailsColThree__directorText #{video.director}
+        //-             div.detailsColThree__starring
+        //-             p.detailsColThree__starringHead Starring:
+        //-             p.detailsColThree__starringText #{video.starring}

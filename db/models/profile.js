@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
     accountId: DataTypes.INTEGER,
     avatarId: DataTypes.INTEGER
   }, {});
-  Profile.associate = function(models) {
+  Profile.associate = function (models) {
     Profile.belongsTo(models.Account, { foreignKey: 'accountId' });
     Profile.belongsTo(models.Avatar, { foreignKey: 'avatarId' });
     // Profile.hasMany(models.WatchListedVideo, { foreignKey: 'profileId' });
