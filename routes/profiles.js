@@ -86,10 +86,10 @@ router.get('/profiles/edit/:id', requireAuth, asyncHandler(async (req, res) => {
 //this updates a selected profile on the current account
 router.put('/profiles/edit/:id', requireAuth, asyncHandler(async (req, res) => {
   const id = parseInt(req.params.id);
-  const profile = await Profile.findByPk(id);
+  let profile = await Profile.findByPk(id);
   console.log(req.body)
   console.log(profile)
-  const {
+  let {
     name,
     isKid,
   } = req.body;
@@ -106,9 +106,8 @@ router.put('/profiles/edit/:id', requireAuth, asyncHandler(async (req, res) => {
   // profile.avatarId = parseInt(avatarId);
   // console.log(profile.avatarId);
   await profile.save();
-  await profile.reload();
-  res.status(201).end()
-
+  res.status(204).end();
+  //  res.redirect('/profiles/edit-profile');
 }))
 
 router.delete('/profiles/delete', requireAuth, asyncHandler(async (req, res) => {

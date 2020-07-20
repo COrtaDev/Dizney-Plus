@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', (e) => {
-    const profileName = document.querySelector('.profile-name');
+    let profileName = document.querySelector('.profile-name');
     let avatar = document.querySelector('.avatar');
     profileName.addEventListener("submit", async (event) => {
         event.preventDefault();
-        const formData = new FormData(profileName);
-        const name = formData.get('name');
-        const isKid = formData.get('isKid');
+        let formData = new FormData(profileName);
+        let name = formData.get('name');
+        let isKid = formData.get('isKid');
         let avatarId = avatar.dataset.id
         await fetch(`${window.location.pathname}`, {
             method: "PUT",
