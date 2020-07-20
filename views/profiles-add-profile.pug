@@ -5,22 +5,21 @@ html(lang="en")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     link(rel='icon' href='https://dizneyplus.s3.us-east-2.amazonaws.com/images/disneyPlusRips/favicon.ico' type='image/x-icon')
     script(src="https://kit.fontawesome.com/563691f269.js" crossorigin="anonymous")
-    script(src='/scripts/select-avatar.js'  type ='text/javascript')
+    script(src='/scripts/add-profile.js'  type ='text/javascript')
     style
       include ../public/style/profiles.css
       include ../public/style/isKid-button.css
     title #{title} | Dizney+
   body
-    include utils.pug
     div.addMenu
       div.addMenu_left
-        form(action='/profiles/add:id' method='post')
+        form.add-profile(action='' method='POST')
           p.addMenu_label Add Profile
-          div.addMenu_left--form
-            +field('name', name,'text', 'Profile Name')
-            label.toggle-control
-              input(type='checkbox' checked='checked')
-              span.control
-            button.addMenu_submit(type='submit') Save
+          div
+          input(type="text" name='name' value='' placeholder='Profile name' required)
+          label.toggle-control
+            input(type='checkbox' name='isKid' checked=null)
+            span.control
+          input.addMenu_left(type='submit' value="SAVE")
       div.right
-        a(href=`/profiles/select-avatar`): img#newAvatar(src="")
+         img#newAvatar(src="")

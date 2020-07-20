@@ -5,7 +5,7 @@ html(lang="en")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     link(rel='icon' href='https://dizneyplus.s3.us-east-2.amazonaws.com/images/disneyPlusRips/favicon.ico' type='image/x-icon')
     script(src="https://kit.fontawesome.com/563691f269.js" crossorigin="anonymous")
-    //- script(src='/scripts/select-avatar.js'  type ='text/javascript')
+    script(src='/scripts/select-avatar.js'  type ='text/javascript')
     style
       include ../public/style/profiles.css
     title #{title} | Dizney+
@@ -15,5 +15,5 @@ html(lang="en")
     h2 Choose Avatar
     div.avatarContainer
       each avatar in avatars
-        div
-          a(href=`/profiles/add?${avatar.avatarImg}`): img.avatarButton(src=`${avatar.avatarImg}`)
+        div(data-src=`${avatar.avatarImg}` data-id=`${avatar.id}`)
+          img.avatarButton(src=`${avatar.avatarImg}`)
