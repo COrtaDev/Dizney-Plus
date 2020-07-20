@@ -7,6 +7,7 @@ const { csrfProtection, asyncHandler } = require('../utils');
 const { loginAccount, logoutAccount } = require('../auth');
 
 
+
 const router = express.Router();
 
 router.get('/account/sign-up', csrfProtection, (req, res) => {
@@ -119,7 +120,7 @@ router.post('/account/login', csrfProtection, loginValidators,
 
 router.post('/account/demologin', asyncHandler(async (req, res) => {
     const account = await db.Account.findOne({ where: { email:'demo1@demo.com' }});
-    loginAccount(req, res, account);             
+    loginAccount(req, res, account);  
     return res.redirect('/home');
 }));
 
