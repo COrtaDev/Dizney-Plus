@@ -28,7 +28,8 @@ router.get('/profiles/select-avatar', requireAuth, asyncHandler(async (req, res)
 
   res.render('profiles-select-avatar', { avatars, Profile })
 }))
-router.get('/profiles/add', requireAuth, asyncHandler(async (req, res) => {
+
+router.get('/profiles/add/:id', requireAuth, asyncHandler(async (req, res) => {
   res.render('profiles-add-profile', { Profile, Avatar })
 }))
 
@@ -83,31 +84,31 @@ router.get('/profiles/edit/:id', requireAuth, asyncHandler(async (req, res) => {
 
 
 //this updates a selected profile on the current account
-router.put('/profiles/edit/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
-  console.log(req.params.id)
-  try {
-    const id = parseInt(req.params.id);
-    // const accountId = req.session.auth.accountId;
-    // console.accountId;
-    // console.log("name");
-    const profile = await Profile.findByPk(id);
-    const {
-      name,
-      isKid
-    } = req.body;
-    // console.log(name);
-    // console.log(isKid);
-    // console.log(avatarId);
-    // console.log(profile);
-    profile.name = name;
-    profile.isKid = isKid;
-    // profile.accountId = accountId;
-    profile.avatarId = avatarId;
-    await profile.save()
-    res.sendStatus(200)
-  } catch (e) {
-    res.sendStatus(e.status)
-  }
+router.put('/profiles/edit/:id', requireAuth, asyncHandler(async (req, res) => {
+  const id = parseInt(req.params.id);
+  const profile = await Profile.findByPk(id);
+  console.log(req.body)
+  console.log(profile)
+  const {
+    name,
+    isKid,
+  } = req.body;
+  let avatarId = parseInt(req.body.avatarId, 10);
+  console.log(name)
+  console.log(isKid)
+  console.log(typeof avatarId)
+  if (!isKid) profile.isKid = false;
+  if (isKid = 'on') profile.isKid = true;
+  profile.name = name;
+  profile.isKid = isKid;
+  profile.avatarId = avatarId;
+  console.log(profile.avatarId)
+  // profile.avatarId = parseInt(avatarId);
+  // console.log(profile.avatarId);
+  await profile.save();
+  await profile.reload();
+  res.status(201).end()
+
 }))
 
 router.delete('/profiles/delete', requireAuth, asyncHandler(async (req, res) => {

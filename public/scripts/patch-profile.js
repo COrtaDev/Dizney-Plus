@@ -1,21 +1,21 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', (e) => {
     const profileName = document.querySelector('.profile-name');
-    const avatarId = document.querySelector('[data-route]');
-    profileName.addEventListener("submit", (e) => {
-        e.preventDefault();
+    let avatar = document.querySelector('.avatar');
+    profileName.addEventListener("submit", async (event) => {
+        event.preventDefault();
         const formData = new FormData(profileName);
-        const profile = formData.values();
-        console.log(profile)
-        fetch("/profiles/edit/:id", {
+        const name = formData.get('name');
+        const isKid = formData.get('isKid');
+        let avatarId = avatar.dataset.id
+        await fetch(`${window.location.pathname}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({ profile, avatarId })
-        }).then(res)
-        window.localStorage.href = '/profiles/edit-profile'
-    })
-        .catch(error => {
-            console.error(error);
-        });
-});
+            body: JSON.stringify({
+                name: name, avatarId: avatarId, isKid: isKid
+            })
+        })
+        window.location.href = '/profiles/edit-profile'
+    });
+})

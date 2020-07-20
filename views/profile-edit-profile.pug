@@ -14,14 +14,14 @@ html(lang="en")
   body
     div.editMenu
       div.addMenu_left
-        form.profile-name(action='/profiles/edit' method='POST')
+        form.profile-name
           p.addMenu_label Edit Profile
           div.addMenu_left--form
             input(type="text", name='name' value=`${profile.name}` placeholder='Profile name' required)
             label.toggle-control
               input(type='checkbox' name='isKid' checked='checked')
               span.control
-          button.editMenu_submit(type='submit') Save
+            input.editMenu_submit(type='submit' value="SAVE")
             p: a.delete(href='/profiles/delete') Delete Profile
       div.right
-        img(data-route=`${profile.Avatar.id}` src=`${profile.Avatar.avatarImg}`)
+        img.avatar(data-id=`${profile.Avatar.id}` src=`${profile.Avatar.avatarImg}`)

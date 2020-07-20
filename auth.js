@@ -7,12 +7,6 @@ const loginAccount = (req, res, account) => {
     };
 };
 
-// const whosWatching = (req, res, profile) => {
-//     req.session.auth = {
-//         whosWatching: profile.id,
-//     };
-// };
-
 const logoutAccount = (req, res) => {
     delete req.session.auth;
 };
