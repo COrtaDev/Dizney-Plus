@@ -21,27 +21,28 @@ router.get('/originals', requireAuth, asyncHandler(async (req, res) => {
       ]
     },
     include: Avatar
-  });  
-  
-  const featuredVideos = await Video.findAll({
+  });
+  const videos = await Video.findAll({
     where: {
       isOriginal: true,
     },
-    limit: 15,
+    limit: 50,
   });
-  const seriesVideos = await Video.findAll({
-    where: {
-      isOriginal: true,
-    },
-    limit: 15,
-  });
-  const moviesVideos = await Video.findAll({
-    where: {
-      isOriginal: true,
-    },
-    limit: 15,
-  });
-  res.render("originals", {featuredVideos, seriesVideos, moviesVideos, profiles, profile1 });
+  // const seriesVideos = await Video.findAll({
+  //   where: {
+  //     isMovie: null,
+  //     isOriginal: true,
+  //   },
+  //   limit: 15,
+  // });
+  // const moviesVideos = await Video.findAll({
+  //   where: {
+  //     isMovie: true,
+  //     isOriginal: true,
+  //   },
+  //   limit: 15,
+  // });
+  res.render("originals", { videos, profiles, profile1 });
 }));
 
 module.exports = router;
