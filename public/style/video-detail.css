@@ -62,7 +62,7 @@ p {
   color: black;
 }
 
-.content__videoInfo {
+div.content__videoInfo {
   display: flex;
   flex-direction: row;
   padding-top: 20px;
@@ -72,6 +72,16 @@ p {
 
 .videoInfo__property {
   align-self: flex-start;
+}
+
+img#ratingImg {
+  height: 50%;
+  width: 50%;
+}
+
+p.videoInfo__property {
+  font-size: 20px;
+  font-weight: lighter;
 }
 
 .content__description {
@@ -221,4 +231,31 @@ p.detailsColThree__director {
 
 p.detailsColThree__starring {
   grid-area: starring;
+}
+
+.suggested {
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.suggested__video {
+  height: 240px;
+  padding: 10px 10px 10px 10px;
+  
+}
+
+.suggestedVideoImg {
+  width: 350px;
+  height: 200px;
+  box-shadow: rgba(0, 0, 0, 0.8) 0px 20px 29px -8px, rgba(0, 0, 0, 0.72) 0px 15px 11px -5px;
+}
+
+.suggestedVideoImg:hover {
+    box-shadow: rgba(0, 0, 0, 0.8) 0px 40px 58px -16px, rgba(0, 0, 0, 0.72) 0px 30px 22px -10px;
+    transform: scale(1.05) translateZ(0px) translate3d(0px, 0px, 0px);
+    transition-duration: 300ms;
+    transition-property: transform, box-shadow;
+    transition-timing-function: ease-out;
+    border: 3px solid white;
 }

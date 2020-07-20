@@ -16,18 +16,18 @@ block content
             div.videoInfo__property
                 img#ratingImg(src=`https://dizneyplus.s3.us-east-2.amazonaws.com/images/disneyPlusRips/ratings/movie-${video.rating.toLowerCase()}.png`)
             div.videoInfo__property
-                p &nbsp;&nbsp;#{video.year}
+                p.videoInfo__property &nbsp;&nbsp;#{video.year}
             div.videoInfo__property
-                p &nbsp;•&nbsp;
+                p.videoInfo__property &nbsp;•&nbsp;
             div.videoInfo__property
             if video.isMovie
-                p #{video.runtime}
+                p.videoInfo__property #{video.runtime}
             else
-                p #{video.seasons} Seasons
+                p.videoInfo__property #{video.seasons} Seasons
             div.videoInfo__property
-                p &nbsp;•&nbsp;
+                p.videoInfo__property &nbsp;•&nbsp;
             div.videoInfo__property
-                p #{video.genres}
+                p.videoInfo__property #{video.genres}
         div.content__description
             p #{video.description}
     div.bar
@@ -38,7 +38,10 @@ block content
                 li.tab
                     a.bar__tabs(href="#details") DETAILS
         section(class="tabContent bar__tabs--active" id="suggested")
-            div MOVIE SCROLLER
+            div.suggested
+                each suggestedVideo in videos
+                    div.suggested__video
+                        a(href=`/video/${suggestedVideo.title}`): img.suggestedVideoImg(src=`${suggestedVideo.buttonImg}`)
         section(class="tabContent" id="details")
             div.detailsColOne
                     p.detailsColOne__title #{video.title}

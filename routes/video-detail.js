@@ -29,7 +29,18 @@ router.get(
 
     const videoTitle = req.params.title;
     const video = await Video.findOne({ where: { title: videoTitle } });
-    res.render('video-detail', { video, profiles, profile1 });
+
+    const selectedGenre = video.genres
+    const videos = await Video.findAll({
+      where: {
+        genres: {
+          [op.like]: `%${selectedGenre}%`
+        },
+      },
+      limit: 10,
+    });
+
+    res.render('video-detail', { video, videos, profiles, profile1 });
   })
 );
 
