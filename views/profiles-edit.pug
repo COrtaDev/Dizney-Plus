@@ -5,6 +5,7 @@ html(lang="en")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     link(rel='icon' href='https://dizneyplus.s3.us-east-2.amazonaws.com/images/disneyPlusRips/favicon.ico' type='image/x-icon')
     script(src="https://kit.fontawesome.com/563691f269.js" crossorigin="anonymous")
+    script(src="/scripts/edit-selected-profile.js" type ='text/javascript')
     style
       include ../public/style/profiles.css
     title #{title} | Dizney+
@@ -13,8 +14,8 @@ html(lang="en")
     p.edit Select a profile to edit
       div.avatarContainer
         each profile in profiles
-          div.profileButton
-            a(href=`/profiles/edit`): img.avatarButton(src=`${profile.Avatar.avatarImg}`)
+          div(data-route=`${profile.id}`).profileButton
+            img.avatarButton(src=`${profile.Avatar.avatarImg}`)
             p=`${profile.name}`
         div.addProfileButton
           a(href=`/profiles/select-avatar`): span.circle
