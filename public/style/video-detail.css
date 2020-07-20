@@ -5,7 +5,6 @@
 
 body {
   background-color: rgb(26, 29, 41);
-  /* background: radial-gradient(circle, rgba(238,174,202,0) 0%, rgba(26,29,41,1) 80%); */
 }
 
 p {
@@ -17,8 +16,9 @@ p {
 
 #bgImg {
   position: fixed;
+  display: block;
   width: 100%;
-  z-index: -5;
+  z-index: -1;
 }
 
 #titleImg {
@@ -155,7 +155,33 @@ a.bar__tabs:focus {
     "details . starring";
 }
 
-.detailsColOne__title {
+p.detailsColTwo__durationHead,
+p.detailsColTwo__seasonsHead,
+p.detailsColTwo__yearHead,
+p.detailsColTwo__genresHead,
+p.detailsColTwo__ratingHead,
+p.detailsColThree__directorHead,
+p.detailsColThree__starringHead {
+  font-size: 18px;
+  color: rgb(172, 172, 172);
+  padding-bottom: 10px;
+}
+
+p.detailsColTwo__durationText,
+p.detailsColTwo__seasonsText,
+p.detailsColTwo__yearText,
+p.detailsColTwo__genresText,
+p.detailsColThree__directorText,
+p.detailsColThree__starringText {
+  font-size: 18px;
+  padding-bottom: 20px;
+}
+
+div.detailsColOne {
+  padding-right: 40px;
+}
+
+p.detailsColOne__title {
   grid-area: title;
   padding-bottom: 40px;
   font-size: 30px;
@@ -163,34 +189,36 @@ a.bar__tabs:focus {
   
 }
 
-.detailsColOne__details {
+p.detailsColOne__details {
   grid-area: details;
+  font-weight: 200;
+  line-height: 35px;
 }
 
-.detailsColTwo__duration {
+p.detailsColTwo__duration {
   grid-area: duration;
 }
 
-.detailsColTwo__seasons {
+p.detailsColTwo__seasons {
   grid-area: seasons;
 }
 
-.detailsColTwo__year {
+p.detailsColTwo__year {
   grid-area: year;
 }
 
-.detailsColTwo__genres {
+p.detailsColTwo__genres {
   grid-area: genres;
 }
 
-.detailsColTwo__rating {
+p.detailsColTwo__rating {
   grid-area: rating;
 }
 
-.detailsColThree__director {
+p.detailsColThree__director {
   grid-area: director;
 }
 
-.detailsColThree__starring {
+p.detailsColThree__starring {
   grid-area: starring;
 }
