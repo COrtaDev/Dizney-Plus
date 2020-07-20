@@ -14,14 +14,14 @@ html(lang="en")
     include utils.pug
     div.editMenu
       div.addMenu_left
-        form(action='/profiles/add:id' method='post')
+        form(action='/profiles/edit/:id' method='post')
           p.addMenu_label Edit Profile
           div.addMenu_left--form
             +field('name', name,'text', 'Profile Name')
             label.toggle-control
               input(type='checkbox' checked='checked')
               span.control
-            button.editMenu_submit(type='submit') Save
+          button.editMenu_submit(type='submit') Save
             p: a.delete(href='/profiles/delete') Delete Profile
       div.right
-        a(href=`/profiles/select-avatar`): img#newAvatar(src="")
+        a(href=`/profiles/select-avatar`): img.avatarButton(src=`${profile.Avatar.avatarImg}`)
