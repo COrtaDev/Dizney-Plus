@@ -22,6 +22,6 @@ html(lang="en")
               input(type='checkbox' name='isKid' checked='checked')
               span.control
             input.editMenu_submit(type='submit' value="SAVE")
-            p: a.delete(href='/profiles/delete') Delete Profile
+            p: a.delete(href='/profiles/delete/:id') Delete Profile
       div.right
         img.avatar(data-id=`${profile.Avatar.id}` src=`${profile.Avatar.avatarImg}`)

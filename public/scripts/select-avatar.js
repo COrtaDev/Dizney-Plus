@@ -3,7 +3,8 @@ document.addEventListener('DOMContentLoaded', (e) => {
     srcs.forEach(div => {
         div.addEventListener('click', (event) => {
             let url = event.currentTarget.getAttribute('data-src');
-            window.location.href = `/profiles/add?${url}`
+            let id = event.currentTarget.getAttribute('data-id');
+            window.location.href = `/profiles/add/${id}?${url}`
         })
     })
 })

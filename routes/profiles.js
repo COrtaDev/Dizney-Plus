@@ -29,34 +29,39 @@ router.get('/profiles/select-avatar', requireAuth, asyncHandler(async (req, res)
   res.render('profiles-select-avatar', { avatars, Profile })
 }))
 
-router.get('/profiles/add', requireAuth, asyncHandler(async (req, res) => {
+router.get('/profiles/add/:id', requireAuth, asyncHandler(async (req, res) => {
   res.render('profiles-add-profile', { Avatar, Profile })
 }))
 
 router.post('/profiles/add/:id', requireAuth,
   asyncHandler(async (req, res) => {
-    const {
+    const id = req.session.auth.accountId
+    const avatarId = parseInt(req.params.id);
+    console.log(req.params)
+    let {
       name,
       isKid,
-      avatarId
     } = req.body;
-
-    await Profile.create({
+    if (!isKid) isKid = false;
+    if (isKid = 'on') isKid = true;
+    // profile.name = name;
+    // profile.isKid = isKid;
+    // profile.avatarId = avatarId;
+    const profile = await Profile.create({
       name: name,
       isKid: isKid,
+      accountId: id,
       avatarId: avatarId
     });
-    // let errors = [];
-    // const validatorErrors = validationResult(req);
 
-    // if (validatorErrors.isEmpty()) {
-
-    //   if (name !== null) {
-
-    //   } else {
-    //     errors = validatorErrors.array().map((error) => error.msg);
-    //   }
-    res.redirect('select-profile')
+    // const profiles = await Profile.findAll({
+    //   where: { accountId: id },
+    //   include: [{
+    //     model: Avatar,
+    //   }],
+    //   limit: 7
+    // })
+    res.redirect('/profiles/select-profile')
   }))
 
 
@@ -87,35 +92,35 @@ router.get('/profiles/edit/:id', requireAuth, asyncHandler(async (req, res) => {
 router.put('/profiles/edit/:id', requireAuth, asyncHandler(async (req, res) => {
   const id = parseInt(req.params.id);
   let profile = await Profile.findByPk(id);
-  console.log(req.body)
-  console.log(profile)
   let {
     name,
     isKid,
   } = req.body;
   let avatarId = parseInt(req.body.avatarId, 10);
-  console.log(name)
-  console.log(isKid)
-  console.log(typeof avatarId)
   if (!isKid) profile.isKid = false;
   if (isKid = 'on') profile.isKid = true;
   profile.name = name;
   profile.isKid = isKid;
   profile.avatarId = avatarId;
-  console.log(profile.avatarId)
-  // profile.avatarId = parseInt(avatarId);
-  // console.log(profile.avatarId);
   await profile.save();
   res.status(204).end();
-  //  res.redirect('/profiles/edit-profile');
 }))
 
-router.delete('/profiles/delete', requireAuth, asyncHandler(async (req, res) => {
+router.post('/profiles/delete/:id', requireAuth, asyncHandler(async (req, res) => {
   const id = req.session.auth.accountId
-  const profile = await Profile.findByPk(id)
+  const profileId = parseInt(req.params.id);
+  const profile = await Profile.findByPk(profileId)
   await profile.destroy();
-  res.status(204).end();
-  res.render('profile-edit-profile', { profiles, Avatar });
+  // let id = req.session.auth.accountId
+  const profiles = await Profile.findAll({
+    where: { accountId: id },
+    include: [{
+      model: Avatar,
+    }],
+    limit: 7
+  })
+  res.redirect('/profiles/select-profile')
+
 }))
 
 

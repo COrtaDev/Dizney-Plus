@@ -15,5 +15,5 @@ html(lang="en")
     h2 Choose Avatar
     div.avatarContainer
       each avatar in avatars
-        div(data-src=`${avatar.avatarImg}`)
+        div(data-src=`${avatar.avatarImg}` data-id=`${avatar.id}`)
           img.avatarButton(src=`${avatar.avatarImg}`)

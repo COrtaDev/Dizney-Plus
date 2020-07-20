@@ -1,4 +1,10 @@
 document.addEventListener('DOMContentLoaded', (e) => {
+    let url = window.location.search.substring(1);
+    let id = window.location.pathname.substring(14, 16)
+    let newAvatar = document.getElementById('newAvatar');
+    let form = document.querySelector('.add-profile');
+    form.action = `/profiles/add/${id}`;
+    newAvatar.src = url
     // let profileName = document.querySelector('.profile-name');
     // let avatar = document.querySelector('.avatar');
     // profileName.addEventListener("submit", async (event) => {
