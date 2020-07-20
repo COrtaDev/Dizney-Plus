@@ -6,17 +6,17 @@ const { Profile, Video, Avatar, Sequelize } = require('../db/models');
 const Op = Sequelize.Op;
 // const { logoutAccount } = require('../auth');
 
-router.get("/home", requireAuth, 
+router.get("/home", requireAuth,
   asyncHandler(async (req, res) => {
 
-    const profile1 = await Profile.findOne({ 
+    const profile1 = await Profile.findOne({
       where: {
         id: req.session.auth.whosWatching
       },
       include: Avatar
     });
 
-    const profiles = await Profile.findAll({ 
+    const profiles = await Profile.findAll({
       where: {
         [Op.and]: [
           { [Op.not]: { id: req.session.auth.whosWatching } },
