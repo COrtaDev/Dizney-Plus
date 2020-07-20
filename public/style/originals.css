@@ -1,13 +1,20 @@
 body {
-    background-color: rgb(121, 118, 118);
+    background-color: #191c28;
     overflow: hidden;
 }
-.featured {
+.featured, .movies {
     display: flex;
     position: absolute;
     max-width: 8250px;
     transform: translateX(0px);
     top: 100px;
+}
+.series {
+    display: flex;
+    position: absolute;
+    max-width: 8250px;
+    transform: translateX(0px);
+    top: 300px
 }
 .videoDisplayImg {
     margin: 10px;
@@ -39,20 +46,22 @@ img {
 }
 .left {
     position: relative;
-    top: 107px;
+    top: -160px;
     width: 184px;
     height: 275px;;
     left: 0%;
     z-index: 3;
+    opacity: 25%;
 }
 i {
     position: relative;
     top: 95px;
-    left: 80px;
+    left: 60px;
     color: gray;
 }
 
-.right:hover {
+.right:hover, .left:hover {
     transform: scale(1.5);
     transition-timing-function: ease-out;
+    opacity: 100%;
 }
