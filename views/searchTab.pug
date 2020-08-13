@@ -7,7 +7,7 @@ block head
         include ../public/style/searchTab.css
 block content
     form(action=`/video/search` method='POST')
-        input.searchBar(type="text", value='', name="title", placeholder='Search by title...')
+        input.searchBar(type="text", value='', name="title", placeholder=`Search by exact title ' The Lion King ', ' The Mighty Ducks ', ect.`)
     .header
         h2 Explore
     .videoBlock

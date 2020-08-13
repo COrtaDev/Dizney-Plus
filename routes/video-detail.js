@@ -2,7 +2,6 @@ const express = require('express');
 const { asyncHandler } = require('../utils');
 const { requireAuth } = require('../auth');
 const { Profile, Avatar, Video, Sequelize } = require('../db/models');
-const e = require('express');
 const op = Sequelize.Op;
 const router = express.Router();
 const app = express();
@@ -84,8 +83,12 @@ router.post(
     });
     const videoTitle = req.body.title;
     const video = await Video.findOne({ where: { title: videoTitle } });
+    if(!video) {
+      const videos = await Video.findAll();
+      res.render("searchTab", { videos, profile1, profiles });
+    } else {
       res.render('video-detail', { video, profiles, profile1 });
-    
+    }
   })
 );
 
