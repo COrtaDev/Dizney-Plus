@@ -16,6 +16,6 @@ document.addEventListener('DOMContentLoaded', (e) => {
                 name: name, avatarId: avatarId, isKid: isKid
             })
         })
-        window.location.href = '/profiles/edit-profile'
+        window.location.href = '/home'
     });
 })
