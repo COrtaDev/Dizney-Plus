@@ -135,7 +135,7 @@ input {
     border-color: transparent;
     border-image: initial;
     border-radius: 4px;
-    margin: 0px;
+    margin: 15px;
     outline: none;
     padding: 7px 12px;
     transition: all 0.1s ease 0s;
@@ -144,6 +144,9 @@ input {
 .addMenu{
     display: inline-flex;
     flex-direction: row;
+}
+.addMenu_left {
+    margin-top: 48px;
 }
 .avatarContainer {
     display: flex;
@@ -193,7 +196,7 @@ p{
 }
 #newAvatar{
     width: 170px;
-    margin: 0px 20px 0px;
+    margin: 20px 60px;
     -webkit-filter: drop-shadow(5px 5px 5px #222);
     filter: drop-shadow(5px 5px 5px #222);
 

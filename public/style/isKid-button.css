@@ -1,14 +1,3 @@
-/* Follow me for more pens like this! */
-/*
-  Note: This demo could have easily been written in vanilla CSS.
-  The reason I opted into using SCSS, was just so that I could
-  enable easy customization for you, the viewer.
-
-  If you want to use this control in your own project as vanilla CSS;
-  customize the variables to whatever you'd like, and then click on the
-  down arrow button in the top right of this CSS editor and then select
-  "View Compiled CSS".
-*/
 .toggle-control {
     display: block;
     position: relative;
