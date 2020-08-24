@@ -21,8 +21,8 @@
 5. #### Search
     - Users can search for videos by:
         - Title
-        - Actor
-        - Genre
+        - Actor(Bonus)
+        - Genre(Bonus)
     - Explore-block shows movie collections under text input
 6. #### Catalog/Profile (Home)
     - Users have a home page as a catalog/profile of videos
