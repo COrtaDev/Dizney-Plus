@@ -7,11 +7,21 @@ module.exports = {
         database,
         host,
         dialect: "postgres",
+        dialectOptions: {
+            ssl: {
+              require: true,
+              rejectUnauthorized: false,
+            },
+          }
     },
     production: {
         use_env_variable: 'DATABASE_URL',
-        dialect:'postgres',
-        native:true, ssl:true,
-        dialectOptions: {ssl: true},
+        dialect: "postgres",
+        dialectOptions: {
+          ssl: {
+            require: true,
+            rejectUnauthorized: false,
+          },
+        }
     },
 };
