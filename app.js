@@ -20,16 +20,16 @@ app.set('view engine', 'pug');
 
 app.use(morgan('dev'));
 app.use(cookieParser(sessionSecret));
-app.use(bodyParser());
+// app.use(bodyParser());
 app.use(session({
-    name: 'dizney-plus.sid',
-    secret: sessionSecret,
-    resave: false,
-    saveUninitialized: false,
+  name: 'dizney-plus.sid',
+  secret: sessionSecret,
+  resave: false,
+  saveUninitialized: false,
 }));
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: false }))
-// app.use(bodyParser.json())
+app.use(bodyParser.json())
 app.use(restoreAccount);
 app.use(accountRouter);
 app.use(homeRouter);
@@ -44,20 +44,20 @@ app.use(videoDetailRouter);
 
 
 app.use((req, res, next) => {
-    const err = new Error("The requested resource couldn't be found.");
-    err.status = 404;
-    next(err);
-  });
+  const err = new Error("The requested resource couldn't be found.");
+  err.status = 404;
+  next(err);
+});
 
 
 app.use((err, req, res, next) => {
-    res.status(err.status || 500);
-    const isProduction = environment === "production";
-    res.json({
-      title: err.title || "Server Error",
-      message: err.message,
-      errers: err.errors,
-      stack: isProduction ? null : err.stack,
-    });
+  res.status(err.status || 500);
+  const isProduction = environment === "production";
+  res.json({
+    title: err.title || "Server Error",
+    message: err.message,
+    errers: err.errors,
+    stack: isProduction ? null : err.stack,
   });
+});
 module.exports = app;
